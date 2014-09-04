@@ -10,7 +10,9 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+        $a = 2 + 4;
+		
+		$this->view->a = $a;
     }
 
 

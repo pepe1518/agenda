@@ -27,6 +27,13 @@ class App_Model_User
 	 private $_nombre;
 	 
 	 /**
+	 * @var string
+	 * 
+	 * @Column(name="apellido", type="string", length=100, nullable=false) 
+	 */
+	 private $_apellido;
+	 
+	 /**
 	  * @var string
 	  * 
 	  * @Column(name="usuario", type="string", length=100, nullable=false)
@@ -38,7 +45,7 @@ class App_Model_User
 	   * 
 	   * @column(name="contrasenia", type="string", length=100, nullable=false)
 	   */
-	   private $_sontrasenia;
+	   private $_contrasenia;
 	   
    public function getId() {
        	return $this->_id;
@@ -54,6 +61,12 @@ class App_Model_User
         $this->_nombre = $nombre;
 	}
    
+   public function getApellido() {
+	   	return $this->_apellido;
+   }
+   public function setApellido($apellido) {
+        $this->_apellido = $apellido;
+	}
     public function getUsuario() {
     	return $this->_usuario;
     }
@@ -62,10 +75,10 @@ class App_Model_User
 	}
 	
 	public function getContrasenia() {
-		return $this->_sontrasenia;
+		return $this->_contrasenia;
 	}
 	public function setContrasenia($contrasenia) {
-		$this->_sontrasenia = $contrasenia;
+		$this->_contrasenia = $contrasenia;
 	}
 	
 	public function toArray() {
@@ -76,6 +89,7 @@ class App_Model_User
 		$string = "Usuario: {";
         $string = $string . "<br />id: " . $this->_id;
         $string = $string . "<br />nombre: " . $this->_nombre;
+		$string = $string . "<br />apellido: " . $this->_apellido;
         $string = $string . "<br />nombre de usuario: " . $this->_usuario;
         $string = $string . "<br />}";
         return $string;
