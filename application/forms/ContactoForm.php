@@ -2,21 +2,21 @@
 
 class App_Form_ContactoForm extends Zend_Form
 {
-    //public function init()
-	//{
+    public function init()
+	{
 		//parent::__construct();
 		
-		//$this->setMethod('post');
+		$this->setMethod('post');
 		
-		//$nombres = new Zend_Form_Element_Text('_nombres');
-		//$nombres = $this->createElement('text', '_nombres');
-		//$nombres->setLabel('Nombres:*');
-		//$nombres->setRequired(true);
+		$nombres = new Zend_Form_Element_Text('_nombres');
+		$nombres = $this->createElement('text', '_nombres');
+		$nombres->setLabel('Nombres:*');
+		$nombres->setRequired(true);
 		
-		//$apellidos = new Zend_Form_Element_Text('_apellidos');
-		//$apellidos->setLabel('Apellidos:*');
-		//$apellidos->setRequired(true);
-		/*
+		$apellidos = new Zend_Form_Element_Text('_apellidos');
+		$apellidos->setLabel('Apellidos:*');
+		$apellidos->setRequired(true);
+		
 		$celular = new Zend_Form_Element_Text('_celular');
 		$celular->setLabel('Telefono Celular:*');
 		$celular->setRequired(TRUE);
@@ -49,12 +49,12 @@ class App_Form_ContactoForm extends Zend_Form
 		$direccion->setLabel('Direccion:');
 		$direccion->setRequired(FALSE);
 		
-		//$foto = new Zend_Form_Element_File("_foto");
-		//$foto->setLabel("Ruta del Archivo")->setRequired(false);
+		$foto = new Zend_Form_Element_File("_foto");
+		$foto->setLabel("Ruta de la Foto")->setRequired(false);
 		
-		$submit = new Zend_Form_Element_Submit('submit', array('label' => 'Enviar'));*/
+		$submit = new Zend_Form_Element_Submit('submit', array('label' => 'Enviar'));
 		
-		//$this->addElements(array($nombres, $apellidos));
-	//}
+		$this->addElements(array($nombres, $apellidos, $celular, $fijo, $trabajo, $especialidad, $email, $direccion, $foto, $submit));
+	}
 }
 

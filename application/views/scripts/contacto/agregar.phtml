@@ -1,1 +1,15 @@
-<?php echo $this->form(); ?>
+<div id="content_left">
+<?php
+	echo $this->busquedaForm();
+	echo $this->menuForm();
+?>	
+</div>
+<div id="content_right">
+<h2>Registro de un Nuevo Contacto</h2>
+<a href='<?php echo $this->url(
+					array(
+						'controller' => 'contacto',
+						'action'     => 'index',
+						), 'default', true) ?>'>Mis Contactos</a>
+<?php echo $this->form; ?>
+</div>
