@@ -10,15 +10,17 @@ class UserController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
-        $ceci = new App_Model_User();
-		$ceci->setApellido("Chalar");
-		$ceci->setNombre("Cecilia");
 		
-		$this->view->ceci = $ceci; 
-		
+    }
+
+    public function logoutAction()
+    {
+        Zend_auth::getInstance()->clearIdentity();
+		$this->_redirect();
     }
 
 
 }
+
+
 

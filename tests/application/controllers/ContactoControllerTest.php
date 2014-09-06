@@ -1,6 +1,6 @@
 <?php
 
-class UserControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
+class ContactoControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
 {
 
     public function setUp()
@@ -11,7 +11,7 @@ class UserControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
 
     public function testIndexAction()
     {
-        $params = array('action' => 'index', 'controller' => 'User', 'module' => 'default');
+        $params = array('action' => 'index', 'controller' => 'Contacto', 'module' => 'default');
         $urlParams = $this->urlizeOptions($params);
         $url = $this->url($urlParams);
         $this->dispatch($url);
@@ -26,9 +26,9 @@ class UserControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
             );
     }
 
-    public function testLogoutAction()
+    public function testAgregarAction()
     {
-        $params = array('action' => 'logout', 'controller' => 'User', 'module' => 'default');
+        $params = array('action' => 'agregar', 'controller' => 'Contacto', 'module' => 'default');
         $urlParams = $this->urlizeOptions($params);
         $url = $this->url($urlParams);
         $this->dispatch($url);

@@ -1,0 +1,77 @@
+<div id="content_left">
+<?php
+	echo $this->busquedaForm();
+	echo $this->menuForm();
+?>	
+</div>
+
+<div id="content_right">
+<h1>Mis Contactos Personales</h1>
+<p>
+<a href="<?php echo $this->baseUrl()?>/contacto/agregar">Nuevo Contacto</a>
+</p>
+
+<table id="order_detail_table">
+	<tr>
+		<th>Nombre</th>
+		<th>Telefonos</th>
+		<th>Email</th>
+		<th>Acciones</th>
+	</tr>
+	<?php
+		foreach($this->dataList as $contacto) {
+	?>
+	<tr>
+		<td>
+			<a href='<?php echo $this->url(
+					array(
+						'controller' => 'contacto',
+						'action'     => 'ver',
+						'id'     => $contacto->getId(),
+					), 'default', true) ?>'><?php echo $contacto->getNombres()."&nbsp;".$contacto->getApellidos();?></a>
+		</td>
+		<td>
+			<?php
+			foreach(@$contacto->getTelefonos as $telefono) {
+				echo $telefono->getNumero();
+			}
+			?>
+		</td>
+		<td> <?php echo $contacto->getEmail() ?></td>
+		<td>
+			<?php if($contacto->getFoto()) {?>
+			<a href='<?php echo $this->url(
+					array(
+						'controller' => 'contacto',
+						'action'     => 'foto',
+						'id'     => $contacto->getId(),
+					), 'default', true) ?>'>Subir Foto</a>
+				
+			<?php }//fin de if ?>
+			<a href='<?php echo $this->url(
+					array(
+						'controller' => 'contacto',
+						'action'     => 'editar',
+						'id'     => $contacto->getId(),
+					), 'default', true) ?>'>Modificar</a>
+				<a href='<?php echo $this->url(
+					array(
+						'controller' => 'contacto',
+						'action'     => 'eliminar',
+						'id'     => $contacto->getId(),
+					), 'default', true) ?>'>Eliminar</a>
+		</td>
+	</tr>
+	<?php
+	} // fin del foreach
+	?>
+</table>
+
+<?php
+echo $this->htmlPaginator;
+?>
+</div>
+<!-- end of content right -->
+<div class="cleaner_with_height">
+	&nbsp;
+</div>

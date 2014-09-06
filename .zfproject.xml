@@ -13,12 +13,24 @@
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="User">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="logout"/>
+        </controllerFile>
+        <controllerFile controllerName="Contacto">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="agregar"/>
         </controllerFile>
       </controllersDirectory>
-      <formsDirectory enabled="false"/>
+      <formsDirectory>
+        <formFile formName="Login"/>
+        <formFile formName="Contacto"/>
+        <formFile formName="SubirFotoForm"/>
+      </formsDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory>
         <modelFile modelName="User"/>
+        <modelFile modelName="Telefono"/>
+        <modelFile modelName="Contacto"/>
+        <modelFile modelName="Especialidad"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
@@ -32,6 +44,15 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="logout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Contacto">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Contacto">
+            <viewScriptFile forActionName="agregar"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
@@ -72,6 +93,11 @@
           </testApplicationControllerFile>
           <testApplicationControllerFile forControllerName="User">
             <testApplicationActionMethod forActionName="index"/>
+            <testApplicationActionMethod forActionName="logout"/>
+          </testApplicationControllerFile>
+          <testApplicationControllerFile forControllerName="Contacto">
+            <testApplicationActionMethod forActionName="index"/>
+            <testApplicationActionMethod forActionName="agregar"/>
           </testApplicationControllerFile>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>

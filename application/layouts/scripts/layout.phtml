@@ -1,2 +1,66 @@
+<?php
+$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+$this->headTitle()->setSeparator(' - ');
+$this->headTitle('Agenda Web');
 
-<?php echo $this->layout()->content ?>
+echo $this->doctype();
+
+?>
+ 
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+    		<?php echo $this->headMeta(); ?>
+    		<?php echo $this->headTitle(); ?>
+    		<meta name="keywords" content="agenda, medicos, cochabamba, web" />
+    		<meta name="description" content="Sistema Web Para Control y Registro de Contactos" />
+    		
+    		<?php
+			echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/humanity/jquery-ui-1.10.3.custom.min.css');
+			echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/style.css');
+			echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/jquery.simplyscroll.css');
+			echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/jquery.jqplot.min.css');
+
+			echo $this->headScript()->appendFile($this->baseUrl() . '/js/jquery-1.10.2.min.js', 'text/javascript');
+			echo $this->headScript()->appendFile($this->baseUrl() . '/js/jquery.cycle.all.js', 'text/javascript');
+			echo $this->headScript()->appendFile($this->baseUrl() . '/js/jquery-ui-1.10.3.custom.min.js', 'text/javascript');
+			echo $this->headScript()->appendFile($this->baseUrl() . '/js/custom_scripts.js', 'text/javascript');
+			echo $this->headScript()->appendFile($this->baseUrl() . '/js/jquery.jqplot.min.js', 'text/javascript');
+			echo $this->headScript()->appendFile($this->baseUrl() . '/js/jqplot.categoryAxisRenderer.min.js', 'text/javascript');
+    		?>
+	</head>
+	<body>
+		<div id="dialog-message" title="Mensaje de la página">
+			holo?
+		</div>
+		<div id="container">
+			<div id="before-header">
+				<div id="menu">
+					<ul>
+						<li>
+							<a class="current">Sistema Web Para Control y Registro de Contactos Médicos</a>
+						</li>
+						
+					</ul>
+					
+				</div>
+
+			</div>
+			<div>
+			</div>
+			<!-- end of header -->
+
+			<div id="content">
+				<br />
+					<?php echo $this->layout()->content; ?>
+			</div>
+			<!-- end of content -->
+
+			<div id="footer">
+				Copyright © 2014 <strong>Agenda Virtual</strong> | Website by <a href="http://www.github.com/pepe1518" target="_parent" title="github.com/pepe1518">Jose Valdivia</a>
+			</div>
+			<!-- end of footer -->
+			<!--  Free CSS Template www.templatemo.com -->
+		</div>
+		<!-- end of container -->
+	</body>
+</html>
