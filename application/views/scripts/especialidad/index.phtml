@@ -1,0 +1,30 @@
+<div id="content_left">
+<?php
+	echo $this->menuForm();
+?>	
+</div>
+<div id="content_right">
+<h1>Especialidades</h1>
+<?php
+	echo $this->form;
+?>
+<table id="order_detail_table">
+	<tr>
+		<th>Nombre</th>
+		<th>Descripción</th>
+		<th>Acciones</th>
+	</tr>
+	<?php
+		foreach($this->especialidades as $especialidad) {
+	?>
+	<tr>
+		<td><?php echo $especialidad->getNombre(); ?></td>
+		<td><?php echo ($especialidad->getDescripcion())?
+						$especialidad->getDescripcion() : "no contiene descripcion"; ?></td>
+		<td>
+			
+		</td>
+	</tr>
+	<?php }//fin del foreach ?>
+</table>
+</div>

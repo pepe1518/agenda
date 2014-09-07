@@ -25,6 +25,9 @@ class Zend_View_Helper_MenuForm extends Zend_View_Helper_Abstract
 		$html .= "<a href=\"". $this->view->baseUrl()."/user\">Administración de mi Cuenta</a>";
 		$html .= "</li>";
 		$html .= "<li>";
+		$html .= "<a href=\"". $this->view->baseUrl()."/especialidad\">Administración de Especialidades</a>";
+		$html .= "</li>";
+		$html .= "<li>";
 		$html .= "<a href=\"". $this->view->url(
 					array(
 						'controller' => 'user',

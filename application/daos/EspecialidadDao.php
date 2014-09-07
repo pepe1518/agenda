@@ -1,5 +1,5 @@
 <?php
-class App_Model_TelefonoDao 
+class App_Dao_EspecialidadDao 
 {
 	private $_entityManager;
 	
@@ -24,6 +24,11 @@ class App_Model_TelefonoDao
 	
 	public function getNombre($nombre) {
 		$consulta = $this->_entityManager->createQuery("SELECT e FROM App_Model_Especialidad e WHERE e._nombre = '" . $nombre . "'");
+		return $consulta->getResult();
+	}
+	
+	public function getTodos() {
+		$consulta = $this->_entityManager->createQuery('SELECT e FROM App_Model_Especialidad e');
 		return $consulta->getResult();
 	}
 }
