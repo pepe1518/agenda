@@ -61,16 +61,14 @@ class App_Model_Contacto
 	private $_telefonos;
 	
 	/**
-	 *@var array 
-	 *
-	 * @ManyToMany(targetEntity="App_Model_Especialidad", inversedBy="_contactos")
-	 * @JoinTable(name="contacto_especialidad")
+	 *@OneToOne(targetEntity="App_Model_Especialidad")
+	 * @JoinColumn(name="especialidad_id", referencedColumnName="id") 
 	 */
-	 private $_especialidades;
+	 private $_especialidad;
 		   
 	public function __construct() {
 	   	$this->_telefonos = array();
-	   	$this->_especialidades = array();
+	   	
 	}
 		   
 	public function agregarTelefono(App_Model_Telefono $telefono) {
@@ -101,9 +99,6 @@ class App_Model_Contacto
 	public function getFoto() {
 		return $this->_foto;
 	}
-	public function agregarEspecialidad(App_Model_Especialidad $especialidad) {
-		$especialidad->agregarContacto($this);
-		$this->_especialidades[] = $especialidad;
-	}
+
 }
     

@@ -22,16 +22,20 @@ class ContactoController extends Zend_Controller_Action
     public function agregarAction()
     {
 		//$id = Zend_Auth::getInstance()->getIdentity()->getId();
-		$jose = new App_Form_ContactoForm();
+		$form = new App_Form_ContactoForm();
 		if ($this->_request->getPost()) {
 			$formData = $this->_request->getPost();
-
 			if ($form->isValid($formData)) {
+				
+				$telefono = new App_Model_Telefono();
+				$especialidad = new App_Model_Especialidad();
+				$contacto = new App_Model_Contacto();
+				
 				$this->_helper->redirector('index');
 				return;
 			}
 		}
-		$this->view->form = $jose;
+		$this->view->form = $form;
     }
 
 

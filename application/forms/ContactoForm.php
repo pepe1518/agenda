@@ -6,7 +6,7 @@ class App_Form_ContactoForm extends Zend_Form
 	{
 		//parent::__construct();
 		
-		$this->setMethod('post');
+		$this->setMethod('POST');
 		
 		$nombres = new Zend_Form_Element_Text('_nombres');
 		$nombres = $this->createElement('text', '_nombres');
