@@ -23,5 +23,6 @@ class App_Dao_TelefonoDao {
 	
 	public function getNumeroTelefono($numero) {
 		$consulta = $this->_entityManager->createQuery("SELECT t FROM App_Model_Telefono t WHERE t._numero = '" . $numero . "'");
+		return $consulta->getResult();
 	}
 }
