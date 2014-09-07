@@ -31,6 +31,8 @@
         <modelFile modelName="Telefono"/>
         <modelFile modelName="Contacto"/>
         <modelFile modelName="Especialidad"/>
+        <modelFile modelName="Institucion"/>
+        <modelFile modelName="Catergoria"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
