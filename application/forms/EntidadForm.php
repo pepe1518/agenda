@@ -26,10 +26,13 @@ class App_Form_EntidadForm extends Zend_Form
 		$telefono->setLabel('Telefono:*');
 		$telefono->addValidator(new Zend_Validate_Digits());
 		$telefono->addErrorMessage("Por Favor Solo ingrese numeros");
+		
+		$foto = new Zend_Form_Element_File("_foto");
+		$foto->setLabel("Ruta de la Foto")->setRequired(false);
     	
     	$submit = new Zend_Form_Element_Submit('submit', array('label' => 'Enviar'));
 		
-		$this->addElements(array($nombre, $telefono, $encargado, $direccion, $submit));
+		$this->addElements(array($nombre, $telefono, $encargado, $direccion, $foto, $submit));
 	}
 }
 

@@ -28,6 +28,7 @@
         <controllerFile controllerName="Entidad">
           <actionMethod actionName="index"/>
           <actionMethod actionName="agregar"/>
+          <actionMethod actionName="lista"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -80,6 +81,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Entidad">
             <viewScriptFile forActionName="agregar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Entidad">
+            <viewScriptFile forActionName="lista"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
@@ -135,6 +139,7 @@
           <testApplicationControllerFile forControllerName="Entidad">
             <testApplicationActionMethod forActionName="index"/>
             <testApplicationActionMethod forActionName="agregar"/>
+            <testApplicationActionMethod forActionName="lista"/>
           </testApplicationControllerFile>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>

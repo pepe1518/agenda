@@ -25,15 +25,42 @@ class EntidadController extends Zend_Controller_Action
 
     public function agregarAction()
     {
-       $idCategoria = $this->_getParam('id');
-	   
-	   $form = new App_Form_EntidadForm();
+       $form = new App_Form_EntidadForm();
+	   if ($this->_request->getPost()) {
+			$formData = $this->_request->getPost();
+			if ($form->isValid($formData)) {
+				$idCategoria = $this->_getParam('id');
+				$categoriaDao = new App_Dao_CategoriaDao();
+				$categoria = $categoriaDao->getCategoriaPorId($idCategoria);
+				
+				$telefono = new App_Model_Telefono($formData['_telefono']);
+				
+				$entidad = new App_Model_Entidad();
+				$entidad->setNombre($formData['_nombre']);
+				$entidad->setCategoria($categoria);
+				$entidad->setDireccion($formData['_direccion']);
+				$entidad->setTelefono($telefono);
+				$entidad->setEncargado($formData['_encargado']);
+				
+				$telefonoDao = new App_Dao_TelefonoDao();
+				$telefonoDao->guardar($telefono);
+				
+				$entidadDao = new App_Dao_EntidadDao();
+				$entidadDao->guardar($entidad);
+				
+				$this->_helper->redirector('lista');
+				return;
+			}
+	   }
 	   $this->view->form = $form;
-	   
+    }
+
+    public function listaAction()
+    {
+        // action body
     }
 
 
 }
-
 
 
