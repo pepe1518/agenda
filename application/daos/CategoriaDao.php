@@ -22,7 +22,11 @@ class App_Dao_CategoriaDao {
 	}
 	
 	public function getNombre($nombre) {
-		$consulta = $this->_entityManager->createQuery("SELECT e FROM App_Model_Especialidad e WHERE e._nombre = '" . $nombre . "'");
+		$consulta = $this->_entityManager->createQuery("SELECT c FROM App_Model_Especialidad c WHERE c._nombre = '" . $nombre . "'");
+		return $consulta->getResult();
+	}
+	public function getTodos() {
+		$consulta = $this->_entityManager->createQuery('SELECT c FROM App_Model_Categoria c');
 		return $consulta->getResult();
 	}
 }

@@ -31,14 +31,16 @@
 		</td>
 		<td>
 			<?php
-			foreach(@$contacto->getTelefonos as $telefono) {
-				echo $telefono->getNumero();
+			foreach($contacto->getTelefonos() as $telefono) {
+				if($telefono->getNumero()) {
+					echo $telefono->getNumero() . '<br />';
+				}
 			}
 			?>
 		</td>
 		<td> <?php echo $contacto->getEmail() ?></td>
 		<td>
-			<?php if($contacto->getFoto()) {?>
+			<?php if(!$contacto->getFoto()) {?>
 			<a href='<?php echo $this->url(
 					array(
 						'controller' => 'contacto',

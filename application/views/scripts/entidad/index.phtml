@@ -1,0 +1,35 @@
+<div id="content_left">
+<?php
+	echo $this->menuForm();
+?>	
+</div>
+<div id="content_right">
+<h1>Mis Instituciones - Categoria <?php echo $this->categoria->getNombre(); ?></h1>
+<p><a href="<?php echo $this->url(
+					array(
+						'controller' => 'entidad',
+						'action'     => 'agregar',
+						'id'     => $this->categoria->getId(),
+					), 'default', true) ?>">Nuevo</a></p>
+<table id="order_detail_table">
+	<tr>
+		<th>Nombre</th>
+		<th>Telefono</th>
+		<th>Encargado</th>
+		<th>Acciones</th>
+	</tr>
+	<?php foreach($this->entidades as $entidad) { ?>
+	<tr>
+		<td><?php echo $entidad->getNombre(); ?></td>
+		<td><?php echo $entidad->getTelefono()->getNumero(); ?></td>
+		<td><?php echo $entidad->getEncargado(); ?></td>
+	</tr>		
+	<?php } //fin del foreach ?>	
+</table>
+<?php
+echo $this->htmlPaginator;
+?>
+</div>
+<div class="cleaner_with_height">
+	&nbsp;
+</div>

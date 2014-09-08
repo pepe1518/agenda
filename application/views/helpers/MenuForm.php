@@ -13,19 +13,42 @@ class Zend_View_Helper_MenuForm extends Zend_View_Helper_Abstract
 		$html .= "<h1>Menú</h1>";
 		$html .= "<ul>";
 		$html .= "<li>";
-		$html .= "<a href=\"". $this->view->baseUrl(). "/contacto\">Mis Contactos.</a>";
+		$html .= "<h1>Personales</h1>";
 		$html .= "</li>";
 		$html .= "<li>";
-		$html .= "<a href=\"". $this->view->baseUrl()."/institucion\">Mis Instituciones</a>";
+		$html .= "<a href=\"". $this->view->baseUrl(). "/contacto\">Contactos</a>";
 		$html .= "</li>";
 		$html .= "<li>";
-		$html .= "<a href=\"".$this->view->baseUrl()."/backup\">Respaldo de la Base de Datos</a>";
+		$html .= "<h1>Institucionales</h1>";
 		$html .= "</li>";
+		
+		$categoriaDao = new App_Dao_CategoriaDao();
+		foreach($categoriaDao->getTodos() as $categoria) {
+			$url = $this->view->url(array('controller'=> 'entidad', 
+										  'action' 	  => 'index',
+										  'id'		  => $categoria->getId()
+									), 'default', true);
+			$nombre = $categoria->getNombre();
+			$html .= "<li>";
+			$html .= "<a href=\"". $url ."\">". $nombre ."</a>";
+			$html .= "</li>";			
+		}
+		
+		//$html .= "<li>";
+		//$html .= "<a href=\"".$this->view->baseUrl()."/backup\">Respaldo de la Base de Datos</a>";
+		//$html .= "</li>";
 		$html .= "<li>";
-		$html .= "<a href=\"". $this->view->baseUrl()."/user\">Administración de mi Cuenta</a>";
+		$html .= "<h1>Administración</h1>";
 		$html .= "</li>";
 		$html .= "<li>";
 		$html .= "<a href=\"". $this->view->baseUrl()."/especialidad\">Administración de Especialidades</a>";
+		$html .= "</li>";
+		$html .= "<li>";
+		$html .= "<li>";
+		$html .= "<a href=\"". $this->view->baseUrl()."/categoria\">Categorias de mis Instituciones</a>";
+		$html .= "</li>";
+		$html .= "<li>";
+		$html .= "<a href=\"". $this->view->baseUrl()."/user\">Administración de mi Cuenta</a>";
 		$html .= "</li>";
 		$html .= "<li>";
 		$html .= "<a href=\"". $this->view->url(

@@ -61,7 +61,7 @@ class App_Model_Contacto
 	private $_telefonos;
 	
 	/**
-	 *@OneToOne(targetEntity="App_Model_Especialidad")
+	 *@ManyToOne(targetEntity="App_Model_Especialidad")
 	 * @JoinColumn(name="especialidad_id", referencedColumnName="id") 
 	 */
 	 private $_especialidad;
@@ -81,8 +81,14 @@ class App_Model_Contacto
 	public function getNombres() {
 		return $this->_nombres;
 	}
+	public function setNombres($nombres) {
+		$this->_nombres = $nombres;
+	}
 	public function getApellidos() {
 		return $this->_apellidos;
+	}
+	public function setApellidos($apellidos) {
+		$this->_apellidos = $apellidos;
 	}
 	public function getTelefonos() {
 		return $this->_telefonos;
@@ -99,6 +105,14 @@ class App_Model_Contacto
 	public function getFoto() {
 		return $this->_foto;
 	}
-
+	public function getEspecialidad() {
+		return $this->_especialidad;
+	}
+	public function setEspecialidad(App_Model_Especialidad $especialidad) {
+		$this->_especialidad = $especialidad;
+	}
+	public function setDireccion($direccion) {
+		$this->_direccion = $direccion;
+	}
 }
     

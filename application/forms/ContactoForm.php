@@ -35,9 +35,18 @@ class App_Form_ContactoForm extends Zend_Form
 		$trabajo->addValidator(new Zend_Validate_Digits);
 		$trabajo->addErrorMessage('Por favor ingrese números de telefono válido');
 		
-		$especialidad = new Zend_Form_Element_Text('_especialidad');
+		//$especialidad = new Zend_Form_Element_Text('_especialidad');
+		//$especialidad->setLabel('Especialidad:');
+		//$especialidad->setRequired(TRUE);
+		
+		$especialidadDao = new App_Dao_EspecialidadDao();
+		$especialidades = $especialidadDao->getTodos();
+		
+		$especialidad = new Zend_Form_Element_Select('_especialidad');
 		$especialidad->setLabel('Especialidad:');
-		$especialidad->setRequired(TRUE);
+		foreach($especialidades as $data){
+			$especialidad->addMultiOption($data->getId(), $data->getNombre());
+		}
 		
 		$email = new Zend_Form_Element_Text('_email');
 		$email->setLabel('Correo Electronico:');

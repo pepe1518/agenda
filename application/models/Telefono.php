@@ -8,7 +8,7 @@
  */
 class App_Model_Telefono
 {
-	const TELEFONO_FIJO = "fijo";
+	const TELEFONO_TRABAJO = "trabajo";
 	const TELEFONO_CASA = "casa";
 	const TELEFONO_CELULAR = "celular";
 	 
@@ -36,7 +36,7 @@ class App_Model_Telefono
     private $_tipo;
 	  
 	/**
-	 * @ManyToOne(targetEntity="App_Model_Contacto", inversedBy="_telefonos", fetch="EAGER")
+	 * @ManyToOne(targetEntity="App_Model_Contacto", inversedBy="_telefonos", cascade={"all"})
 	 * @JoinColumn(name="contacto_id", referencedColumnName="id")
 	 */
 	 private $_contacto;	  

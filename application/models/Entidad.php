@@ -30,7 +30,7 @@ class App_Model_Entidad
 	 */
 	private $_encargado;
 	/**
-	 * @OneToOne(targetEntity="App_Model_Categoria")
+	 * @ManyToOne(targetEntity="App_Model_Categoria")
 	 * @JoinColumn(name="categoria_id", referencedColumnName="id") 
 	 */
 	private $_categoria;
@@ -43,10 +43,49 @@ class App_Model_Entidad
 	private $_direccion;
 	
 	/**
-	 * @OneToOne(targetEntity="App_Model_Telefono")
+	 * @ManyToOne(targetEntity="App_Model_Telefono")
 	 * @JoinColumn(name="telefono_id", referencedColumnName="id") 
 	 */
 	private $_telefono;
-
+	/**
+	* @var blob
+	* 
+	* @Column(name="foto", type="blob", nullable=true)
+	*/
+	private $_foto;
+	
+	public function getId() {
+		return $this->_id;
+	}
+	public function getNombre(){
+		return $this->_nombre;
+	}
+	public function setNombre($nombre) {
+		$this->_nombre = $nombre;
+	}
+	public function getEncargado() {
+		return $this->_encargado;
+	}
+	public function setEncargado($encargado) {
+		$this->_encargado = $encargado;
+	}
+	public function getCategoria() {
+		return $this->_categoria;
+	} 
+	public function setCategoria(App_Model_Categoria $categoria) {
+		$this->_categoria = $categoria;
+	}
+	public function getDireccion() {
+		return $this->_direccion;
+	}
+	public function setDireccion($direccion) {
+		$this->_direccion = $direccion;
+	}
+	public function getTelefono() {
+		return $this->_telefono;
+	}
+	public function setTelefono(App_Model_Telefono $telefono) {
+		$this->_telefono = $telefono;
+	}
 }
 
