@@ -9,7 +9,9 @@
  */
 class App_Model_User
 {
-
+	const ROL_ADMIN = "admin";
+	const ROL_OBSERVADOR = "visitante";
+	
     /**
      * @var integer
      *
@@ -32,6 +34,12 @@ class App_Model_User
 	 * @Column(name="apellido", type="string", length=100, nullable=false) 
 	 */
 	 private $_apellido;
+	 /**
+	  * @var string
+	  * 
+	  * @Column(name="rol", type="string", length=100, nullable=false)
+	  */
+	 private $_rol;
 	 
 	 /**
 	  * @var string

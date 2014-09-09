@@ -26,6 +26,7 @@ class ContactoController extends Zend_Controller_Action
 		if ($this->_request->getPost()) {
 			$formData = $this->_request->getPost();
 			if ($form->isValid($formData)) {
+				//Zend_Debug::dump($formData); die;
 					
 				$telefonoCelular = new App_Model_Telefono($formData['_celular']);
 				$telefonoCelular->setTipo(App_Model_Telefono::TELEFONO_CELULAR);
@@ -48,6 +49,8 @@ class ContactoController extends Zend_Controller_Action
 				$contacto->setEspecialidad($especialidad);
 				$contacto->setEmail($formData['_email']);
 				$contacto->setDireccion($formData['_direccion']);
+				
+				$contacto->setFoto($formData['MAX_FILE_SIZE']);
 				
 				$fijoDao = new App_Dao_TelefonoDao();
 				$fijoDao->guardar($telefonoFijo);

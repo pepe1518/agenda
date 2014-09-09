@@ -13,13 +13,13 @@ class Zend_View_Helper_MenuForm extends Zend_View_Helper_Abstract
 		$html .= "<h1>Menú</h1>";
 		$html .= "<ul>";
 		$html .= "<li>";
-		$html .= "<h1>Personales</h1>";
+		$html .= "<h1>Personas</h1>";
 		$html .= "</li>";
 		$html .= "<li>";
 		$html .= "<a href=\"". $this->view->baseUrl(). "/contacto\">Contactos</a>";
 		$html .= "</li>";
 		$html .= "<li>";
-		$html .= "<h1>Institucionales</h1>";
+		$html .= "<h1>Instituciones</h1>";
 		$html .= "</li>";
 		
 		$categoriaDao = new App_Dao_CategoriaDao();
