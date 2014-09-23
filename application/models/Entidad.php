@@ -40,8 +40,13 @@ class App_Model_Entidad
 	 * 
 	 * @Column(name="direccion", type="string", length=200, nullable=true)
 	 */
+	 
 	private $_direccion;
-	
+	/**
+	 * @ManyToOne(targetEntity="App_Model_Departamento")
+	 * @JoinColumn(name="departamento_id", referencedColumnName="id") 
+	 */
+	private $_departamento;
 	/**
 	 * @ManyToOne(targetEntity="App_Model_Telefono")
 	 * @JoinColumn(name="telefono_id", referencedColumnName="id") 
@@ -74,6 +79,12 @@ class App_Model_Entidad
 	} 
 	public function setCategoria(App_Model_Categoria $categoria) {
 		$this->_categoria = $categoria;
+	}
+	public function getDepartamento() {
+		return $this->_departamento;
+	} 
+	public function setDepartamento(App_Model_Departamento $departamento) {
+		$this->_departamento = $departamento;
 	}
 	public function getDireccion() {
 		return $this->_direccion;

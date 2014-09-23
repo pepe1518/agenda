@@ -48,11 +48,21 @@ class App_Form_ContactoForm extends Zend_Form
 			$especialidad->addMultiOption($data->getId(), $data->getNombre());
 		}
 		
+		
+		$departamentoDao = new App_Dao_DepartamentoDao();
+		$departamentos = $departamentoDao->getTodos();
+		
+		$departamento = new Zend_Form_Element_Select('_departamento');
+		$departamento->setLabel('Departamento:');
+		foreach($departamentos as $data){
+			$departamento->addMultiOption($data->getId(), $data->getNombre());
+		}
+		
 		$email = new Zend_Form_Element_Text('_email');
 		$email->setLabel('Correo Electronico:');
 		$email->setRequired(FALSE);
 		$email->addValidator(new Zend_Validate_EmailAddress());
-		$email->addErrorMessage('Ingrese una dirección de correo valido');
+		$email->addErrorMessage('Ingrese una dirección de correo valido por ejemplo:'.PHP_EOL.' usuario@mail.com');
 		
 		$direccion = new Zend_Form_Element_Text('_direccion');
 		$direccion->setLabel('Direccion:');
@@ -63,7 +73,7 @@ class App_Form_ContactoForm extends Zend_Form
 		
 		$submit = new Zend_Form_Element_Submit('submit', array('label' => 'Enviar'));
 		
-		$this->addElements(array($nombres, $apellidos, $celular, $fijo, $trabajo, $especialidad, $email, $direccion, $foto, $submit));
+		$this->addElements(array($departamento, $nombres, $apellidos, $celular, $fijo, $trabajo, $especialidad, $email, $direccion, $foto, $submit));
 	}
 }
 

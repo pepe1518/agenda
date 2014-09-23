@@ -38,6 +38,12 @@ class App_Model_Contacto
 	* @Column(name="email", type="string", length=100, nullable=true)
 	*/
 	private $_email;
+	
+	/**
+	 * @ManyToOne(targetEntity="App_Model_Departamento")
+	 * @JoinColumn(name="departamento_id", referencedColumnName="id") 
+	 */
+	private $_departamento;
 		
 	/**
 	* @var string
@@ -111,6 +117,13 @@ class App_Model_Contacto
 	public function setEspecialidad(App_Model_Especialidad $especialidad) {
 		$this->_especialidad = $especialidad;
 	}
+	public function getDepartamento() {
+		return $this->_departamento;
+	} 
+	public function setDepartamento(App_Model_Departamento $departamento) {
+		$this->_departamento = $departamento;
+	}	
+		
 	public function setDireccion($direccion) {
 		$this->_direccion = $direccion;
 	}

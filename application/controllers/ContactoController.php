@@ -69,8 +69,20 @@ class ContactoController extends Zend_Controller_Action
 		$this->view->form = $form;
     }
 
+    public function verAction()
+    {
+        $id = $this->_getParam('id');
+		
+		$contactoDao = new App_Dao_ContactoDao();
+		$contacto = $contactoDao->getContactoPorId($id);
+		$this->view->contacto = $contacto;
+		
+    }
+
 
 }
+
+
 
 
 
