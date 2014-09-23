@@ -1,6 +1,6 @@
 <div id="content_left">
 <?php
-	echo $this->menuForm();
+	echo $this->menuDepartamentos();
 ?>	
 </div>
 
@@ -22,7 +22,7 @@
 		foreach($this->dataList as $contacto) {
 	?>
 	<tr>
-		<td><img src="<?php echo stream_get_contents($contacto->getFoto()); ?>" /></td>
+		<td><img src="<?php echo $contacto->getFoto(); ?>" /></td>
 		<td>
 			<a href='<?php echo $this->url(
 					array(
