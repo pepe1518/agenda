@@ -18,6 +18,7 @@
         <controllerFile controllerName="Contacto">
           <actionMethod actionName="index"/>
           <actionMethod actionName="agregar"/>
+          <actionMethod actionName="ver"/>
         </controllerFile>
         <controllerFile controllerName="Especialidad">
           <actionMethod actionName="index"/>
@@ -47,6 +48,7 @@
         <modelFile modelName="Especialidad"/>
         <modelFile modelName="Institucion"/>
         <modelFile modelName="Catergoria"/>
+        <modelFile modelName="Departamento"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
@@ -84,6 +86,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Entidad">
             <viewScriptFile forActionName="lista"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Contacto">
+            <viewScriptFile forActionName="ver"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
@@ -129,6 +134,7 @@
           <testApplicationControllerFile forControllerName="Contacto">
             <testApplicationActionMethod forActionName="index"/>
             <testApplicationActionMethod forActionName="agregar"/>
+            <testApplicationActionMethod forActionName="ver"/>
           </testApplicationControllerFile>
           <testApplicationControllerFile forControllerName="Especialidad">
             <testApplicationActionMethod forActionName="index"/>

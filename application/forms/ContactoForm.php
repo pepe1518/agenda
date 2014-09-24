@@ -45,14 +45,31 @@ class App_Form_ContactoForm extends Zend_Form
 		$especialidad = new Zend_Form_Element_Select('_especialidad');
 		$especialidad->setLabel('Especialidad:');
 		foreach($especialidades as $data){
-			$especialidad->addMultiOption($data->getId(), $data->getNombre());
+			if($data->getTipo == App_Model_Especialidad::ESPECIALIDAD)	
+				$especialidad->addMultiOption($data->getId(), $data->getNombre());
+		}
+		
+		$subespecialidad = new Zend_Form_Element_Select('_subespecialidad');
+		$subespecialidad->setLabel('Sub-Especialidad:');
+		foreach($especialidades as $data){
+			if($data->getTipo == App_Model_Especialidad::SUBESPECIALIDAD)	
+				$especialidad->addMultiOption($data->getId(), $data->getNombre());
+		}
+		
+		$departamentoDao = new App_Dao_DepartamentoDao();
+		$departamentos = $departamentoDao->getTodos();
+		
+		$departamento = new Zend_Form_Element_Select('_departamento');
+		$departamento->setLabel('Departamento:');
+		foreach($departamentos as $data){
+			$departamento->addMultiOption($data->getId(), $data->getNombre());
 		}
 		
 		$email = new Zend_Form_Element_Text('_email');
 		$email->setLabel('Correo Electronico:');
 		$email->setRequired(FALSE);
 		$email->addValidator(new Zend_Validate_EmailAddress());
-		$email->addErrorMessage('Ingrese una dirección de correo valido');
+		$email->addErrorMessage('Ingrese una dirección de correo valido por ejemplo:'.PHP_EOL.' usuario@mail.com');
 		
 		$direccion = new Zend_Form_Element_Text('_direccion');
 		$direccion->setLabel('Direccion:');
@@ -63,7 +80,9 @@ class App_Form_ContactoForm extends Zend_Form
 		
 		$submit = new Zend_Form_Element_Submit('submit', array('label' => 'Enviar'));
 		
-		$this->addElements(array($nombres, $apellidos, $celular, $fijo, $trabajo, $especialidad, $email, $direccion, $foto, $submit));
+		$this->addElements(array($departamento, $nombres, $apellidos, $celular, 
+								$fijo, $trabajo, $especialidad, $subespecialidad, 
+								$email, $direccion, $foto, $submit));
 	}
 }
 

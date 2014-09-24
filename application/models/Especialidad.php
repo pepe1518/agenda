@@ -7,6 +7,9 @@
  */
 class App_Model_Especialidad
 {
+	const ESPECIALIDAD = "especialidad";
+	const SUBESPECIALIDAD = "subespecialidad";
+	
     /**
 	 *@var integer
 	 * 
@@ -25,9 +28,9 @@ class App_Model_Especialidad
 	/**
 	 * @var string
 	 * 
-	 * @Column(name="descripcion", type="string", length=100, nullable=true)
+	 * @Column(name="tipo", type="string", length=100, nullable=true)
 	 */
-	private $_descripcion;
+	private $_tipo;
 	
 	public function getId() {
 		return $this->_id;
@@ -38,11 +41,11 @@ class App_Model_Especialidad
 	public function setNombre($nombre) {
 		$this->_nombre = $nombre;
 	}
-	public function getDescripcion() {
-		return $this->_descripcion;
+	public function getTipo() {
+		return $this->_tipo;
 	}
-	public function setDescription($descripcion) {
-		$this->_descripcion = $descripcion;
+	public function setTipo($tipo) {
+		$this->_tipo = $tipo;
 	}
 	public function toArray() {
 		return get_object_vars($this);
