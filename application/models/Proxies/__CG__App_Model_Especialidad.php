@@ -60,16 +60,16 @@ class App_Model_Especialidad extends \App_Model_Especialidad implements \Doctrin
         return parent::setNombre($nombre);
     }
 
-    public function getDescripcion()
+    public function getTipo()
     {
         $this->__load();
-        return parent::getDescripcion();
+        return parent::getTipo();
     }
 
-    public function setDescription($descripcion)
+    public function setTipo($tipo)
     {
         $this->__load();
-        return parent::setDescription($descripcion);
+        return parent::setTipo($tipo);
     }
 
     public function toArray()
@@ -81,7 +81,7 @@ class App_Model_Especialidad extends \App_Model_Especialidad implements \Doctrin
 
     public function __sleep()
     {
-        return array('__isInitialized__', '_id', '_nombre', '_descripcion');
+        return array('__isInitialized__', '_id', '_nombre', '_tipo');
     }
 
     public function __clone()
