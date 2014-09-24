@@ -34,7 +34,7 @@ class IndexController extends Zend_Controller_Action
 					$userDao = new App_Dao_UserDao();
 					$usuarioAuthenticado = $userDao->getPorUsuarioContrasenia($nombreUsuario, $password);
 					$storage->write($usuarioAuthenticado);
-					$this->_redirect('/contacto/index');
+					$this->_redirect('/user/index');
 				} else {
 					$this->view->errorMessage = "Invalid username or password. Please try again.";
 				}

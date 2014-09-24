@@ -26,7 +26,8 @@ class ContactoController extends Zend_Controller_Action
 		if ($this->_request->getPost()) {
 			$formData = $this->_request->getPost();
 			if ($form->isValid($formData)) {
-				//Zend_Debug::dump($formData); die;
+				$departamentoDao = new App_Dao_DepartamentoDao();
+				$departamento = $departamentoDao->getDepartamentoPorId($formData['_departamento']);
 					
 				$telefonoCelular = new App_Model_Telefono($formData['_celular']);
 				$telefonoCelular->setTipo(App_Model_Telefono::TELEFONO_CELULAR);
@@ -44,6 +45,7 @@ class ContactoController extends Zend_Controller_Action
 				$contacto->agregarTelefono($telefonoCelular);
 				$contacto->agregarTelefono($telefonoFijo);
 				$contacto->agregarTelefono($telefonoTrabajo);
+				$contacto->setDepartamento($departamento);
 				$contacto->setNombres($formData['_nombres']);
 				$contacto->setApellidos($formData['_apellidos']);
 				$contacto->setEspecialidad($especialidad);

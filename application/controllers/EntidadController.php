@@ -21,6 +21,7 @@ class EntidadController extends Zend_Controller_Action
 			$this->view->entidades = $entidadDao->getAllLimitOffset($paginador->getLimit(), $paginador->getOffset(), $idCategoria);
 			$this->view->htmlPaginator = $paginador->showHtmlPaginator();
 		}
+ 	
     }
 
     public function agregarAction()
