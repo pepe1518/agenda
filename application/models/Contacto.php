@@ -138,7 +138,9 @@ class App_Model_Contacto
 	public function setDireccion($direccion) {
 		$this->_direccion = $direccion;
 	}
-	
+	public function getDireccion() {
+		return $this->_direccion;
+	} 
 	
 }
     
