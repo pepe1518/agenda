@@ -128,11 +128,6 @@ class App_Model_Contacto
 		$this->_direccion = $direccion;
 	}
 	
-	public function getDepartamento() {
-		return $this->_departamento;
-	}
-	public function setDepartamento(App_Model_Departamento $departamento) {
-		$this->_departamento = $departamento;
-	}
+	
 }
     
