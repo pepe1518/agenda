@@ -4,8 +4,9 @@ body {
 	line-height: 1.5em;
 	font-family: Verdana, Arial, san-serif;
 	font-size: 12px;
-	color: #ffffff;
-	background: #4b4743;
+	color: #ffffff;/*letra  blanca*/
+	/*background:#ADC1DC;/*celeste plomiso*/
+        background: #cfe1f9;  /*el color del fondo */
 }
 
 a:link, a:visited {
@@ -24,9 +25,9 @@ p {
 }
 
 img {
-	margin: 0px;
+	margin: auto;
 	padding: 0px;
-	border: none;
+	border: navy;
 }
 
 .cleaner {
@@ -82,17 +83,20 @@ img {
 	margin: 0 auto;
 	padding: 0 10px;
 	background: #1c1c1b url(../images/bg.jpg) repeat-y;
+        border: 1px solid #cccc33;
 }
 
 /* menu */
 
 #before-header {
-	width: 960px;
-	height: 45px;
+	width: 96px;
+	height: 0px;
 	background: url(../images/menu_bg.jpg) no-repeat;
+        border: 1px solid #cccc33;
 }
 
 #menu {
+        color: #ffffff;
 	float: left;
 	clear: both;
 }
@@ -114,11 +118,11 @@ img {
 	font-weight: bold;
 	text-align: center;
 	text-decoration: none;
-	color: #969547;
+	color: #336666; /*verde pavcai oscuro */
 }
 
 #menu li a:hover, #menu li .current {
-	color: #37177C;
+	color: #e21a1a;  /*no se usa*/
 }
 
 /* end of menu*/
@@ -139,7 +143,7 @@ img {
 #shopping_cart_summary #cart_total_cost {
 	float: left;
 	text-align: center;
-	color: #fcf88e;
+	color: #dd36d2;  /*no se usa  en la vista principal*/
 }
 
 #shopping_cart_summary #cart_total_quantity {
@@ -166,6 +170,7 @@ img {
 
 /* header */
 #header {
+    margin: 20px;
 	clear: both;
 	width: 960px;
 	height: 285px;
@@ -253,12 +258,13 @@ img {
 	padding: 0 20px;
 }
 
-#content #content_left {
+#content #content_left {/*menu izquierdo*/
 	float: left;
-	width: 188px;
+	width: 200px;
 	padding: 10px;
-	background-color: azure;
-	border: 1px solid #212120;
+/*	background-color: #ADC1DC; color de fondo*/
+        background-color: #2f5b86;
+	border: 1px solid #cccc33;/*borde del menu ixq*/
 }
 
 #content #content_right {
@@ -283,10 +289,10 @@ img {
 
 .content_left_section h1 {
 	font-size: 14px;
-	color: #cbc750;
+	color: azure;
 	padding: 0 0 5px 0;
 	margin: 0 0 10px 0;
-	border-bottom: 1px dotted #cbc750;
+	border-bottom: 2px dotted #cbc750;
 }
 
 .content_left_section ul {
@@ -302,7 +308,7 @@ img {
 .content_left_section ul li a {
 	font-weight: normal;
 	text-decoration: none;
-	color: #969547;
+	color: #FFFFFF;
 }
 
 .content_left_section li a:hover, .content_left_section li .current {
@@ -314,7 +320,7 @@ img {
 	width: 303px;
 	height: 210px;
 	padding: 10px;
-	border: 1px solid #333;
+	border: 1px solid #e78613;/*naranja*/
 }
 
 #content_right h1 {
@@ -329,14 +335,14 @@ img {
 	padding: 0 0 0 0;
 	margin: 0 0 20px 0;
 	font-size: 12px;
-	color: #e6e154;
+	color: #000099;
 }
 
 #content_right h3 {
 	padding: 0;
 	margin: 0 0 20px 0;
 	font-size: 18px;
-	color: #85391f;
+	color: #cccc33;
 }
 
 #content_right ul {
@@ -372,27 +378,27 @@ img {
 	padding: 0 0 8px 0;
 }
 
-/*Featured Books*/
+/*Featured Contact*/
 
 #featured_books_box {
-	width: 650px;
+	width: 700px;
 	overflow: hidden;
 	padding: 10px;
-	border: 1px solid #333;
+	border: 1px solid #6699ff;
 }
 
 #new_books_box {
-	width: 650px;
+	width: 700px;
 	overflow: hidden;
 	padding: 10px;
-	border: 1px solid #333;
+	border: 1px solid #6699ff;
 }
 
 #content_right #search_results_box {
-	width: 650px;
+	width: 700px;
 	overflow: hidden;
 	padding: 10px;
-	border: 1px solid #333;
+	border: 1px solid #6699ff; /*celeste*/
 }
 
 #content_right #search_results_box p {
@@ -416,7 +422,7 @@ img {
 
 #content #content_right #search_results_table td h4 {
 	margin: 0px;
-	color: azure;
+	color: #cbc750;
 }
 
 #content #content_right #search_results_table td p {
@@ -431,7 +437,7 @@ img {
 	height: 230px;
 	padding: 5px;
 	margin: 5px;
-	border: 1px solid #333;
+	border: 1px solid #ccffcc;
 }
 
 .book_short_details_box .cover {
@@ -463,7 +469,7 @@ img {
 	font-size: 8pt;
 	padding: 0 0 0 0;
 	margin: 0px;
-	color: #e6e154;
+	color: #dd1ae2;
 	font-weight: normal;
 }
 /*New Books*/
@@ -491,11 +497,11 @@ img {
 /* footer */
 #footer {
 	clear: both;
-	width: 960px;
-	padding: 20px 0px 20px 0;
+	width: 940px;
+	padding: 20px 0px 16px 0;
 	text-align: center;
-	border-top: 1px solid #25211e;
-	background: url(../images/hh.jpg);
+	border-top: 1px solid #cccc33;/* amarillo chillon*/
+	background: url(../images/hh.jpg) ;
        
 }
 
@@ -514,19 +520,19 @@ img {
 }
 #order_detail_table
 {
-	margin: 20px;
-	width: 630px;
+	margin: 0px;
+	width: 670px;
 	text-align: left;
 	border-collapse: collapse;
-	border: 1px solid #cbc750;
+	border: 1px solid #cccc33;/*borde de la tabla de contenido*/
 }
-#order_detail_table th
+#order_detail_table th/*relleno de tabla*/
 {
 	padding: 15px 10px 10px 10px;
 	font-weight: normal;
 	font-size: 14px;
-	color: #cbc750;
-	background: #171716;
+	color: #ffffff;/*letra de la cabecera de tabla*/
+	background: #336699;/*fondo de la cabecera de la tabla*/
 	font-weight: bold;
 }
 #order_detail_table tbody
@@ -536,13 +542,15 @@ img {
 #order_detail_table td
 {
 	padding: 10px;
-	color: #fff;
-	border-top: 1px dashed #cbc750;
+	color: #000066;/*color de la letrade la tabla*/
+	border-top: 2px dashed #cccc33; 
+        
+        /* 
 }
 #order_detail_table tbody tr:hover td
 {
 /*	color: #222;*/
-	background: #444;
+	background: #ADC1DC;
 }
 
 #total_orders p {

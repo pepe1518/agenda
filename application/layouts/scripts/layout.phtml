@@ -1,7 +1,7 @@
 <?php
 $this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
 $this->headTitle()->setSeparator(' - ');
-$this->headTitle('Agenda Web');
+$this->headTitle('Agenda Medica Bolivia');
 
 echo $this->doctype();
 $session = new Zend_Session_Namespace('systemSession');
@@ -15,7 +15,7 @@ $order = unserialize($session->cart);
     		<?php echo $this->headMeta(); ?>
     		<?php echo $this->headTitle(); ?>
     		<meta name="keywords" content="agenda, medicos, cochabamba, web" />
-    		<meta name="description" content="Sistema Web Para Control y Registro de Contactos" />
+    		<meta name="description" content="Sistema Web Para la administración de Contactos e Intituciones Medicas" />
     		
     		<?php
 			echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/humanity/jquery-ui-1.10.3.custom.min.css');
@@ -65,10 +65,10 @@ $order = unserialize($session->cart);
 			<!-- end of content -->
 
 			<div id="footer">
-				Copyright Â© 2013 <strong>Libros Andinos</strong> | Website Templates by <a href="http://www.templatemo.com" target="_parent" title="free css templates">Free CSS Templates</a>
+				Copyright (R) 2014 <strong> Agenda Medica</strong> | Website Templates by <a </a>
 			</div>
 			<!-- end of footer -->
-			<!--  Free CSS Template www.templatemo.com -->
+			
 		</div>
 		<!-- end of container -->
 	</body>
