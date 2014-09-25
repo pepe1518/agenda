@@ -45,15 +45,15 @@ class App_Form_ContactoForm extends Zend_Form
 		$especialidad = new Zend_Form_Element_Select('_especialidad');
 		$especialidad->setLabel('Especialidad:');
 		foreach($especialidades as $data){
-			if($data->getTipo == App_Model_Especialidad::ESPECIALIDAD)	
+			//if($data->getTipo == App_Model_Especialidad::ESPECIALIDAD)	
 				$especialidad->addMultiOption($data->getId(), $data->getNombre());
 		}
 		
 		$subespecialidad = new Zend_Form_Element_Select('_subespecialidad');
 		$subespecialidad->setLabel('Sub-Especialidad:');
 		foreach($especialidades as $data){
-			if($data->getTipo == App_Model_Especialidad::SUBESPECIALIDAD)	
-				$especialidad->addMultiOption($data->getId(), $data->getNombre());
+			//if($data->getTipo == App_Model_Especialidad::SUBESPECIALIDAD)	
+				$subespecialidad->addMultiOption($data->getId(), $data->getNombre());
 		}
 		
 		$departamentoDao = new App_Dao_DepartamentoDao();

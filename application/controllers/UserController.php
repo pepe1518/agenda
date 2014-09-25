@@ -19,8 +19,15 @@ class UserController extends Zend_Controller_Action
 		$this->_redirect();
     }
 
+    public function agregarAction()
+    {
+        // action body
+    }
+
 
 }
+
+
 
 
 
