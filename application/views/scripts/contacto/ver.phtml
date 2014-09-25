@@ -29,17 +29,21 @@
 					</div>
 					
 <div id="detalle_contacto">
-						<ul>
-							Nombre:<?php  echo $this->contacto->getNombres()?><br/>
-							Apellidos: <?php echo $this->contacto->getApellidos(); ?><br/>
+						
+							<h2>Nombre:<?php  echo $this->contacto->getNombres()?></h2><br/>
+							<h2>Apellidos: <?php echo $this->contacto->getApellidos(); ?></h2><br/>
+							<div id="book_details">
+							<ul>
 							<?php $telefonos = $this->contacto->getTelefonos();
 							foreach($telefonos as $telefono) {
 								echo $telefono->getTipo() . ": " . $telefono->getNumero() . "<br/>";
 							}
 							?><br/>
 							Especialidad: <?php echo $this->contacto->getEspecialidad()->getNombre(); ?><br/>
-							Sub-especialidad: <?php echo $this->contacto->getSubespecialidad()->getNombre(); ?><br/>
-					<!--		Correo electronico: <?php echo $this->contacto->getEmail();?><br/>      -->
+							Sub-especialidad: <?php //echo $this->contacto->getSubespecialidad()->getNombre(); ?><br/>
+							Correo electronico: <?php echo $this->contacto->getEmail();?><br/>     
 							Dirección: <?php echo $this->contacto->getDireccion();?><br/>
-						</ul>
+							</ul>
+							</div>
+						
 					</div>
