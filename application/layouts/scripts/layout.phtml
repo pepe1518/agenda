@@ -4,9 +4,12 @@ $this->headTitle()->setSeparator(' - ');
 $this->headTitle('Agenda Web');
 
 echo $this->doctype();
-
+$session = new Zend_Session_Namespace('systemSession');
+/**
+ * @var App_Model_Order
+ */
+$order = unserialize($session->cart);
 ?>
- 
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
     		<?php echo $this->headMeta(); ?>
@@ -29,44 +32,40 @@ echo $this->doctype();
     		?>
 	</head>
 	<body>
-		<div id="dialog-message" title="Mensaje de la página">
-			holo?
-		</div>
+	
             
 		<div id="container">
                     
 			<div id="before-header">
                             
-				<div id="menu">
+				
+                      <div id="header">
+				<div id="main_logo">
+					
+				</div>
+				
+			
+
+			</div>
+                          <div id="menu">
 					<ul>
 						<li>
-							<a class="current">Sistema Web Para Control y Registro de Contactos Médicos</a>
+							<a class="current"></a>
                                                         
 						</li>
 						
 					</ul>
 					
 				</div>
-                          
-                        <div id="header">
-				
-					 <img src="<?php echo $this->baseUrl(); ?>/images/header_bg.jpg" />
-						</li>
-				</div>
-				
-			</div>
-			<div>
-			</div>
 			<!-- end of header -->
 
 			<div id="content">
-				<br />
 					<?php echo $this->layout()->content; ?>
 			</div>
 			<!-- end of content -->
 
 			<div id="footer">
-				Copyright © 2014 <strong>Agenda Virtual</strong> | Website by <a href="http://www.github.com/pepe1518" target="_parent" title="github.com/pepe1518">Jose Valdivia</a>
+				Copyright Â© 2013 <strong>Libros Andinos</strong> | Website Templates by <a href="http://www.templatemo.com" target="_parent" title="free css templates">Free CSS Templates</a>
 			</div>
 			<!-- end of footer -->
 			<!--  Free CSS Template www.templatemo.com -->

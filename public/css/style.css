@@ -172,6 +172,7 @@ img {
 	padding: 0;
 	margin: 0;
 	background: url(../images/header_bg.jpg) no-repeat;
+        
 }
 
 #header a, a:hover {
@@ -256,7 +257,7 @@ img {
 	float: left;
 	width: 188px;
 	padding: 10px;
-	background-color: #171716;
+	background-color: azure;
 	border: 1px solid #212120;
 }
 
@@ -320,8 +321,8 @@ img {
 	padding: 10px;
 	margin: 0 0 20px 0;
 	font-size: 15px;
-	color: #cbc750;
-	background: url(../images/h1_bg.jpg);
+	color: #fff;
+	background: url(../images/hh.jpg);
 }
 
 #content_right h2 {
@@ -404,8 +405,8 @@ img {
 }
 
 #content #content_right #search_results_table th {
-	color: #e6e154;
-	background: url(../images/h1_bg.jpg);
+	color: #fff;
+	background: url(../images/hh.jpg);
 }
 
 #content #content_right #search_results_table td {
@@ -415,7 +416,7 @@ img {
 
 #content #content_right #search_results_table td h4 {
 	margin: 0px;
-	color: #cbc750;
+	color: azure;
 }
 
 #content #content_right #search_results_table td p {
@@ -494,13 +495,14 @@ img {
 	padding: 20px 0px 20px 0;
 	text-align: center;
 	border-top: 1px solid #25211e;
-	color: #999;
-	background-color: #111110;
+	background: url(../images/hh.jpg);
+       
 }
 
 #footer a {
 	color: #fff;
 	font-weight: normal;
+        
 }
 /* end of footer */
 
