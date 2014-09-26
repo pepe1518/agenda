@@ -4,7 +4,7 @@
 4.- agregar usuario normal - CECI
 5.- crear menu de administracion pirnicpal - PEPE
 6.- crud de imagen de contacto - CECI
-7.- agregar areas al menu principal - PEPE
+7.- agregar areas al menu principal - PEPE -> trabajando aqui -> terminado
 8.- modificar el menu principal - PEPE
 
 

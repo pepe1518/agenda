@@ -33,8 +33,24 @@ class Zend_View_Helper_MenuDepartamentos extends Zend_View_Helper_Abstract
 			$html .= "<li>";
 			$html .= "<h1>". $nombre ."</h1>";
 			$html .= "</li>";
-			$html .= "<li><h1><a href=\"".$urlArea."\">Areas</a></h1></li>";
-			$html .= "<li><h1><a href=\"".""."\">Contactos</a></h1></li>";
+			//$html .= "<li><h1><a href=\"".$urlArea."\">Areas</a></h1></li>";
+			$categoriaDao = new App_Dao_CategoriaDao();
+			foreach($categoriaDao->getTodos() as $categoria) {
+				$urlCategoria = $this->view->url(
+					array(
+						'controller' => 'entidad',
+						'action'     => 'index',
+						'id'		 => $categoria->getId(),
+					), 'default', true);
+				$html .= "<li><a href=\"".$urlCategoria."\">".
+						 $categoria->getNombre()."</a></li>";
+			}
+			$urlContacto = $this->view->url(
+					array(
+						'controller' => 'contacto',
+						'action'     => 'index',
+					), 'default', true);
+			$html .= "<li><h1><a href=\"".$urlContacto."\">Contactos</a></h1></li>";
 			$especialidadDao = new App_Dao_EspecialidadDao();
 			//$html .= "<ul>";
 			
@@ -46,8 +62,8 @@ class Zend_View_Helper_MenuDepartamentos extends Zend_View_Helper_Abstract
 						'id'		 => $especialidad->getId(),
 						'departamento'=> $departamento->getId()
 					), 'default', true);
-				$html .= "<li><a href=\"".$urlEspecialidad."\">".
-						 $especialidad->getNombre()."</a></li>";
+				//$html .= "<li><a href=\"".$urlEspecialidad."\">".
+						// $especialidad->getNombre()."</a></li>";
 				
 			}
 			//$html .= "</ul>";
