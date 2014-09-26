@@ -41,6 +41,7 @@ class Zend_View_Helper_MenuDepartamentos extends Zend_View_Helper_Abstract
 						'controller' => 'entidad',
 						'action'     => 'index',
 						'id'		 => $categoria->getId(),
+                                            'departamento'  => $departamento->getId()
 					), 'default', true);
 				$html .= "<li><a href=\"".$urlCategoria."\">".
 						 $categoria->getNombre()."</a></li>";
