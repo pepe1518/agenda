@@ -11,7 +11,10 @@ class ContactoController extends Zend_Controller_Action
     public function indexAction()
     {
     	$page = $this->_getParam('page', 1);
+		$departamento1 = $this->_getParam('departamento');
 
+		$departamentoDao = new App_Dao_ContactoDao();
+		$this->view->deaprtamento = $departamento1->getContactoPorId($departamento1);
 		$userDao = new App_Dao_ContactoDao();
 		$paginator = new App_Util_Paginator($this->getRequest()->getBaseUrl() . '/contacto/index', $userDao->contarTodos(), $page);
 

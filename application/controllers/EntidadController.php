@@ -14,9 +14,9 @@ class EntidadController extends Zend_Controller_Action
         $departamento = $this->_getParam('departamento');
 		if($idCategoria) {
 			$categoriaDao = new App_Dao_CategoriaDao();
-                        $departamentoDao = new App_Dao_DepartamentoDao();
+            $departamentoDao = new App_Dao_DepartamentoDao();
 			$this->view->categoria = $categoriaDao->getCategoriaPorId($idCategoria);
-                        $this->view->departamento = $departamentoDao->getDepartamentoPorId($departamento);
+            $this->view->departamento = $departamentoDao->getDepartamentoPorId($departamento);
 			
 			$page = $this->_getParam('page', 1);
 			$entidadDao = new App_Dao_EntidadDao();
