@@ -34,7 +34,7 @@ class Zend_View_Helper_MenuDepartamentos extends Zend_View_Helper_Abstract
 			$html .= "<h1>". $nombre ."</h1>";
 			$html .= "</li>";
 			$html .= "<li><h1><a href=\"".$urlArea."\">Areas</a></h1></li>";
-			$html .= "<li><h1><a href=\"".$urlContacto."\">Contactos</a></h1></li>";
+			$html .= "<li><h1><a href=\"".""."\">Contactos</a></h1></li>";
 			$especialidadDao = new App_Dao_EspecialidadDao();
 			//$html .= "<ul>";
 			
@@ -43,7 +43,8 @@ class Zend_View_Helper_MenuDepartamentos extends Zend_View_Helper_Abstract
 					array(
 						'controller' => 'contacto',
 						'action'     => 'index',
-						'id'		 => $especialidad->getId()
+						'id'		 => $especialidad->getId(),
+						'departamento'=> $departamento->getId()
 					), 'default', true);
 				$html .= "<li><a href=\"".$urlEspecialidad."\">".
 						 $especialidad->getNombre()."</a></li>";

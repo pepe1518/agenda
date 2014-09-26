@@ -21,6 +21,7 @@
           <actionMethod actionName="agregar"/>
           <actionMethod actionName="ver"/>
           <actionMethod actionName="editar"/>
+          <actionMethod actionName="eliminar"/>
         </controllerFile>
         <controllerFile controllerName="Especialidad">
           <actionMethod actionName="index"/>
@@ -41,6 +42,7 @@
         <formFile formName="EspecialidadForm"/>
         <formFile formName="CategoriaForm"/>
         <formFile formName="EntidadForm"/>
+        <formFile formName="UserForm"/>
       </formsDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory>
@@ -98,6 +100,9 @@
           <viewControllerScriptsDirectory forControllerName="Contacto">
             <viewScriptFile forActionName="editar"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Contacto">
+            <viewScriptFile forActionName="eliminar"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -145,6 +150,7 @@
             <testApplicationActionMethod forActionName="agregar"/>
             <testApplicationActionMethod forActionName="ver"/>
             <testApplicationActionMethod forActionName="editar"/>
+            <testApplicationActionMethod forActionName="eliminar"/>
           </testApplicationControllerFile>
           <testApplicationControllerFile forControllerName="Especialidad">
             <testApplicationActionMethod forActionName="index"/>
