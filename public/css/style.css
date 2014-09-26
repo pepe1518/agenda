@@ -10,7 +10,7 @@ body {
 }
 
 a:link, a:visited {
-	color: #e6e154;
+	color: #336699;
 	text-decoration: none;
 	font-weight: bold;
 }
@@ -82,14 +82,14 @@ img {
 	width: 960px;
 	margin: 0 auto;
 	padding: 0 10px;
-	background: #1c1c1b url(../images/bg.jpg) repeat-y;
+	background: #ffffff url(../images/bg.jpg) repeat-y;
         border: 1px solid #cccc33;
 }
 
 /* menu */
 
 #before-header {
-	width: 96px;
+	width: 960px;
 	height: 0px;
 	background: url(../images/menu_bg.jpg) no-repeat;
         border: 1px solid #cccc33;
@@ -170,10 +170,10 @@ img {
 
 /* header */
 #header {
-    margin: 20px;
+        margin-left: 30px;
 	clear: both;
 	width: 960px;
-	height: 285px;
+	height: 150px;
 	padding: 0;
 	margin: 0;
 	background: url(../images/header_bg.jpg) no-repeat;
