@@ -10,11 +10,8 @@ class Zend_View_Helper_MenuForm extends Zend_View_Helper_Abstract
 	public function menuForm() {
 		
 		$html = "<div class=\"content_left_section\">";
-		$html .= "<h1>Menú</h1>";
+		$html .= "<h1>Menú</h>";
 		$html .= "<ul>";
-		$html .= "<li>";
-		$html .= "<h1>Personas</h1>";
-		$html .= "</li>";
 		$html .= "<li>";
 		$html .= "<a href=\"". $this->view->baseUrl(). "/contacto\">Contactos</a>";
 		$html .= "</li>";

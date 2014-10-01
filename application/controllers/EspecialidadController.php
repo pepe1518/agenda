@@ -18,9 +18,9 @@ class EspecialidadController extends Zend_Controller_Action
 				$especialidad = new App_Model_Especialidad();
 				
 				$especialidad->setNombre($formData['_nombre']);
-				if($formData['_descripcion']){
+				/*if($formData['_descripcion']){
 					$especialidad->setDescription($formData['_descripcion']);
-				}
+				}*/
 				
 				$especialidadDao = new App_Dao_EspecialidadDao();
 				$especialidadDao->guardar($especialidad);

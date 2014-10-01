@@ -51,7 +51,7 @@ class Zend_View_Helper_MenuDepartamentos extends Zend_View_Helper_Abstract
 						'controller' => 'contacto',
 						'action'     => 'index',
 					), 'default', true);
-			$html .= "<li><h1><a href=\"".$urlContacto."\">Contactos</a></h1></li>";
+			$html .= "<li><h1><a href=\"".$urlContacto."\">Contactos Medicos</a></h1></li>";
 			$especialidadDao = new App_Dao_EspecialidadDao();
 			//$html .= "<ul>";
 			
@@ -69,12 +69,13 @@ class Zend_View_Helper_MenuDepartamentos extends Zend_View_Helper_Abstract
 			}
 			//$html .= "</ul>";
 		}	
-			
+		/*	
 		$html .= "<a href=\"". $this->view->url(
 					array(
 						'controller' => 'user',
 						'action'     => 'logout'
 					), 'default', true) ."\" >Salir</a>";
+                */
 		$html .= "</li>";
 		$html .= "</ul>";
 		$html .= "</div>";

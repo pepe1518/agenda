@@ -1,5 +1,4 @@
 <?php
-
 class App_Form_ContactoForm extends Zend_Form
 {
     public function init()
@@ -76,7 +75,15 @@ class App_Form_ContactoForm extends Zend_Form
 		$direccion->setRequired(FALSE);
 		
 		$foto = new Zend_Form_Element_File("_foto");
-		$foto->setLabel("Ruta de la Foto")->setRequired(false);
+                $foto->setLabel("Ruta de la Foto")->setRequired(false);
+                
+                $foto->addValidator('Size', false, 1024000);
+                $foto->addValidator('Extension', false, 'jpg,png,jpeg');
+                $foto->addValidator('MimeType', false, 'image/png, image/jpg, image/jpeg');
+                $foto->addValidator('Count', false, array('min' => 0, 'max' => 4));
+                
+		//$foto->setDestination(APPLICATION_PATH ."C:\xampp\htdocs\agenda\upload"); 
+                
 		
 		$submit = new Zend_Form_Element_Submit('submit', array('label' => 'Enviar'));
 		

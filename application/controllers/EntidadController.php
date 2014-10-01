@@ -59,6 +59,24 @@ class EntidadController extends Zend_Controller_Action
 	   $this->view->form = $form;
     }
 
+    public function editarAction()
+    {
+        // action body
+    }
+    public function eliminarAction()
+    {
+        $id = $this->_getParam('id');
+        
+        if (empty($id))
+            $this->_helper->redirector('index');
+        
+        $entidadDao = new App_Dao_EntidadDao();
+        $entidad = $entidadDao->getEntidadPorId($id);
+        if(!empty($entidad))
+        $entidadDao->eliminar($entidad);
+        $this->_helper->redirector('index');
+        return;// action body
+    }
     public function listaAction()
     {
         // action body

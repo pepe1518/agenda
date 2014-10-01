@@ -4,7 +4,14 @@
 ?>	
 </div>
 <div id="content_right">
+    
 <h1>Detalle</h1>
+
+<a href='<?php echo $this->url(
+				array(
+				'controller' => 'contacto',
+				'action'     => 'index',
+				), 'default', true) ?>'>Mis Contactos</a>
 
 	<?php
 			$contacto = $this->contacto;  

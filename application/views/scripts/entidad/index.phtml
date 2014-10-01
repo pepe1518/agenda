@@ -1,6 +1,7 @@
 <div id="content_left">
 <?php
 	echo $this->menuDepartamentos();
+        echo $this->menuForm();
 ?>	
 </div>
 <div id="content_right">
@@ -23,6 +24,20 @@
 		<td><?php echo $entidad->getNombre(); ?></td>
 		<td><?php echo $entidad->getTelefono()->getNumero(); ?></td>
 		<td><?php echo $entidad->getEncargado(); ?></td>
+                <td>
+                    <a href='<?php echo $this->url(
+					array(
+						'controller' => 'entidad',
+						'action'     => 'editar',
+						'id'     => $entidad->getId(),
+					), 'default', true) ?>'>Modificar</a>
+				<a href='<?php echo $this->url(
+					array(
+						'controller' => 'entidad',
+						'action'     => 'eliminar',
+						'id'     => $entidad->getId(),
+					), 'default', true) ?>'>Eliminar</a>
+                </td>
 	</tr>		
 	<?php } //fin del foreach ?>	
 </table>

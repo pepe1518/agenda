@@ -55,7 +55,7 @@ class App_Model_Contacto
 	/**
 	* @var blob
 	* 
-	* @Column(name="foto", type="blob", nullable=true)
+	* @Column(name="foto", type="string", nullable=true)
 	*/
 	private $_foto;
 		  
@@ -89,6 +89,9 @@ class App_Model_Contacto
 	public function getId() {
 		return $this->_id;
 	} 
+        public function setId($id) {
+		$this->_id = $id;
+	}
 	public function getNombres() {
 		return $this->_nombres;
 	}
@@ -141,6 +144,12 @@ class App_Model_Contacto
 	public function getDireccion() {
 		return $this->_direccion;
 	} 
+        public function toArray() {
+		return get_object_vars($this);
+	}
+        
+        
+        
 	
 }
     

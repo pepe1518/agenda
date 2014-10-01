@@ -1,4 +1,17 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Contacto</b> and script/action name <b>editar</b></p>
+<<div id="content_left">
+<?php
+	echo $this->menuForm();
+?>		
+</div>
+<div id="content_right">
+<h2>Modificar  Contacto</h2>
+<a href='<?php echo $this->url(
+					array(
+						'controller' => 'contacto',
+						'action'     => 'index',
+						), 'default', true) ?>'>Mis Contactos</a>
+<?php echo $this->form; ?>
+</div>
+<div class="cleaner_with_height">
+	&nbsp;
 </div>

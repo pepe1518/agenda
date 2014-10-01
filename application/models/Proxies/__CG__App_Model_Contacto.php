@@ -54,6 +54,12 @@ class App_Model_Contacto extends \App_Model_Contacto implements \Doctrine\ORM\Pr
         return parent::getId();
     }
 
+    public function setId($id)
+    {
+        $this->__load();
+        return parent::setId($id);
+    }
+
     public function getNombres()
     {
         $this->__load();
@@ -120,16 +126,52 @@ class App_Model_Contacto extends \App_Model_Contacto implements \Doctrine\ORM\Pr
         return parent::setEspecialidad($especialidad);
     }
 
+    public function getSubespecialidad()
+    {
+        $this->__load();
+        return parent::getSubespecialidad();
+    }
+
+    public function setSubespecialidad(\App_Model_Especialidad $subespecialidad)
+    {
+        $this->__load();
+        return parent::setSubespecialidad($subespecialidad);
+    }
+
+    public function getDepartamento()
+    {
+        $this->__load();
+        return parent::getDepartamento();
+    }
+
+    public function setDepartamento(\App_Model_Departamento $departamento)
+    {
+        $this->__load();
+        return parent::setDepartamento($departamento);
+    }
+
     public function setDireccion($direccion)
     {
         $this->__load();
         return parent::setDireccion($direccion);
     }
 
+    public function getDireccion()
+    {
+        $this->__load();
+        return parent::getDireccion();
+    }
+
+    public function toArray()
+    {
+        $this->__load();
+        return parent::toArray();
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', '_id', '_nombres', '_apellidos', '_email', '_direccion', '_foto', '_telefonos', '_especialidad');
+        return array('__isInitialized__', '_id', '_nombres', '_apellidos', '_email', '_direccion', '_foto', '_departamento', '_telefonos', '_especialidad', '_subespecialidad');
     }
 
     public function __clone()
