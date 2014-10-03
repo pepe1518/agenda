@@ -11,7 +11,11 @@ class EntidadController extends Zend_Controller_Action
     public function indexAction()
     {
         $idCategoria = $this->_getParam('id', ' ');
-        $departamento = $this->_getParam('departamento');
+        $departamento = $this->_getParam('departamento', ' ');
+        //manda a la vista la variable  departamento
+        //mapeo de la var  departamento
+        //var_dump($departamento);
+        $this->view->idDepartamento = $departamento;
 		if($idCategoria) {
 			$categoriaDao = new App_Dao_CategoriaDao();
             $departamentoDao = new App_Dao_DepartamentoDao();
@@ -29,7 +33,12 @@ class EntidadController extends Zend_Controller_Action
 
     public function agregarAction()
     {
-       $form = new App_Form_EntidadForm();
+       $delma = $this->_getParam('delma');
+       $ceci = $this->_getParam('ceci');
+       echo "hola delma soy tuyo atte:". $delma;
+       echo "</br>";
+       echo "hola ceci soy tuyo atte:". $ceci;
+        $form = new App_Form_EntidadForm();
 	   if ($this->_request->getPost()) {
 			$formData = $this->_request->getPost();
 			if ($form->isValid($formData)) {

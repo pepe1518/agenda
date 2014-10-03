@@ -12,7 +12,10 @@ class App_Dao_EspecialidadDao
 		$this->_entityManager->persist($especialidad);
 		$this->_entityManager->flush();
 	}
-	
+	public function editar(App_Model_Especialidad $especialidad) {
+		$this->_entityManager->persist($especialidad);
+		$this->_entityManager->flush();
+	}
 	public function eliminar(App_Model_Especialidad $especialidad) {
 		$this->_entityManager->remove($especialidad);
 		$this->_entityManager->flush();

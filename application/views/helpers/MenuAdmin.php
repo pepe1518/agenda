@@ -1,5 +1,10 @@
 <?php
-class Zend_View_Helper_MenuForm extends Zend_View_Helper_Abstract
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+class Zend_View_Helper_MenuAdmin extends Zend_View_Helper_Abstract
 {
 	public $view;
 	
@@ -10,15 +15,15 @@ class Zend_View_Helper_MenuForm extends Zend_View_Helper_Abstract
 	public function menuForm() {
 		
 		$html = "<div class=\"content_left_section\">";
-		//$html .= "<h1>Menú</h>";
+		$html .= "<h1>Menú</h>";
 		$html .= "<ul>";
-		//$html .= "<li>";
-		//$html .= "<a href=\"". $this->view->baseUrl(). "/contacto\">Contactos</a>";
-		//$html .= "</li>";
-		//$html .= "<li>";
-		//$html .= "<h1>Instituciones</h1>";
-		//$html .= "</li>";
-		/*
+		$html .= "<li>";
+		$html .= "<a href=\"". $this->view->baseUrl(). "/contacto\">Contactos</a>";
+		$html .= "</li>";
+		$html .= "<li>";
+		$html .= "<h1>Instituciones</h1>";
+		$html .= "</li>";
+		
 		$categoriaDao = new App_Dao_CategoriaDao();
 		foreach($categoriaDao->getTodos() as $categoria) {
 			$url = $this->view->url(array('controller'=> 'entidad', 
@@ -30,7 +35,7 @@ class Zend_View_Helper_MenuForm extends Zend_View_Helper_Abstract
 			$html .= "<a href=\"". $url ."\">". $nombre ."</a>";
 			$html .= "</li>";			
 		}
-		*/
+		
 		//$html .= "<li>";
 		//$html .= "<a href=\"".$this->view->baseUrl()."/backup\">Respaldo de la Base de Datos</a>";
 		//$html .= "</li>";
@@ -58,4 +63,5 @@ class Zend_View_Helper_MenuForm extends Zend_View_Helper_Abstract
 		$html .= "</div>";
 		return $html;
 	}
+
 }

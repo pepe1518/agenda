@@ -122,7 +122,7 @@ class ContactoController extends Zend_Controller_Action
 		$especialidadDao = new App_Dao_EspecialidadDao();
 		$especialidad = $especialidadDao->getEspecialidadPorId($formData['_especialidad']);
 				
-		$contacto = new App_Model_Contacto();
+		//$contacto = new App_Model_Contacto();
 		$contacto->agregarTelefono($telefonoCelular);
 		$contacto->agregarTelefono($telefonoFijo);
 		$contacto->agregarTelefono($telefonoTrabajo);

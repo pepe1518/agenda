@@ -25,6 +25,8 @@
         </controllerFile>
         <controllerFile controllerName="Especialidad">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="editar"/>
+          <actionMethod actionName="eliminar"/>
         </controllerFile>
         <controllerFile controllerName="Categoria">
           <actionMethod actionName="index"/>
@@ -103,6 +105,12 @@
           <viewControllerScriptsDirectory forControllerName="Contacto">
             <viewScriptFile forActionName="eliminar"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Especialidad">
+            <viewScriptFile forActionName="editar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Especialidad">
+            <viewScriptFile forActionName="eliminar"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -154,6 +162,8 @@
           </testApplicationControllerFile>
           <testApplicationControllerFile forControllerName="Especialidad">
             <testApplicationActionMethod forActionName="index"/>
+            <testApplicationActionMethod forActionName="editar"/>
+            <testApplicationActionMethod forActionName="eliminar"/>
           </testApplicationControllerFile>
           <testApplicationControllerFile forControllerName="Categoria">
             <testApplicationActionMethod forActionName="index"/>

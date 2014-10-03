@@ -5,12 +5,15 @@
 ?>	
 </div>
 <div id="content_right">
-<h1>Mis Instituciones - Categoria <?php if($this->entidades){ echo $this->categoria->getNombre(); ?></h1>
+<h1>Mis Instituciones - Categoria <?php if($this->entidades){ echo $this->categoria->getNombre();} ?></h1>
 <p><a href="<?php echo $this->url(
 					array(
 						'controller' => 'entidad',
 						'action'     => 'agregar',
 						'id'     => $this->categoria->getId(),
+                                            'departamento'=>$this->idDepartamento,
+                                            'delma' => 'jesus',
+                                            'ceci' => 'bizcocho',
 					), 'default', true) ?>">Nuevo</a></p>
 <table id="order_detail_table">
 	<tr>
@@ -42,7 +45,7 @@
 	<?php } //fin del foreach ?>	
 </table>
 <?php
-echo $this->htmlPaginator; }
+echo $this->htmlPaginator; 
 ?>
 </div>
 <div class="cleaner_with_height">

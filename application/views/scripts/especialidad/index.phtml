@@ -22,6 +22,18 @@
 		<td><?php echo $especialidad->getNombre(); ?></td>
 		 
 		<td>
+                    <a href='<?php echo $this->url(
+					array(
+						'controller' => 'especialidad',
+						'action'     => 'editar',
+						'id'     => $especialidad->getId(),
+					), 'default', true) ?>'>Modificar</a>
+                    <a href='<?php echo $this->url(
+					array(
+						'controller' => 'especialidad',
+						'action'     => 'eliminar',
+						'id'     => $especialidad->getId(),
+					), 'default', true) ?>'>Eliminar</a>
 			
 		</td>
 	</tr>
