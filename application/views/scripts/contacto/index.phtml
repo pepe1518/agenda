@@ -6,7 +6,21 @@
 </div>
 
 <div id="content_right">
-<h1>Mis Contactos Personales</h1>
+<h1>Mis Contactos Personales de la Ciudad de <?php echo $this->departamento->getNombre() ?></h1>
+<form method="post">
+  <label>Nostrar Contactos por:</label>
+  <select name="especialidad">
+  	<?php $especialidadDao = new App_Dao_EspecialidadDao();
+  	foreach($especialidadDao->getTodos() as $especialidad) { ?>
+  		<option value="<?php echo $especialidad->getId() ?>">
+  			<?php echo $especialidad->getNombre(); ?>
+  		</option>
+  		<?php } //end foreach ?>
+  </select>
+  <input type="submit" value="Buscar" />
+</form>
+	
+</form>
 <p>
 <a href="<?php echo $this->baseUrl()?>/contacto/agregar">Nuevo Contacto</a>
 </p>

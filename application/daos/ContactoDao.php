@@ -64,9 +64,9 @@ return $this->render('MDWDemoBundle:Articulos:articulo.html.twig', array('articu
 		return $consulta->getSingleScalarResult();
 	}
 	
-	public function getAllLimitOffset($limit, $offset)
+	public function getAllLimitOffset($limit, $offset, $id, $idDepartamento)
 	{
-		$query = $this->_entityManager->createQuery('SELECT c FROM App_Model_Contacto c')
+		$query = $this->_entityManager->createQuery("SELECT c FROM App_Model_Contacto c WHERE c._especialidad ='".$id."' AND c._departamento = '".$idDepartamento."'")
 								->setFirstResult($offset)
 								->setMaxResults($limit);
 		

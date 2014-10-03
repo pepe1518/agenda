@@ -50,6 +50,7 @@ class Zend_View_Helper_MenuDepartamentos extends Zend_View_Helper_Abstract
 					array(
 						'controller' => 'contacto',
 						'action'     => 'index',
+						'departamento' => $departamento->getId()
 					), 'default', true);
 			$html .= "<li><h1><a href=\"".$urlContacto."\">Contactos Medicos</a></h1></li>";
 			$especialidadDao = new App_Dao_EspecialidadDao();
