@@ -41,8 +41,10 @@ class ContactoController extends Zend_Controller_Action
     {
 		//$id = Zend_Auth::getInstance()->getIdentity()->getId();
 		$form = new App_Form_ContactoForm();
+						
 		if ($this->_request->getPost()) {
 			$formData = $this->_request->getPost();
+			Zend_Debug::dump($formData['MAX_FILE_SIZE']);
 			if ($form->isValid($formData)) {
 				$departamentoDao = new App_Dao_DepartamentoDao();
 				$departamento = $departamentoDao->getDepartamentoPorId($formData['_departamento']);
@@ -69,8 +71,8 @@ class ContactoController extends Zend_Controller_Action
 				$contacto->setEspecialidad($especialidad);
 				$contacto->setEmail($formData['_email']);
 				$contacto->setDireccion($formData['_direccion']);
-				//$contacto->setFoto($formData['MAX_FILE_SIZE']);
-				$contacto->setFoto($formData['_foto']);
+				$contacto->setFoto($formData['MAX_FILE_SIZE']);
+				//$contacto->setFoto($formData['_foto']);
 				
 				$fijoDao = new App_Dao_TelefonoDao();
 				$fijoDao->guardar($telefonoFijo);

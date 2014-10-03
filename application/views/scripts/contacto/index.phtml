@@ -8,7 +8,7 @@
 <div id="content_right">
 <h1>Mis Contactos Personales del Departamento de <?php echo $this->departamento->getNombre(	) ?></h1>
 <form method="post">
-  <label>Nostrar Contactos por:</label>
+  <label>Mostrar Contactos por:</label>
   <select name="especialidad">
   	<?php $especialidadDao = new App_Dao_EspecialidadDao();
   	foreach($especialidadDao->getTodos() as $especialidad) { ?>
@@ -37,7 +37,7 @@
 		foreach($this->dataList as $contacto) {
 	?>
 	<tr>
-		<td><img src="<?php echo $contacto->getFoto(); ?>" /></td>
+		<td><img src="<?php echo stream_get_contents($contacto->getFoto()); ?>" /></td>
 		<td>
 			<a href='<?php echo $this->url(
 					array(
