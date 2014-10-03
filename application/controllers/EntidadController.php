@@ -33,11 +33,13 @@ class EntidadController extends Zend_Controller_Action
 
     public function agregarAction()
     {
-       $delma = $this->_getParam('delma');
-       $ceci = $this->_getParam('ceci');
-       echo "hola delma soy tuyo atte:". $delma;
-       echo "</br>";
-       echo "hola ceci soy tuyo atte:". $ceci;
+       //$delma = $this->_getParam('delma');
+       //$ceci = $this->_getParam('ceci');
+	   $departamento = $this->_getParam('departamento');
+	   Zend_Debug::dump($departamento);
+       //echo "hola delma soy tuyo atte:". $delma;
+       //echo "</br>";
+       //echo "hola ceci soy tuyo atte:". $ceci;
         $form = new App_Form_EntidadForm();
 	   if ($this->_request->getPost()) {
 			$formData = $this->_request->getPost();
@@ -45,6 +47,10 @@ class EntidadController extends Zend_Controller_Action
 				$idCategoria = $this->_getParam('id');
 				$categoriaDao = new App_Dao_CategoriaDao();
 				$categoria = $categoriaDao->getCategoriaPorId($idCategoria);
+				
+				$departamentoDao = new App_Dao_DepartamentoDao();
+				
+				$depa = $departamentoDao->getDepartamentoPorId($departamento);
 				
 				$telefono = new App_Model_Telefono($formData['_telefono']);
 				
@@ -54,6 +60,7 @@ class EntidadController extends Zend_Controller_Action
 				$entidad->setDireccion($formData['_direccion']);
 				$entidad->setTelefono($telefono);
 				$entidad->setEncargado($formData['_encargado']);
+				$entidad->setDepartamento($depa);
 				
 				$telefonoDao = new App_Dao_TelefonoDao();
 				$telefonoDao->guardar($telefono);
