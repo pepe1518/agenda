@@ -88,7 +88,7 @@ img {
 /* menu */
 
 #before-header {
-	width: 960px;
+	width: 938px;
 	height: 33px;
 	background: url(../images/menu_bg.jpg) no-repeat;
         /*border: 1px solid #cccc33;*/
@@ -257,7 +257,7 @@ img {
 #content {
 	clear: both;
 	width: 920px;
-	padding: 0 20px;
+	padding: 6px 0px;
 }
 
 #content #content_left {/*menu izquierdo*/

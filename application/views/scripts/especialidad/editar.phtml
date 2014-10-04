@@ -1,4 +1,17 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Especialidad</b> and script/action name <b>editar</b></p>
+<div id="content_left">
+<?php
+	echo $this->menuForm();
+?>		
+</div>
+<div id="content_right">
+<h2>Modificar  Especialidad</h2>
+<a href='<?php echo $this->url(
+					array(
+						'controller' => 'especialidad',
+						'action'     => 'index',
+						), 'default', true) ?>'>Mis Especialidades</a>
+<?php echo $this->form; ?>
+</div>
+<div class="cleaner_with_height">
+	&nbsp;
 </div>

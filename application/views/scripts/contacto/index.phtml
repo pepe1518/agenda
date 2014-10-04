@@ -1,7 +1,7 @@
 <div id="content_left">
 <?php
 	echo $this->menuDepartamentos();
-        echo $this->menuForm();
+      
 ?>	
 </div>
 
@@ -19,18 +19,23 @@
   </select>
   <input type="submit" value="Buscar" />
 </form>
-	
-<p>
-<a href="<?php echo $this->baseUrl()?>/contacto/agregar">Nuevo Contacto</a>
-</p>
-
+<br />
+<?php if (Zend_Auth::getInstance()->getIdentity())  {?>	
+    <p>
+    <a href="<?php echo $this->baseUrl()?>/contacto/agregar">Nuevo Contacto</a>
+    </p>
+<?php  }?>
 <table id="order_detail_table">
 	<tr>
 		<th>&nbsp;</th>
 		<th>Nombre</th>
 		<th>Telefonos</th>
 		<th>Email</th>
+                
+        <?php if (Zend_Auth::getInstance()->getIdentity())  {?>
 		<th>Acciones</th>
+        <?php  }?>        
+        
 	</tr>
 	<?php
 		foreach($this->dataList as $contacto) {
@@ -55,6 +60,9 @@
 			?>
 		</td>
 		<td> <?php echo $contacto->getEmail() ?></td>
+                
+   <?php if (Zend_Auth::getInstance()->getIdentity())  {?>
+                
 		<td>
 			<?php if(!$contacto->getFoto()) {?>
 			<a href='<?php echo $this->url(
@@ -78,6 +86,8 @@
 						'id'     => $contacto->getId(),
 					), 'default', true) ?>'>Eliminar</a>
 		</td>
+                
+                <?php  }?>
 	</tr>
 	<?php
 	} // fin del foreach
