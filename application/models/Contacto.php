@@ -76,6 +76,13 @@ class App_Model_Contacto
 	 * @JoinColumn(name="subespecialidad_id", referencedColumnName="id") 
 	 */
 	 private $_subespecialidad;
+	 
+	 /**
+	  * @var datetime
+	  * 
+	  * @Column(name="ultima_modificacion", type="datetime", nullable=true)
+	  */
+	  private $_ultimaModificacion;
 		   
 	public function __construct() {
 	   	$this->_telefonos = array();
@@ -144,7 +151,11 @@ class App_Model_Contacto
 	public function getDireccion() {
 		return $this->_direccion;
 	} 
-        public function toArray() {
+	
+	public function setUltimaModificacion($date) {
+		$this->_ultimaModificacion = $date;
+	}
+    public function toArray() {
 		return get_object_vars($this);
 	}
         

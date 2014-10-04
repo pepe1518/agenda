@@ -64,7 +64,13 @@ class App_Model_Entidad
 	 * @JoinColumn(name="especialidad_id", referencedColumnName="id") 
 	 */
 	 private $_especialidad;
-	
+	 /**
+	  * @var datetime
+	  * 
+	  * @Column(name="ultima_modificacion", type="datetime", nullable=true)
+	  */
+	  private $_ultimaModificacion;
+	  
 	public function getId() {
 		return $this->_id;
 	}
@@ -106,6 +112,9 @@ class App_Model_Entidad
 	}
 	public function setEspecialidad(App_Model_Especialidad $especialidad) {
 		$this->_especialidad = $especialidad;
+	}
+		public function setUltimaModificacion($date) {
+		$this->_ultimaModificacion = $date;
 	}
 	public function getEspecialidad() {
 		return $this->_subespecialidad;

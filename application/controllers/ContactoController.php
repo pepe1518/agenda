@@ -71,7 +71,7 @@ class ContactoController extends Zend_Controller_Action
 				$contacto->setEspecialidad($especialidad);
 				$contacto->setEmail($formData['_email']);
 				$contacto->setDireccion($formData['_direccion']);
-				$contacto->setFoto(file_get_contents($formData['MAX_FILE_SIZE']));
+				//$contacto->setFoto(file_get_contents($formData['MAX_FILE_SIZE']));
 				//$contacto->setFoto($formData['_foto']);
 				
 				$fijoDao = new App_Dao_TelefonoDao();
@@ -84,7 +84,7 @@ class ContactoController extends Zend_Controller_Action
 				$contactoDao = new App_Dao_ContactoDao();
 				$contactoDao->guardar($contacto);				
 				
-				$this->_helper->redirector('index');
+				$this->_redirect('/user/index');
 				return;
 			}
 		}
@@ -101,7 +101,7 @@ class ContactoController extends Zend_Controller_Action
 		
     }
 
-    public function editarAction()            
+    public function editarAction()
     {
         $id = $this->_getParam('id');
         if(empty($id))
@@ -169,8 +169,7 @@ class ContactoController extends Zend_Controller_Action
             $form->populate($contacto->toArray());
             $this->view->form = $form;
             
-        }
-    
+    }
 
     public function eliminarAction()
     {
@@ -187,8 +186,38 @@ class ContactoController extends Zend_Controller_Action
         return;// action body
     }
 
+    public function fotoAction()
+    {
+        $id = $this->_getParam('id', '');
+		$this->view->id = $id;
+		if ($this->getRequest()->isPost()) {
+			Zend_Debug::dump($_POST);
+			if (empty($_POST['imageUrl'])) {
+				$this->view->message = 'Debe de seleccionar una imagen.';
+				return;
+			}
+
+			$contactoDao = new App_Dao_ContactoDao();
+			$contacto = $contactoDao->getContactoPorId($id);
+			
+			$contacto->setFoto($_POST['imageUrl']);
+			
+			//$book->setCover($_POST['imageUrl']);
+			//$book->setLastModified(date_create(date('Y-m-d H:m:s')));
+			
+			$contactoDao->guardar($contacto);
+			//$entityManager->persist($book);
+			//$entityManager->flush();
+
+			$this->_flashMessenger->addMessage('Imagen de portada de libro guardada.');
+			$this->_helper->redirector('index');
+		}
+    }
+
 
 }
+
+
 
 
 

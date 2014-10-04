@@ -6,6 +6,7 @@ class App_Form_ContactoForm extends Zend_Form
 		//parent::__construct();
 		
 		$this->setMethod('POST');
+		$this->setEnctype('multipart/form-data');
 		
 		$nombres = new Zend_Form_Element_Text('_nombres');
 		$nombres = $this->createElement('text', '_nombres');
@@ -76,21 +77,22 @@ class App_Form_ContactoForm extends Zend_Form
 		
 		$foto = new Zend_Form_Element_File("_foto");
                 $foto->setLabel("Ruta de la Foto")->setRequired(false);
+				
                 //$foto->setAttrib('multiple', true);
 				//$foto->isArray(true);
                 //$foto->addValidator('Size', false, 1024000);
-                //$foto->addValidator('Extension', false, 'jpg,png,jpeg');
-                //$foto->addValidator('MimeType', false, 'image/png, image/jpg, image/jpeg');
+                $foto->addValidator('Extension', false, 'jpg,png,jpeg');
+                $foto->addValidator('MimeType', false, 'image/png, image/jpg, image/jpeg');
                 //$foto->addValidator('Count', false, array('min' => 0, 'max' => 4));
                 
 		//$foto->setDestination(APPLICATION_PATH ."C:\xampp\htdocs\agenda\upload"); 
                 
 		
-		$submit = new Zend_Form_Element_Submit('submit', array('label' => 'Enviar'));
+		$submit = new Zend_Form_Element_Submit('submit', array('label' => 'Guardar'));
 		
 		$this->addElements(array($departamento, $nombres, $apellidos, $celular, 
 								$fijo, $trabajo, $especialidad, $subespecialidad, 
-								$email, $direccion, $foto, $submit));
+								$email, $direccion, $submit));
 	}
 }
 

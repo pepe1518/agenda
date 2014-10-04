@@ -1,0 +1,38 @@
+<div id="content_left">
+<?php
+	echo $this->menuDepartamentos();
+        echo $this->menuForm();
+?>	
+</div>
+<div id="content_right">
+<h1>Subir Imagen del Contacto</h1>
+<form action='<?php echo $this->baseUrl(); ?>/contacto/foto/id/<?php echo $this->id; ?>' method='post' enctype='multipart/form-data' >
+	<table>
+		<tr>
+			<td>
+				<input type="hidden" name="MAX_FILE_SIZE" value="500000" />
+				<input type='file' id='chooser' name='chooser' >
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img name='resizedImage' id='resizedImage' />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type='hidden' name='imageUrl' id='imageUrl' value=''/>
+				<input type='submit' value='Guardar'/>
+			</td>
+		</tr>
+		<tr>
+			<td id='message'>
+				<?php echo $this->message; ?>
+			</td>
+		</tr>
+	</table>
+</form>
+</div>
+<div class="cleaner_with_height">
+	&nbsp;
+</div>
