@@ -32,13 +32,23 @@
 		<th>Nombre</th>
 		<th>Telefono</th>
 		<th>Encargado</th>
+<?php if (Zend_Auth::getInstance()->getIdentity())  {?>			
 		<th>Acciones</th>
+<?php } ?>
 	</tr>
 	<?php foreach($this->entidades as $entidad) { ?>
 	<tr>
-		<td><?php echo $entidad->getNombre(); ?></td>
+		<td>
+			<a href='<?php echo $this->url(
+					array(
+						'controller' => 'entidad',
+						'action'     => 'ver',
+						'id'     => $entidad->getId(),
+					), 'default', true) ?>'><?php echo $entidad->getNombre();?></a>
+		</td>
 		<td><?php echo $entidad->getTelefono()->getNumero(); ?></td>
 		<td><?php echo $entidad->getEncargado(); ?></td>
+<?php if (Zend_Auth::getInstance()->getIdentity())  {?>	                
                 <td>
                     <a href='<?php echo $this->url(
 					array(
@@ -53,6 +63,7 @@
 						'id'     => $entidad->getId(),
 					), 'default', true) ?>'>Eliminar</a>
                 </td>
+    <?php } ?>
 	</tr>		
 	<?php } //fin del foreach ?>	
 </table>

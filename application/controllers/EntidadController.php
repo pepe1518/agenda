@@ -87,6 +87,7 @@ class EntidadController extends Zend_Controller_Action
     {
         // action body
     }
+
     public function eliminarAction()
     {
         $id = $this->_getParam('id');
@@ -101,12 +102,20 @@ class EntidadController extends Zend_Controller_Action
         $this->_helper->redirector('index');
         return;// action body
     }
+
     public function listaAction()
+    {
+        // action body
+    }
+
+    public function verAction()
     {
         // action body
     }
 
 
 }
+
+
 
 

@@ -41,6 +41,7 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="agregar"/>
           <actionMethod actionName="lista"/>
+          <actionMethod actionName="ver"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -135,6 +136,9 @@
           <viewControllerScriptsDirectory forControllerName="Contacto">
             <viewScriptFile forActionName="foto"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Entidad">
+            <viewScriptFile forActionName="ver"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -202,6 +206,7 @@
             <testApplicationActionMethod forActionName="index"/>
             <testApplicationActionMethod forActionName="agregar"/>
             <testApplicationActionMethod forActionName="lista"/>
+            <testApplicationActionMethod forActionName="ver"/>
           </testApplicationControllerFile>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>
