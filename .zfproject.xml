@@ -10,12 +10,16 @@
         <controllerFile controllerName="Index">
           <actionMethod actionName="index"/>
           <actionMethod actionName="login"/>
+          <actionMethod actionName="cuenta"/>
+          <actionMethod actionName="about"/>
+          <actionMethod actionName="contactame"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="User">
           <actionMethod actionName="index"/>
           <actionMethod actionName="logout"/>
           <actionMethod actionName="agregar"/>
+          <actionMethod actionName="about"/>
         </controllerFile>
         <controllerFile controllerName="Contacto">
           <actionMethod actionName="index"/>
@@ -115,6 +119,18 @@
           <viewControllerScriptsDirectory forControllerName="Index">
             <viewScriptFile forActionName="login"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="cuenta"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="about"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="about"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="contactame"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -152,11 +168,15 @@
           <testApplicationControllerFile forControllerName="Index">
             <testApplicationActionMethod forActionName="index"/>
             <testApplicationActionMethod forActionName="login"/>
+            <testApplicationActionMethod forActionName="cuenta"/>
+            <testApplicationActionMethod forActionName="about"/>
+            <testApplicationActionMethod forActionName="contactame"/>
           </testApplicationControllerFile>
           <testApplicationControllerFile forControllerName="User">
             <testApplicationActionMethod forActionName="index"/>
             <testApplicationActionMethod forActionName="logout"/>
             <testApplicationActionMethod forActionName="agregar"/>
+            <testApplicationActionMethod forActionName="about"/>
           </testApplicationControllerFile>
           <testApplicationControllerFile forControllerName="Contacto">
             <testApplicationActionMethod forActionName="index"/>

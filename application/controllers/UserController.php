@@ -15,6 +15,7 @@ class UserController extends Zend_Controller_Action
 	
 		
     }
+
     public function agregarAction()
     {
 		//$id = Zend_Auth::getInstance()->getIdentity()->getId();
@@ -49,10 +50,15 @@ class UserController extends Zend_Controller_Action
 		$this->_redirect();
     }
 
-   
+    public function aboutAction()
+    {
+        // action body
+    }
 
 
 }
+
+
 
 
 
