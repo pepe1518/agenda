@@ -81,8 +81,7 @@ img {
 #container {
 	width: 960px;
 	margin: 0 auto;
-	padding: 0 10px;
-	background: #ffffff url(../images/bg.jpg) repeat-y;
+	padding: 0 10px;	
         border: 1px solid #cccc33;
 }
 
@@ -90,9 +89,12 @@ img {
 
 #before-header {
 	width: 960px;
-	height: 0px;
+	height: 33px;
 	background: url(../images/menu_bg.jpg) no-repeat;
+        /*border: 1px solid #cccc33;*/
         border: 1px solid #cccc33;
+        color: #2f5b86;
+	font-weight: normal;
 }
 
 #menu {
@@ -118,11 +120,11 @@ img {
 	font-weight: bold;
 	text-align: center;
 	text-decoration: none;
-	color: #336666; /*verde pavcai oscuro */
+	color: #2f5b86; 
 }
 
 #menu li a:hover, #menu li .current {
-	color: #e21a1a;  /*no se usa*/
+	color: #ffffff;  
 }
 
 /* end of menu*/
@@ -173,7 +175,7 @@ img {
         margin-left: 30px;
 	clear: both;
 	width: 960px;
-	height: 150px;
+	height: 200px;
 	padding: 0;
 	margin: 0;
 	background: url(../images/header_bg.jpg) no-repeat;

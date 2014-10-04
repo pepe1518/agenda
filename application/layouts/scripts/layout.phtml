@@ -35,28 +35,40 @@ $order = unserialize($session->cart);
 	
             
 		<div id="container">
-                    
-			<div id="before-header">
-                            
-				
-                      <div id="header">
+                    <div id="header">
 				<div id="main_logo">
 					
-				</div>
-				
-			
-
-			</div>
-                          <div id="menu">
+				</div>	
+                    </div>
+			<div id="before-header">
+                            <div id="menu">
 					<ul>
 						<li>
-							<a class="current"></a>
-                                                        
+							<a href="<?php echo $this->baseUrl() . "/index"; ?>" class="current">Inicio</a>
 						</li>
-						
+						<li>
+							<a href="<?php echo $this->baseUrl(); ?>/index/services">Quienes Somos</a>
+						</li>
+						<li>
+							<a href="<?php echo $this->baseUrl(); ?>/index/about">Contacto</a>
+						</li>
+                                                <li>
+							<a href="<?php echo $this->baseUrl(); ?>/index/login">Login</a>
+						</li>
+						<li>
+							<a href="<?php echo $this->baseUrl(); ?>/index/contacto">Mi Cuenta</a>
+						</li><li>
+							<a href="<?php echo $this->baseUrl(); ?>/index/contacto">Salir</a>
+						</li>
 					</ul>
 					
 				</div>
+                        </div> 
+				
+                      
+                    
+                   
+                          
 			<!-- end of header -->
 
 			<div id="content">
