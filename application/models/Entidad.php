@@ -59,6 +59,12 @@ class App_Model_Entidad
 	*/
 	private $_foto;
 	
+	/**
+	 *@ManyToOne(targetEntity="App_Model_Especialidad")
+	 * @JoinColumn(name="especialidad_id", referencedColumnName="id") 
+	 */
+	 private $_especialidad;
+	
 	public function getId() {
 		return $this->_id;
 	}
@@ -98,5 +104,12 @@ class App_Model_Entidad
 	public function setTelefono(App_Model_Telefono $telefono) {
 		$this->_telefono = $telefono;
 	}
+	public function setEspecialidad(App_Model_Especialidad $especialidad) {
+		$this->_especialidad = $especialidad;
+	}
+	public function getEspecialidad() {
+		return $this->_subespecialidad;
+	}
+
 }
 

@@ -19,7 +19,7 @@ class IndexController extends Zend_Controller_Action
 		if ($this->getRequest()->isPost()) {
 			if ($form->isValid($_POST)) {
 				$nombreUsuario = $form->getValue("_usuario");
-				$password = $form->getValue("_contrasenia");
+				$password = md5($form->getValue("_contrasenia"));
 
 				$authAdapter = new Zend_Auth_Adapter_DbTable(Zend_Db_Table::getDefaultAdapter(), 'user', 'usuario', 'contrasenia');
 				$authAdapter->setIdentityColumn('usuario')->setCredentialColumn('contrasenia');

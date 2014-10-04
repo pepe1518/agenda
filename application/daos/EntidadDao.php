@@ -21,9 +21,9 @@ class App_Dao_EntidadDao {
 		return $this->_entityManager->find("App_Model_Entidad", $id);
 	}
 	
-	public function getAllLimitOffset($limit, $offset, $id)
+	public function getAllLimitOffset($limit, $offset, $idCategoria, $idDepartamento, $idEspecialidad)
 	{
-		$query = $this->_entityManager->createQuery("SELECT e FROM App_Model_Entidad e JOIN e._categoria c WHERE c._id='".$id."'")
+		$query = $this->_entityManager->createQuery("SELECT e FROM App_Model_Entidad e WHERE e._categoria = '". $idCategoria ."' AND e._departamento = '". $idDepartamento ."' AND e._especialidad = '". $idEspecialidad ."'")
 								->setFirstResult($offset)
 								->setMaxResults($limit);
 		
