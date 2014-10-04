@@ -39,8 +39,8 @@ class EntidadController extends Zend_Controller_Action
     {
        //$delma = $this->_getParam('delma');
        //$ceci = $this->_getParam('ceci');
-	   $departamento = $this->_getParam('departamento');
-	   Zend_Debug::dump($departamento);
+	   $idDepartamento = $this->_getParam('departamento');
+	   //Zend_Debug::dump($departamento);
        //echo "hola delma soy tuyo atte:". $delma;
        //echo "</br>";
        //echo "hola ceci soy tuyo atte:". $ceci;
@@ -54,12 +54,16 @@ class EntidadController extends Zend_Controller_Action
 				
 				$departamentoDao = new App_Dao_DepartamentoDao();
 				
-				$depa = $departamentoDao->getDepartamentoPorId($departamento);
+				$depa = $departamentoDao->getDepartamentoPorId($idDepartamento);
+				
+				$especialidadDao = new App_Dao_EspecialidadDao();
+				$especialidad = $especialidadDao->getEspecialidadPorId($formData['_especialidad']);
 				
 				$telefono = new App_Model_Telefono($formData['_telefono']);
 				
 				$entidad = new App_Model_Entidad();
 				$entidad->setNombre($formData['_nombre']);
+				$entidad->setEspecialidad($especialidad);
 				$entidad->setCategoria($categoria);
 				$entidad->setDireccion($formData['_direccion']);
 				$entidad->setTelefono($telefono);

@@ -1,7 +1,6 @@
 <div id="content_left">
 <?php
 	echo $this->menuDepartamentos();
-        echo $this->menuForm();
 ?>	
 </div>
 <div id="content_right">
@@ -18,15 +17,16 @@
   </select>
   <input type="submit" value="Buscar" />
 </form>
-	
+<?php if (Zend_Auth::getInstance()->getIdentity())  {?>		
 <p><a href="<?php echo $this->url(
 					array(
 						'controller' => 'entidad',
 						'action'     => 'agregar',
 						'id'     => $this->categoria->getId(),
-                       'departamento'=>$this->idDepartamento,
+                       'departamento'=>$this->departamento->getId(),
 
 					), 'default', true) ?>">Nuevo</a></p>
+<?php } //end conditional auth ?>
 <table id="order_detail_table">
 	<tr>
 		<th>Nombre</th>

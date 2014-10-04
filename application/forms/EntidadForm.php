@@ -22,6 +22,16 @@ class App_Form_EntidadForm extends Zend_Form
 		$direccion->setLabel('Direccion:');
 		$direccion->setRequired(FALSE);
 		
+		$especialidadDao = new App_Dao_EspecialidadDao();
+		$especialidades = $especialidadDao->getTodos();
+		
+		$especialidad = new Zend_Form_Element_Select('_especialidad');
+		$especialidad->setLabel('Especialidad:');
+		foreach($especialidades as $data){
+			//if($data->getTipo == App_Model_Especialidad::ESPECIALIDAD)	
+				$especialidad->addMultiOption($data->getId(), $data->getNombre());
+		}
+		
 		$telefono = new Zend_Form_Element_Text('_telefono');
 		$telefono->setLabel('Telefono:*');
 		$telefono->addValidator(new Zend_Validate_Digits());
@@ -32,7 +42,7 @@ class App_Form_EntidadForm extends Zend_Form
     	
     	$submit = new Zend_Form_Element_Submit('submit', array('label' => 'Enviar'));
 		
-		$this->addElements(array($nombre, $telefono, $encargado, $direccion, $foto, $submit));
+		$this->addElements(array($nombre, $especialidad, $telefono, $encargado, $direccion, $foto, $submit));
 	}
 }
 
