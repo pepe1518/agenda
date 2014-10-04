@@ -55,7 +55,7 @@ class App_Model_Contacto
 	/**
 	* @var blob
 	* 
-	* @Column(name="foto", type="string", nullable=true)
+	* @Column(name="foto", type="blob", nullable=true)
 	*/
 	private $_foto;
 		  
