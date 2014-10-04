@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_UserForm extends Zend_Form
+class App_Form_UserForm extends Zend_Form
 {
 
     public function init()
@@ -26,9 +26,10 @@ class Application_Form_UserForm extends Zend_Form
         $apellidos = new Zend_Form_Element_Text('_apellido');
 	$apellidos->setLabel('Apellidos:*');
 	$apellidos->setRequired(true);
-                
+     
+	 $submit = new Zend_Form_Element_Submit('submit', array('label' => 'Guargar'));           
         	
-        $this->addElements(array( $usuario, $contrasenia, $nombres, $apellidos));
+        $this->addElements(array( $usuario, $contrasenia, $nombres, $apellidos, $submit));
         
         
         

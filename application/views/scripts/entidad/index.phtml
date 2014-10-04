@@ -5,7 +5,20 @@
 ?>	
 </div>
 <div id="content_right">
-<h1>Mis Instituciones - Categoria <?php if($this->entidades){ echo $this->categoria->getNombre();} ?></h1>
+<h1>Mis Instituciones de <?php echo $this->departamento->getNombre() ?> - Categoria <?php  echo $this->categoria->getNombre(); ?></h1>
+<form method="post">
+  <label>Mostrar Contactos por:</label>
+  <select name="especialidad">
+  	<?php $especialidadDao = new App_Dao_EspecialidadDao();
+  	foreach($especialidadDao->getTodos() as $especialidad) { ?>
+  		<option value="<?php echo $especialidad->getId() ?>">
+  			<?php echo $especialidad->getNombre(); ?>
+  		</option>
+  		<?php } //end foreach ?>
+  </select>
+  <input type="submit" value="Buscar" />
+</form>
+	
 <p><a href="<?php echo $this->url(
 					array(
 						'controller' => 'entidad',

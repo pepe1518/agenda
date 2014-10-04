@@ -11,21 +11,25 @@ class EntidadController extends Zend_Controller_Action
     public function indexAction()
     {
         $idCategoria = $this->_getParam('id', ' ');
-        $departamento = $this->_getParam('departamento', ' ');
+       $idDepartamento = $this->_getParam('departamento');
+	   $idEspecialidad = $this->_getParam('especialidad', '');
+	   
+	   
         //manda a la vista la variable  departamento
         //mapeo de la var  departamento
-        //var_dump($departamento);
-        $this->view->idDepartamento = $departamento;
+		$departamentoDao = new App_Dao_DepartamentoDao();
+		//Zend_Debug::dump($departamentoDao->getDepartamentoPorId($idDepartamento)); die;
+		$this->view->departamento = $departamentoDao->getDepartamentoPorId($idDepartamento);
 		if($idCategoria) {
 			$categoriaDao = new App_Dao_CategoriaDao();
             $departamentoDao = new App_Dao_DepartamentoDao();
 			$this->view->categoria = $categoriaDao->getCategoriaPorId($idCategoria);
-            $this->view->departamento = $departamentoDao->getDepartamentoPorId($departamento);
+            //$this->view->departamento = $departamentoDao->getDepartamentoPorId($departamento);
 			
 			$page = $this->_getParam('page', 1);
 			$entidadDao = new App_Dao_EntidadDao();
 			$paginador = new App_Util_Paginator($this->getRequest()->getBaseUrl(). '/entidad/index', $entidadDao->contarTodos(), $page);
-			$this->view->entidades = $entidadDao->getAllLimitOffset($paginador->getLimit(), $paginador->getOffset(), $idCategoria);
+			$this->view->entidades = $entidadDao->getAllLimitOffset($paginador->getLimit(), $paginador->getOffset(), $idCategoria, $idDepartamento, $idEspecialidad);
 			$this->view->htmlPaginator = $paginador->showHtmlPaginator();
 		}
  	

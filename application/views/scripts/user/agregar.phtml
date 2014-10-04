@@ -1,9 +1,15 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>User</b> and script/action name <b>agregar</b></p>
-</div>
 <div id="content_left">
 <?php
-	echo $this->menuForm();
-?>		
+        echo $this->menuForm();
+	echo $this->menuDepartamentos();
+?>	
+    
+</div>
+<div id="content_right">
+<h2>Registro de un Nuevo Usuario</h2>
+
+<?php echo $this->form; ?>
+</div>
+<div class="cleaner_with_height">
+	&nbsp;
 </div>

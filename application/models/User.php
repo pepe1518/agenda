@@ -37,7 +37,7 @@ class App_Model_User
 	 /**
 	  * @var string
 	  * 
-	  * @Column(name="rol", type="string", length=100, nullable=false)
+	  * @Column(name="rol", type="string", length=100, nullable=true)
 	  */
 	 private $_rol;
 	 
@@ -51,7 +51,7 @@ class App_Model_User
 	  /**
 	   * @var string
 	   * 
-	   * @column(name="contrasenia", type="string", length=100, nullable=false)
+	   * @column(name="contrasenia", type="string", length=300, nullable=false)
 	   */
 	   private $_contrasenia;
 	   
@@ -86,7 +86,7 @@ class App_Model_User
 		return $this->_contrasenia;
 	}
 	public function setContrasenia($contrasenia) {
-		$this->_contrasenia = $contrasenia;
+		$this->_contrasenia = md5($contrasenia);
 	}
 	
 	public function toArray() {
