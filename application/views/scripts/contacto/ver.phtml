@@ -16,14 +16,14 @@
 	<h2>DATOS DEL CONTACTO </h2>	
 		
 		<br/>
-		<div id="image_panel">
-                    <div id="image_panel img"
+		<div>
+                    <div id="image_panel img">
 						<?php if ($this->contacto->getFoto() != NULL) { ?>
-							<img src="<?php echo stream_get_contents($this->contacto->getFoto()); ?>" alt="image" />
+							<img src="<?php echo stream_get_contents($this->contacto->getFoto()) ?>" />
 						<?php } else { ?>
 							<img src="<?php echo $this->baseUrl() . "/images/no_cover.jpg"; ?>" alt="image" />
 						<?php }?>
-						<img src="<?php echo $this->baseUrl() . "/images/no_cover.jpg"; ?>" alt="image" />
+						
 					</div>
 		</div>		
 <div id="detalle_acerca">

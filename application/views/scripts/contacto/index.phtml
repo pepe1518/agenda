@@ -41,7 +41,7 @@
 		foreach($this->dataList as $contacto) {
 	?>
 	<tr>
-		<td><img src="<?php echo stream_get_contents($contacto->getFoto()); ?>" /></td>
+		<td><img src="<?php echo stream_get_contents($contacto->getFoto()); ?>" width="60"/></td>
 		<td>
 			<a href='<?php echo $this->url(
 					array(
@@ -64,15 +64,15 @@
    <?php if (Zend_Auth::getInstance()->getIdentity())  {?>
                 
 		<td>
-			<?php if(!$contacto->getFoto()) {?>
+			
 			<a href='<?php echo $this->url(
 					array(
 						'controller' => 'contacto',
 						'action'     => 'foto',
 						'id'     => $contacto->getId(),
-					), 'default', true) ?>'>Subir Foto</a>
+					), 'default', true) ?>'><?php echo $contacto->getFoto()?"Modificar Foto":"Subir Foto"; ?></a>
 				
-			<?php }//fin de if ?>
+
 			<a href='<?php echo $this->url(
 					array(
 						'controller' => 'contacto',

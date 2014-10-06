@@ -210,7 +210,7 @@ class ContactoController extends Zend_Controller_Action
 			//$entityManager->flush();
 
 			//$this->_flashMessenger->addMessage('Imagen de portada de libro guardada.');
-			$this->_helper->redirector('index');
+			$this->_redirect('/user/index');
 		}
     }
 
