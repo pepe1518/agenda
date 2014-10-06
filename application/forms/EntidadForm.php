@@ -42,7 +42,7 @@ class App_Form_EntidadForm extends Zend_Form
     	
     	$submit = new Zend_Form_Element_Submit('submit', array('label' => 'Enviar'));
 		
-		$this->addElements(array($nombre, $especialidad, $telefono, $encargado, $direccion, $foto, $submit));
+		$this->addElements(array($nombre, $especialidad, $telefono, $encargado, $direccion,  $submit));
 	}
 }
 

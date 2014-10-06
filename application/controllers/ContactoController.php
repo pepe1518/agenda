@@ -130,9 +130,13 @@ class ContactoController extends Zend_Controller_Action
 		$especialidad = $especialidadDao->getEspecialidadPorId($formData['_especialidad']);
 				
 		//$contacto = new App_Model_Contacto();
-		$contacto->agregarTelefono($telefonoCelular);
-		$contacto->agregarTelefono($telefonoFijo);
-		$contacto->agregarTelefono($telefonoTrabajo);
+		//$contacto->agregarTelefono($telefonoCelular);
+		//$contacto->agregarTelefono($telefonoFijo);
+		//$contacto->agregarTelefono($telefonoTrabajo);
+		$contacto->agregarTelefonoPorIndex($telefonoCelular, 1);
+		$contacto->agregarTelefonoPorIndex($telefonoFijo, 2);
+		$contacto->agregarTelefonoPorIndex($telefonoTrabajo, 3);
+		$contacto->setTelefonos($telefonos);
 		$contacto->setDepartamento($departamento);
 		$contacto->setNombres($formData['_nombres']);
 		$contacto->setApellidos($formData['_apellidos']);
@@ -150,7 +154,7 @@ class ContactoController extends Zend_Controller_Action
                 
                 $contactoDao->guardar($contacto);
                 //$contactoDao->editar($contacto,$id);
-                $this->_helper->redirector('index');
+               $this->_redirect('/user/index');
                 return;
             }
             else 
@@ -158,7 +162,7 @@ class ContactoController extends Zend_Controller_Action
             }else{
                 $id = $this->_getParam('id');
                 if (empty($id)) {
-                    $this->_helper->redirector('index');
+                    $this->_redirect('/user/index');
                     return;
                 } else
                 $form = new App_Form_ContactoForm(); 
@@ -182,7 +186,7 @@ class ContactoController extends Zend_Controller_Action
         $contacto = $contactoDao->getContactoPorId($id);
         if(!empty($contacto))
         $contactoDao->eliminar($contacto);
-        $this->_helper->redirector('index');
+        $this->_redirect('/user/index');
         return;// action body
     }
 

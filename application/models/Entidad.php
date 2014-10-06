@@ -119,6 +119,13 @@ class App_Model_Entidad
 	public function getEspecialidad() {
 		return $this->_subespecialidad;
 	}
+	
+	public function setFoto($foto) {
+		$this->_foto = $foto;
+	}
+	public function getFoto() {
+		return $this->_foto;
+	}
 
 }
 

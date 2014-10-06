@@ -93,6 +93,11 @@ class App_Model_Contacto
     	$telefono->setContacto($this);
 		$this->_telefonos[] = $telefono;    		   		
 	}
+	public function agregarTelefonoPorIndex(App_Model_Telefono $telefono, $id) {
+		$telefono->setContacto($this);
+		$this->_telefonos[$id] = $telefono;
+		
+	}
 	public function getId() {
 		return $this->_id;
 	} 
@@ -113,6 +118,9 @@ class App_Model_Contacto
 	}
 	public function getTelefonos() {
 		return $this->_telefonos;
+	}
+	public function setTelefonos( $telefonos) {
+		$this->_telefonos = $telefonos;
 	}
 	public function setEmail($email) {
 		$this->_email = $email;

@@ -113,8 +113,40 @@ class EntidadController extends Zend_Controller_Action
         // action body
     }
 
+    public function fotoAction()
+    {
+        $id = $this->_getParam('id', '');
+		$this->view->id = $id;
+		if ($this->getRequest()->isPost()) {
+			//Zend_Debug::dump($_POST);
+			if (empty($_POST['imageUrl'])) {
+				$this->view->message = 'Debe de seleccionar una imagen.';
+				return;
+			}
+
+			$contactoDao = new App_Dao_EntidadDao();
+			$contacto = $contactoDao->getEntidadPorId($id);
+			
+			//Zend_Debug::dump($contacto); die;
+			
+			$contacto->setFoto($_POST['imageUrl']);
+			
+			//$book->setCover($_POST['imageUrl']);
+			//$book->setLastModified(date_create(date('Y-m-d H:m:s')));
+			
+			$contactoDao->guardar($contacto);
+			//$entityManager->persist($book);
+			//$entityManager->flush();
+
+			//$this->_flashMessenger->addMessage('Imagen de portada de libro guardada.');
+			$this->_redirect('/user/index');
+		}
+    }
+
 
 }
+
+
 
 
 

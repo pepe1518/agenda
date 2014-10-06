@@ -70,7 +70,7 @@
 						'controller' => 'contacto',
 						'action'     => 'foto',
 						'id'     => $contacto->getId(),
-					), 'default', true) ?>'><?php echo $contacto->getFoto()?"Modificar Foto":"Subir Foto"; ?></a>
+					), 'default', true); echo "'>";?><?php echo $contacto->getFoto()?"Modificar Foto":"Subir Foto"; ?></a>
 				
 
 			<a href='<?php echo $this->url(

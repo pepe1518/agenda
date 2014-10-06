@@ -29,6 +29,7 @@
 <?php } //end conditional auth ?>
 <table id="order_detail_table">
 	<tr>
+		<th>&nbsp;</th>
 		<th>Nombre</th>
 		<th>Telefono</th>
 		<th>Encargado</th>
@@ -38,6 +39,7 @@
 	</tr>
 	<?php foreach($this->entidades as $entidad) { ?>
 	<tr>
+		<td><img src="<?php echo stream_get_contents($entidad->getFoto()); ?>" width="60"/></td>
 		<td>
 			<a href='<?php echo $this->url(
 					array(
@@ -50,6 +52,12 @@
 		<td><?php echo $entidad->getEncargado(); ?></td>
 <?php if (Zend_Auth::getInstance()->getIdentity())  {?>	                
                 <td>
+                    <a href="<?php echo $this->url(
+					array(
+						'controller' => 'entidad',
+						'action'     => 'foto',
+						'id'     => $entidad->getId(),
+					), 'default', true);?>"><?php echo $entidad->getFoto()?"Modificar Foto":"Subir Foto"; ?></a>
                     <a href='<?php echo $this->url(
 					array(
 						'controller' => 'entidad',
