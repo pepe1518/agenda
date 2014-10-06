@@ -53,8 +53,7 @@ class EspecialidadController extends Zend_Controller_Action
 					$especialidad->setDescription($formData['_descripcion']);
 				}*/
 				
-		$especialidadDao = new App_Dao_EspecialidadDao();
-		$especialidadDao->guardar($especialidad);
+		$especialidadDao = new App_Dao_EspecialidadDao();		$especialidadDao->guardar($especialidad);
 		$this->_helper->redirector('index');
 		return;
 			
