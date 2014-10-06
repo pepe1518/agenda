@@ -191,7 +191,7 @@ class ContactoController extends Zend_Controller_Action
         $id = $this->_getParam('id', '');
 		$this->view->id = $id;
 		if ($this->getRequest()->isPost()) {
-			Zend_Debug::dump($_POST);
+			//Zend_Debug::dump($_POST);
 			if (empty($_POST['imageUrl'])) {
 				$this->view->message = 'Debe de seleccionar una imagen.';
 				return;
@@ -209,21 +209,10 @@ class ContactoController extends Zend_Controller_Action
 			//$entityManager->persist($book);
 			//$entityManager->flush();
 
-			$this->_flashMessenger->addMessage('Imagen de portada de libro guardada.');
+			//$this->_flashMessenger->addMessage('Imagen de portada de libro guardada.');
 			$this->_helper->redirector('index');
 		}
     }
 
 
 }
-
-
-
-
-
-
-
-
-
-
-

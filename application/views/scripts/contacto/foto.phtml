@@ -1,3 +1,76 @@
+<script language="JavaScript" type="text/javascript">
+	$(document).ready(function() {
+		$('#chooser').change(function() {
+
+			if (!window.File && !window.FileList) {
+				return;
+			}
+
+			var files = $(this).prop("files")
+			var file = files[0];
+
+			if (!(/image/i ).test(file.type)) {
+				$('#message').html('Debe de seleccionar un archivo tipo imagen solamente.');
+				return;
+			}
+
+			// read the files
+			var reader = new FileReader();
+			reader.readAsArrayBuffer(file);
+
+			reader.onload = function(event) {
+				// blob stuff
+				var blob = new Blob([event.target.result]);
+				// create blob...
+				window.URL = window.URL || window.webkitURL;
+				var blobURL = window.URL.createObjectURL(blob);
+				// and get it's URL
+
+				// helper Image object
+				var image = new Image();
+				image.src = blobURL;
+
+				image.onload = function() {
+					var result = resizeMe(image);
+					$('#resizedImage').attr('src', result);
+					$('#imageUrl').val(result);
+				}
+			};
+		});
+
+	});
+
+	function resizeMe(img) {
+		var max_width = 200;
+		var max_height = 200;
+
+		var width = img.width;
+		var height = img.height;
+
+		// Calculate the width and height, constraining the proportions
+		if (width > height) {
+			if (width > max_width) {
+				height = Math.round(height *= max_width / width);
+				width = max_width;
+			}
+		} else {
+			if (height > max_height) {
+				width = Math.round(width *= max_height / height);
+				height = max_height;
+			}
+		}
+
+		var canvas = document.createElement('canvas');
+		// Resize the canvas and draw the image data into it
+		canvas.width = width;
+		canvas.height = height;
+		var ctx = canvas.getContext("2d");
+		ctx.drawImage(img, 0, 0, width, height);
+
+		return canvas.toDataURL("image/jpeg", 0.7);
+
+	}
+</script>
 <div id="content_left">
 <?php
 	echo $this->menuDepartamentos();
