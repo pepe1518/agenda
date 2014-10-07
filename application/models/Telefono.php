@@ -45,11 +45,15 @@ class App_Model_Telefono
 	  	$this->setNumero($numero);
 	  }
 	  
+	  public function getId() {
+	  	return $this->_id;
+	  }
+	  
 	  public function getNumero() {
 	  	return $this->_numero;
 	  }
 	  
-	  private function setNumero($numero) {
+	  public function setNumero($numero) {
 	  	$this->_numero = $numero;
 	  }
 	  

@@ -133,9 +133,28 @@ class ContactoController extends Zend_Controller_Action
 		//$contacto->agregarTelefono($telefonoCelular);
 		//$contacto->agregarTelefono($telefonoFijo);
 		//$contacto->agregarTelefono($telefonoTrabajo);
-		$contacto->agregarTelefonoPorIndex($telefonoCelular, 1);
-		$contacto->agregarTelefonoPorIndex($telefonoFijo, 2);
-		$contacto->agregarTelefonoPorIndex($telefonoTrabajo, 3);
+		$fonos = $contacto->getTelefonos();
+		
+		$idFonoUno = $fonos[0]->getId();
+		$fonoDao1 = new App_Dao_TelefonoDao();
+		$fono1 = $fonoDao1->getTelefonoPorId($idFonoUno);
+		$fono1->setNumero($formData['_celular']);
+		$fonoDao1->guardar($fono1);
+		
+		$idFonoDos = $fonos[1]->getId();
+		$fonoDao2 = new App_Dao_TelefonoDao();
+		$fono2 = $fonoDao2->getTelefonoPorId($idFonoDos);
+		$fono2->setNumero($formData['_fijo']);
+		$fonoDao2->guardar($fono2);
+		
+		$idFonoTres = $fonos[2]->getId();
+		$fonoDao3 = new App_Dao_TelefonoDao();
+		$fono3 = $fonoDao3->getTelefonoPorId($idFonoTres);
+		$fono3->setNumero($formData['_trabajo']);
+		$fonoDao3->guardar($fono3);
+		//$contacto->agregarTelefonoPorIndex($telefonoCelular, 1);
+		//$contacto->agregarTelefonoPorIndex($telefonoFijo, 2);
+		//$contacto->agregarTelefonoPorIndex($telefonoTrabajo, 3);
 		$contacto->setTelefonos($telefonos);
 		$contacto->setDepartamento($departamento);
 		$contacto->setNombres($formData['_nombres']);
@@ -144,7 +163,7 @@ class ContactoController extends Zend_Controller_Action
 		$contacto->setEmail($formData['_email']);
 		$contacto->setDireccion($formData['_direccion']);
 				
-		$contacto->setFoto($formData['MAX_FILE_SIZE']);				
+		//$contacto->setFoto($formData['MAX_FILE_SIZE']);				
 		$fijoDao = new App_Dao_TelefonoDao();
 		$fijoDao->guardar($telefonoFijo);
 		$celDao = new App_Dao_TelefonoDao();
