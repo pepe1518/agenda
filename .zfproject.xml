@@ -143,6 +143,9 @@
           <viewControllerScriptsDirectory forControllerName="Entidad">
             <viewScriptFile forActionName="foto"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Entidad">
+            <viewScriptFile forActionName="editar"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
