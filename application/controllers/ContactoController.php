@@ -61,6 +61,9 @@ class ContactoController extends Zend_Controller_Action
 				$especialidadDao = new App_Dao_EspecialidadDao();
 				$especialidad = $especialidadDao->getEspecialidadPorId($formData['_especialidad']);
 				
+				$subEspecialidadDao = new App_Dao_EspecialidadDao();
+				$subEspecialidad = $subEspecialidadDao->getEspecialidadPorId($formData['_subespecialidad']);
+				
 				$contacto = new App_Model_Contacto();
 				$contacto->agregarTelefono($telefonoCelular);
 				$contacto->agregarTelefono($telefonoFijo);
@@ -69,6 +72,7 @@ class ContactoController extends Zend_Controller_Action
 				$contacto->setNombres($formData['_nombres']);
 				$contacto->setApellidos($formData['_apellidos']);
 				$contacto->setEspecialidad($especialidad);
+				$contacto->setSubespecialidad($subEspecialidad);
 				$contacto->setEmail($formData['_email']);
 				$contacto->setDireccion($formData['_direccion']);
 				//$contacto->setFoto(file_get_contents($formData['MAX_FILE_SIZE']));
@@ -84,7 +88,7 @@ class ContactoController extends Zend_Controller_Action
 				$contactoDao = new App_Dao_ContactoDao();
 				$contactoDao->guardar($contacto);				
 				
-				$this->_redirect('/user/index');
+				$this->_redirect('/contacto/index/departamento/'.$formData['_departamento']);
 				return;
 			}
 		}
@@ -128,14 +132,14 @@ class ContactoController extends Zend_Controller_Action
 		
 		$especialidadDao = new App_Dao_EspecialidadDao();
 		$especialidad = $especialidadDao->getEspecialidadPorId($formData['_especialidad']);
+		$subEspecialidadDao = new App_Dao_EspecialidadDao();
+		$subEspecialidad = $subEspecialidadDao->getEspecialidadPorId($formData['_subespecialidad']);
 				
 		//$contacto = new App_Model_Contacto();
 		//$contacto->agregarTelefono($telefonoCelular);
 		//$contacto->agregarTelefono($telefonoFijo);
 		//$contacto->agregarTelefono($telefonoTrabajo);
-<<<<<<< HEAD
-		
-=======
+
 		$fonos = $contacto->getTelefonos();
 		
 		$idFonoUno = $fonos[0]->getId();
@@ -159,11 +163,12 @@ class ContactoController extends Zend_Controller_Action
 		//$contacto->agregarTelefonoPorIndex($telefonoFijo, 2);
 		//$contacto->agregarTelefonoPorIndex($telefonoTrabajo, 3);
 		$contacto->setTelefonos($telefonos);
->>>>>>> 28e8fb226b5c693ad7e56b9f040ea78d854be9ef
+
 		$contacto->setDepartamento($departamento);
 		$contacto->setNombres($formData['_nombres']);
 		$contacto->setApellidos($formData['_apellidos']);
 		$contacto->setEspecialidad($especialidad);
+		$contacto->setSubEspecialidad($subEspecialidad);
 		$contacto->setEmail($formData['_email']);
 		$contacto->setDireccion($formData['_direccion']);
 				

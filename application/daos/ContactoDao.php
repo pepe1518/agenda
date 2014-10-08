@@ -64,13 +64,22 @@ return $this->render('MDWDemoBundle:Articulos:articulo.html.twig', array('articu
 		return $consulta->getSingleScalarResult();
 	}
 	
-	public function getAllLimitOffset($limit, $offset, $id, $idDepartamento)
+	public function getAllLimitOffset($limit, $offset, $id = 0, $idDepartamento)
 	{
+		if($id == 0) {
+			$query = $this->_entityManager->createQuery("SELECT c FROM App_Model_Contacto c WHERE c._departamento = '".$idDepartamento."'")
+								->setFirstResult($offset)
+								->setMaxResults($limit);
+		
+		return $query->getResult();
+		}
+		else {	
 		$query = $this->_entityManager->createQuery("SELECT c FROM App_Model_Contacto c WHERE c._especialidad ='".$id."' AND c._departamento = '".$idDepartamento."'")
 								->setFirstResult($offset)
 								->setMaxResults($limit);
 		
 		return $query->getResult();
+		}
 	}
 	
 }

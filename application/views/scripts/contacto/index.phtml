@@ -10,6 +10,7 @@
 <form method="post">
   <label>Mostrar Contactos por:</label>
   <select name="especialidad">
+  	<option value="0">Todos</option>
   	<?php $especialidadDao = new App_Dao_EspecialidadDao();
   	foreach($especialidadDao->getTodos() as $especialidad) { ?>
   		<option value="<?php echo $especialidad->getId() ?>">
