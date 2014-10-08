@@ -182,7 +182,7 @@ class ContactoController extends Zend_Controller_Action
                 
                 $contactoDao->guardar($contacto);
                 //$contactoDao->editar($contacto,$id);
-               $this->_redirect('/user/index');
+               $this->_redirect('/contacto/index/departamento/'.$formData['_departamento']);
                 return;
             }
             else 
@@ -190,7 +190,7 @@ class ContactoController extends Zend_Controller_Action
             }else{
                 $id = $this->_getParam('id');
                 if (empty($id)) {
-                    $this->_redirect('/user/index');
+                    $this->_redirect('/contacto/index/departamento/'.$formData['_departamento']);
                     return;
                 } else
                 $form = new App_Form_ContactoForm(); 
@@ -212,9 +212,10 @@ class ContactoController extends Zend_Controller_Action
         
         $contactoDao = new App_Dao_ContactoDao();
         $contacto = $contactoDao->getContactoPorId($id);
+		$depa = $contacto->getDepartamento();
         if(!empty($contacto))
         $contactoDao->eliminar($contacto);
-        $this->_redirect('/user/index');
+        $this->_redirect('/contacto/index/departamento/'.$depa->getId());
         return;// action body
     }
 
@@ -232,6 +233,8 @@ class ContactoController extends Zend_Controller_Action
 			$contactoDao = new App_Dao_ContactoDao();
 			$contacto = $contactoDao->getContactoPorId($id);
 			
+			$depa = $contacto->getDepartamento();
+			
 			$contacto->setFoto($_POST['imageUrl']);
 			
 			//$book->setCover($_POST['imageUrl']);
@@ -242,7 +245,8 @@ class ContactoController extends Zend_Controller_Action
 			//$entityManager->flush();
 
 			//$this->_flashMessenger->addMessage('Imagen de portada de libro guardada.');
-			$this->_redirect('/user/index');
+			$this->_redirect('/contacto/index/departamento/'.$depa->getId());
+			return;
 		}
     }
 
