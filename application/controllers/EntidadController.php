@@ -50,6 +50,7 @@ class EntidadController extends Zend_Controller_Action
 			if ($form->isValid($formData)) {
 				$idCategoria = $this->_getParam('id');
 				$categoriaDao = new App_Dao_CategoriaDao();
+				$this->view->idDepartamento = $idDepartamento;
 				$categoria = $categoriaDao->getCategoriaPorId($idCategoria);
 				
 				$departamentoDao = new App_Dao_DepartamentoDao();
@@ -110,7 +111,11 @@ class EntidadController extends Zend_Controller_Action
 
     public function verAction()
     {
-        // action body
+         $id = $this->_getParam('id');
+		
+		$entidadDao = new App_Dao_EntidadDao();
+		$entidad = $entidadDao->getEntidadPorId($id);
+		$this->view->entidad = $entidad;
     }
 
     public function fotoAction()

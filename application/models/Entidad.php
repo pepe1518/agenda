@@ -117,7 +117,7 @@ class App_Model_Entidad
 		$this->_ultimaModificacion = $date;
 	}
 	public function getEspecialidad() {
-		return $this->_subespecialidad;
+		return $this->_especialidad;
 	}
 	
 	public function setFoto($foto) {

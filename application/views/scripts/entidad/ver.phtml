@@ -1,4 +1,55 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Entidad</b> and script/action name <b>ver</b></p>
+<div id="content_left">
+<?php
+	echo $this->menuDepartamentos();
+?>	
+</div>
+<div id="content_right">
+ 	<?php
+			$entidad = $this->entidad;  
+			$entidad;
+			$depa = $entidad->getDepartamento();
+			$id = $entidad->getCategoria();			
+	?>	   
+<h1>Detalle</h1>
+<a href='<?php echo $this->url(	array(
+				'controller' => 'entidad',
+				'action'     => 'index',
+				'id'		=> $id->getId(),
+				'departamento'=> $depa->getId(),
+				), 'default', true) ?>'>Volver a mis entidades</a>
+<br />
+
+
+	<h2>DATOS DEL entidad </h2>	
+		
+		<br/>
+		<div>
+                    <div id="image_panel img">
+						<?php if ($this->entidad->getFoto() != NULL) { ?>
+							<img src="<?php echo stream_get_contents($entidad->getFoto()) ?>" />
+						<?php } else { ?>
+							<img src="<?php echo $this->baseUrl() . "/images/no_cover.jpg"; ?>" alt="image" />
+						<?php }?>
+						
+					</div>
+		</div>		
+<div id="detalle_acerca">
+						
+							<h2>Nombre:<?php  echo $this->entidad->getNombre()?></h2><br/>
+							<h2>Encargado: <?php echo $this->entidad->getCategoria()->getNombre() ?></h2><br/>
+							<div id="book_details">
+							<ul>
+							<br/>
+							Numero de telefono: <?php echo $this->entidad->getTelefono()->getNumero();?><br/> 
+							Especialidad: <?php echo $this->entidad->getEspecialidad()->getNombre(); ?><br/>
+							
+							Correo electronico: <?php //echo $this->entidad->getEmail();?><br/>     
+							Dirección: <?php echo $this->entidad->getDireccion();?><br/>
+							</ul>
+							</div>
+						
+					</div>
+</div>
+<div class="cleaner_with_height">
+	&nbsp;
 </div>

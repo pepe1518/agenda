@@ -50,7 +50,14 @@ class Zend_View_Helper_MenuAdmin extends Zend_View_Helper_Abstract
 		$html .= "<a href=\"". $this->view->baseUrl()."/categoria\">Categorias de mis Instituciones</a>";
 		$html .= "</li>";
 		$html .= "<li>";
-		$html .= "<a href=\"". $this->view->baseUrl()."/user\">Administración de mi Cuenta</a>";
+		$html .= "<a href=\"". $this->view->url(
+					array(
+						'controller' => 'user',
+						'action'     => 'agregar',
+					), 'default', true) ."\" >Agregar Usuario</a>";
+		$html .= "</li>";
+		$html .= "<li>";
+		$html .= "<a href=\"". $this->view->baseUrl()."/user\">Joise</a>";
 		$html .= "</li>";
 		$html .= "<li>";
 		$html .= "<a href=\"". $this->view->url(

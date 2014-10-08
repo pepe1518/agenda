@@ -17,7 +17,7 @@ class App_Form_LoginForm extends Zend_Form
         $signin->setLabel('Ingresar')
                 ->setIgnore(true);
 		
-		$baseUrlHelper = new Zend_View_Helper_BaseUrl();
+		/*$baseUrlHelper = new Zend_View_Helper_BaseUrl();
         $link = $baseUrlHelper->baseUrl('user/agregar');
   		$signin->setDescription('<a href="'.$link .'" >Nuevo</a>')
 			   ->setDecorators(array(
@@ -25,7 +25,7 @@ class App_Form_LoginForm extends Zend_Form
         			array('Description', array('escape' => false, 'tag' => false)),
         			array('HtmlTag', array('tag' => 'dd')),
         			'Errors',
-     			 ));
+     			 ));*/
         
                 
         $this->addElements(array(

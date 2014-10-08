@@ -27,7 +27,7 @@ class App_Form_UserForm extends Zend_Form
 	$apellidos->setLabel('Apellidos:*');
 	$apellidos->setRequired(true);
      
-	 $submit = new Zend_Form_Element_Submit('submit', array('label' => 'Guargar'));           
+	 $submit = new Zend_Form_Element_Submit('submit', array('label' => 'Guardar'));           
         	
         $this->addElements(array( $usuario, $contrasenia, $nombres, $apellidos, $submit));
         
