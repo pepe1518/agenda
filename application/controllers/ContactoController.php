@@ -133,7 +133,33 @@ class ContactoController extends Zend_Controller_Action
 		//$contacto->agregarTelefono($telefonoCelular);
 		//$contacto->agregarTelefono($telefonoFijo);
 		//$contacto->agregarTelefono($telefonoTrabajo);
+<<<<<<< HEAD
 		
+=======
+		$fonos = $contacto->getTelefonos();
+		
+		$idFonoUno = $fonos[0]->getId();
+		$fonoDao1 = new App_Dao_TelefonoDao();
+		$fono1 = $fonoDao1->getTelefonoPorId($idFonoUno);
+		$fono1->setNumero($formData['_celular']);
+		$fonoDao1->guardar($fono1);
+		
+		$idFonoDos = $fonos[1]->getId();
+		$fonoDao2 = new App_Dao_TelefonoDao();
+		$fono2 = $fonoDao2->getTelefonoPorId($idFonoDos);
+		$fono2->setNumero($formData['_fijo']);
+		$fonoDao2->guardar($fono2);
+		
+		$idFonoTres = $fonos[2]->getId();
+		$fonoDao3 = new App_Dao_TelefonoDao();
+		$fono3 = $fonoDao3->getTelefonoPorId($idFonoTres);
+		$fono3->setNumero($formData['_trabajo']);
+		$fonoDao3->guardar($fono3);
+		//$contacto->agregarTelefonoPorIndex($telefonoCelular, 1);
+		//$contacto->agregarTelefonoPorIndex($telefonoFijo, 2);
+		//$contacto->agregarTelefonoPorIndex($telefonoTrabajo, 3);
+		$contacto->setTelefonos($telefonos);
+>>>>>>> 28e8fb226b5c693ad7e56b9f040ea78d854be9ef
 		$contacto->setDepartamento($departamento);
 		$contacto->setNombres($formData['_nombres']);
 		$contacto->setApellidos($formData['_apellidos']);

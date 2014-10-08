@@ -41,7 +41,13 @@
 		foreach($this->dataList as $contacto) {
 	?>
 	<tr>
-		<td><img src="<?php echo stream_get_contents($contacto->getFoto()); ?>" width="60"/></td>
+		<td><?php if ($contacto->getFoto() != NULL) { ?>
+				<img src="<?php echo stream_get_contents($contacto->getFoto()); ?>" width="60"/>
+			<?php } else { ?>
+				<img src="<?php echo $this->baseUrl() . "/images/no_cover.jpg"; ?>" width="60" />
+			<?php }?>
+			
+		</td>
 		<td>
 			<a href='<?php echo $this->url(
 					array(

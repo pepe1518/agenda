@@ -42,10 +42,22 @@ class App_Model_Telefono extends \App_Model_Telefono implements \Doctrine\ORM\Pr
     }
 
     
+    public function getId()
+    {
+        $this->__load();
+        return parent::getId();
+    }
+
     public function getNumero()
     {
         $this->__load();
         return parent::getNumero();
+    }
+
+    public function setNumero($numero)
+    {
+        $this->__load();
+        return parent::setNumero($numero);
     }
 
     public function setContacto(\App_Model_Contacto $contacto)
