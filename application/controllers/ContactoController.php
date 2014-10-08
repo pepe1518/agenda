@@ -133,10 +133,7 @@ class ContactoController extends Zend_Controller_Action
 		//$contacto->agregarTelefono($telefonoCelular);
 		//$contacto->agregarTelefono($telefonoFijo);
 		//$contacto->agregarTelefono($telefonoTrabajo);
-		$contacto->agregarTelefonoPorIndex($telefonoCelular, 1);
-		$contacto->agregarTelefonoPorIndex($telefonoFijo, 2);
-		$contacto->agregarTelefonoPorIndex($telefonoTrabajo, 3);
-		$contacto->setTelefonos($telefonos);
+		
 		$contacto->setDepartamento($departamento);
 		$contacto->setNombres($formData['_nombres']);
 		$contacto->setApellidos($formData['_apellidos']);
@@ -144,7 +141,7 @@ class ContactoController extends Zend_Controller_Action
 		$contacto->setEmail($formData['_email']);
 		$contacto->setDireccion($formData['_direccion']);
 				
-		$contacto->setFoto($formData['MAX_FILE_SIZE']);				
+		//$contacto->setFoto($formData['MAX_FILE_SIZE']);				
 		$fijoDao = new App_Dao_TelefonoDao();
 		$fijoDao->guardar($telefonoFijo);
 		$celDao = new App_Dao_TelefonoDao();
