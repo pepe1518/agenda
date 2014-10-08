@@ -4,15 +4,20 @@
 ?>	
 </div>
 <div id="content_right">
-    
-<h1>Detalle</h1>
-
-<br/>
-
-	<?php
+ 	<?php
 			$contacto = $this->contacto;  
-			$contacto;			
-	?>	
+			$contacto;
+			$depa = $contacto->getDepartamento();			
+	?>	   
+<h1>Detalle</h1>
+<a href='<?php echo $this->url(	array(
+				'controller' => 'contacto',
+				'action'     => 'index',
+				'departamento'=> $depa->getId(),
+				), 'default', true) ?>'>Volver a mis Contactos</a>
+<br />
+
+
 	<h2>DATOS DEL CONTACTO </h2>	
 		
 		<br/>
