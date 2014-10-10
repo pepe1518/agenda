@@ -27,9 +27,7 @@ class App_Model_Categoria
 	 * @Column(name="descripcion", type="string", length=200, nullable=true)
 	 */
 	private $_descripcion;
-
-
-	 
+       
 	public function getId() {
 		return $this->_id;
 	}
@@ -45,6 +43,13 @@ class App_Model_Categoria
 	public function setDescripcion($descripcion) {
 		$this->_descripcion = $descripcion;
 	}
-
+       /*
+        public function setFoto($foto) {
+		$this->_foto = $foto;
+	}
+	public function getFoto() {
+		return $this->_foto;
+	}
+        */
 }
 

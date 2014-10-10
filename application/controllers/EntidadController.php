@@ -86,7 +86,46 @@ class EntidadController extends Zend_Controller_Action
 
     public function editarAction()
     {
-        // action body
+      $idDepartamento = $this->_getParam('departamento');
+	
+        $form = new App_Form_EntidadForm();
+	   if ($this->_request->getPost()) {
+			$formData = $this->_request->getPost();
+			if ($form->isValid($formData)) {
+				$idCategoria = $this->_getParam('id');
+				$categoriaDao = new App_Dao_CategoriaDao();
+				$this->view->idDepartamento = $idDepartamento;
+				$categoria = $categoriaDao->getCategoriaPorId($idCategoria);
+				
+				$departamentoDao = new App_Dao_DepartamentoDao();
+				
+				$depa = $departamentoDao->getDepartamentoPorId($idDepartamento);
+				
+				$especialidadDao = new App_Dao_EspecialidadDao();
+				$especialidad = $especialidadDao->getEspecialidadPorId($formData['_especialidad']);
+				
+				$telefono = new App_Model_Telefono($formData['_telefono']);
+				
+				$entidad = new App_Model_Entidad();
+				$entidad->setNombre($formData['_nombre']);
+				$entidad->setEspecialidad($especialidad);
+				$entidad->setCategoria($categoria);
+				$entidad->setDireccion($formData['_direccion']);
+				$entidad->setTelefono($telefono);
+				$entidad->setEncargado($formData['_encargado']);
+				$entidad->setDepartamento($depa);
+				
+				$telefonoDao = new App_Dao_TelefonoDao();
+				$telefonoDao->guardar($telefono);
+				
+				$entidadDao = new App_Dao_EntidadDao();
+				$entidadDao->guardar($entidad);
+				
+				$this->_helper->redirector('lista');
+				return;
+			}
+	   }
+	   $this->view->form = $form;  
     }
 
     public function eliminarAction()
@@ -101,7 +140,7 @@ class EntidadController extends Zend_Controller_Action
         if(!empty($entidad))
         $entidadDao->eliminar($entidad);
         $this->_helper->redirector('index');
-        return;// action body
+        return;
     }
 
     public function listaAction()

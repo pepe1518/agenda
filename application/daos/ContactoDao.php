@@ -13,36 +13,14 @@ class App_Dao_ContactoDao {
 	}
         
         public function editar(App_Model_Contacto $contacto, $id) {
-              /*  $this->_entityManager->find("App_Model_Contacto", $id);   */
-                //$modificar = $this->_entityManager->find($id);
-                //$modificar->setUpdated();
-                //$contacto = $this->getContactoPorId($id);
-                //$contacto->setId($id);
+              
                 $this->_entityManager->update($contacto);
                 
 		$this->_entityManager->persist($contacto);
 		$this->_entityManager->flush();
-              // return $this->render(array('contacto'=>$contacto));
+              
         }
-     /*           
-                
-                $em = $this->getDoctrine()->getEntityManager();
-
-$articulo = $em->getRepository('MDWDemoBundle:Articles')->find($id);
-
-$articulo->setTitle('Articulo de ejemplo 1 - modificado');
-$articulo->setUpdated(new \DateTime());
-
-$em->persist($articulo);
-$em->flush();
-
-return $this->render('MDWDemoBundle:Articulos:articulo.html.twig', array('articulo' => $articulo));
-                
-                
-       */         
-	
-        
-	
+          
 	public function eliminar(App_Model_Contacto $contacto) {
 		$this->_entityManager->remove($contacto);
 		$this->_entityManager->flush();
