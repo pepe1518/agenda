@@ -28,9 +28,15 @@ class App_Model_Contacto
 	/**
 	* @var string
 	* 
-	* @Column(name="apellidos", type="string", length=100, nullable=false)
+	* @Column(name="apellido_paterno", type="string", length=100, nullable=false)
 	*/
-	private $_apellidos;
+	private $_apellidoPaterno;
+	/**
+	* @var string
+	* 
+	* @Column(name="apellido_materno", type="string", length=100, nullable=false)
+	*/
+	private $_apellidoMaterno;
 	   
 	/**
 	* @var string

@@ -21,12 +21,11 @@ class App_Model_Categoria
 	 * @Column(name="nombre", type="string", length=200, nullable=false)
 	 */
 	private $_nombre;
-	
 	/**
-	 * @var string
-	 * @Column(name="descripcion", type="string", length=200, nullable=true)
+	 * @ManyToOne(targetEntity="App_Model_Departamento")
+	 * @JoinColumn(name="departamento_id", referencedColumnName="id") 
 	 */
-	private $_descripcion;
+	private $_departamento;
        
 	public function getId() {
 		return $this->_id;
@@ -37,19 +36,11 @@ class App_Model_Categoria
 	public function setNombre($nombre) {
 		$this->_nombre = $nombre;
 	}
-	public function getDescripcion() {
-		return $this->_descripcion;
+	public function getDepartamento() {
+		return $this->_departamento;
+	} 
+	public function setDepartamento(App_Model_Departamento $departamento) {
+		$this->_departamento = $departamento;
 	}
-	public function setDescripcion($descripcion) {
-		$this->_descripcion = $descripcion;
-	}
-       /*
-        public function setFoto($foto) {
-		$this->_foto = $foto;
-	}
-	public function getFoto() {
-		return $this->_foto;
-	}
-        */
 }
 
