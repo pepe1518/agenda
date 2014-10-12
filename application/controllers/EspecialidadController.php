@@ -18,6 +18,7 @@ class EspecialidadController extends Zend_Controller_Action
 				$especialidad = new App_Model_Especialidad();
 				
 				$especialidad->setNombre($formData['_nombre']);
+				$especialidad->setTipo($formData['_tipo']);
 				/*if($formData['_descripcion']){
 					$especialidad->setDescription($formData['_descripcion']);
 				}*/
@@ -38,6 +39,7 @@ class EspecialidadController extends Zend_Controller_Action
     public function editarAction()
     {
         $id = $this->_getParam('id');
+        $form = new App_Form_EspecialidadForm();
         if(empty($id))
             $this->_helper->redirector('index');
         $especialidadDao = new App_Dao_EspecialidadDao();
@@ -49,6 +51,7 @@ class EspecialidadController extends Zend_Controller_Action
 		//$especialidad = new App_Model_Especialidad();
 		$especialidad = $especialidadDao->getEspecialidadPorId($id);		
 		$especialidad->setNombre($formData['_nombre']);
+		$especialidad->setTipo($formData['_tipo']);
 				/*if($formData['_descripcion']){
 					$especialidad->setDescription($formData['_descripcion']);
 				}*/
@@ -93,8 +96,3 @@ class EspecialidadController extends Zend_Controller_Action
 
 
 }
-
-
-
-
-

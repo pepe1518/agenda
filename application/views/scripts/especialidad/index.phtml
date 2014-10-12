@@ -1,18 +1,18 @@
 <div id="content_left">
 <?php
-	echo $this->menuDepartamentos();
+	echo $this->menuForm();
        
 ?>	
 </div>
 <div id="content_right">
-<h1>Especialidades</h1>
+<h1>Especialidades y Sub-Especialidades</h1>
 <?php
 	echo $this->form;
 ?>
 <table id="order_detail_table">
 	<tr>
 		<th>Nombre</th>
-		
+		<th>Tipo</th>
 		<th>Acciones</th>
 	</tr>
 	<?php
@@ -20,7 +20,7 @@
 	?>
 	<tr>
 		<td><?php echo $especialidad->getNombre(); ?></td>
-		 
+		<td><?php echo $especialidad->getTipo(); ?></td>
 		<td>
                     <a href='<?php echo $this->url(
 					array(

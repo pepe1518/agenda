@@ -10,7 +10,7 @@ class CategoriaController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $form = new App_Form_EspecialidadForm();
+        $form = new App_Form_CategoriaForm();
 		if ($this->_request->getPost()) {
 			$formData = $this->_request->getPost();
 

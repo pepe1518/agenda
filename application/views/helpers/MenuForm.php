@@ -38,7 +38,7 @@ class Zend_View_Helper_MenuForm extends Zend_View_Helper_Abstract
 		$html .= "<h1>Administración</h1>";
 		$html .= "</li>";
 		$html .= "<li>";
-		$html .= "<a href=\"". $this->view->baseUrl()."/especialidad\">Administración de Especialidades</a>";
+		$html .= "<a href=\"". $this->view->baseUrl()."/especialidad\">Administración de Especialidades y Sub-especialidades</a>";
 		$html .= "</li>";
 		$html .= "<li>";
 		$html .= "<li>";
