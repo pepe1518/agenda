@@ -4,14 +4,14 @@
 ?>		
 </div>
 <div id="content_right">
-<h1>Areas de Instituciones</h1>
+<h1>Instituciones de la ciudad de <?php //echo $this->departamento->getNombre() ?> </h1>
 <?php
 	echo $this->form;
 ?>
 <table id="order_detail_table">
 	<tr>
 		<th>Nombre</th>
-		<th>Descripción</th>
+		
 		<th>Acciones</th>
 	</tr>
 	<?php
@@ -19,8 +19,6 @@
 	?>
 	<tr>
 		<td><?php echo $especialidad->getNombre(); ?></td>
-		<td><?php echo ($especialidad->getDescripcion())?
-						$especialidad->getDescripcion() : "no contiene descripcion"; ?></td>
 		<td>
 			
 		</td>

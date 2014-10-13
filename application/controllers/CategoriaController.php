@@ -13,15 +13,18 @@ class CategoriaController extends Zend_Controller_Action
         $form = new App_Form_CategoriaForm();
 		if ($this->_request->getPost()) {
 			$formData = $this->_request->getPost();
-
+			$idDepartamento = $this->_getParam('departamento');
 			if ($form->isValid($formData)) {
+				$departamentoDao = new App_Dao_DepartamentoDao();
+				$departamento = $departamentoDao->getDepartamentoPorId($idDepartamento);
+				
+				$this->view->departamento = $departamento;
+					
 				$especialidad = new App_Model_Categoria();
 				
 				$especialidad->setNombre($formData['_nombre']);
-				if($formData['_descripcion']){
-					$especialidad->setDescripcion($formData['_descripcion']);
-				}
-				
+				$especialidad->setDepartamento($departamento);
+								
 				$especialidadDao = new App_Dao_CategoriaDao();
 				$especialidadDao->guardar($especialidad);
 				$this->_helper->redirector('index');

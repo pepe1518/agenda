@@ -25,6 +25,11 @@ class App_Dao_CategoriaDao {
 		$consulta = $this->_entityManager->createQuery("SELECT c FROM App_Model_Especialidad c WHERE c._nombre = '" . $nombre . "'");
 		return $consulta->getResult();
 	}
+	
+	public function getCAtegoriaPorDepartamento($idDepartamento) {
+		$consulta = $this->_entityManager->createQuery("SELECT c FROM App_Model_Categoria c WHERE c._departamento = '" . $idDepartamento . "'");
+		return $consulta->getResult();
+	}
 	public function getTodos() {
 		$consulta = $this->_entityManager->createQuery('SELECT c FROM App_Model_Categoria c');
 		return $consulta->getResult();

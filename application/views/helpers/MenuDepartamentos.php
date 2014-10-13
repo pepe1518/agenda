@@ -17,9 +17,9 @@ class Zend_View_Helper_MenuDepartamentos extends Zend_View_Helper_Abstract
 		foreach($departamentoDao->getTodos() as $departamento) {
 			$urlArea = $this->view->url(
 					array(
-						'controller' => 'entidad',
-						'action'     => 'index',
-						'id'		 => $departamento->getId()
+						'controller'  => 'categoria',
+						'action'      => 'index',
+						'departamento'=> $departamento->getId()
 					), 'default', true);
 
 			$urlContacto = $this->view->url(
@@ -40,36 +40,20 @@ class Zend_View_Helper_MenuDepartamentos extends Zend_View_Helper_Abstract
 						'departamento' => $departamento->getId()
 					), 'default', true);
                         $html .= "<li><h1><a href=\"".$urlContacto."\">Contactos Medicos</a></h1></li>";
-			//$html .= "<li><h1><a href=\"".$urlArea."\">Areas</a></h1></li>";
-			$categoriaDao = new App_Dao_CategoriaDao();
-			foreach($categoriaDao->getTodos() as $categoria) {
+			$html .= "<li><h1><a href=\"".$urlArea."\">Areas</a></h1></li>";
+			$categoriaDao = new App_Dao_CategoriaDao(); //aqui poner
+			foreach($categoriaDao->getCAtegoriaPorDepartamento($departamento->getId()) as $categoria) {
 				$urlCategoria = $this->view->url(
 					array(
 						'controller' => 'entidad',
 						'action'     => 'index',
 						'id'		 => $categoria->getId(),
-                                            'departamento'  => $departamento->getId()
+                     'departamento'  => $departamento->getId()
 					), 'default', true);
 				$html .= "<li><a href=\"".$urlCategoria."\">".
 						 $categoria->getNombre()."</a></li>";
 			}
 			
-			
-			$especialidadDao = new App_Dao_EspecialidadDao();
-			//$html .= "<ul>";
-			
-			foreach($especialidadDao->getTodos() as $especialidad) {
-				$urlEspecialidad = $this->view->url(
-					array(
-						'controller' => 'contacto',
-						'action'     => 'index',
-						'id'		 => $especialidad->getId(),
-						'departamento'=> $departamento->getId()
-					), 'default', true);
-				//$html .= "<li><a href=\"".$urlEspecialidad."\">".
-						// $especialidad->getNombre()."</a></li>";
-				
-			}
 			//$html .= "</ul>";
 		}	
 		/*	
