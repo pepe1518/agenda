@@ -11,14 +11,14 @@ class CategoriaController extends Zend_Controller_Action
     public function indexAction()
     {
         $form = new App_Form_CategoriaForm();
+		$idDepartamento = $this->_getParam('departamento');
+		$departamentoDao = new App_Dao_DepartamentoDao();
+		$departamento = $departamentoDao->getDepartamentoPorId($idDepartamento);
+		$this->view->departamento = $departamento;
 		if ($this->_request->getPost()) {
 			$formData = $this->_request->getPost();
-			$idDepartamento = $this->_getParam('departamento');
+
 			if ($form->isValid($formData)) {
-				$departamentoDao = new App_Dao_DepartamentoDao();
-				$departamento = $departamentoDao->getDepartamentoPorId($idDepartamento);
-				
-				$this->view->departamento = $departamento;
 					
 				$especialidad = new App_Model_Categoria();
 				
@@ -27,7 +27,7 @@ class CategoriaController extends Zend_Controller_Action
 								
 				$especialidadDao = new App_Dao_CategoriaDao();
 				$especialidadDao->guardar($especialidad);
-				$this->_helper->redirector('index');
+				$this->_helper->redirector('index/departamento/'.$idDepartamento);
 				return;
 			
 			}
@@ -35,7 +35,7 @@ class CategoriaController extends Zend_Controller_Action
 		$this->view->form = $form;
 		
         $especialidadDao = new App_Dao_CategoriaDao();
-		$this->view->especialidades = $especialidadDao->getTodos();
+		$this->view->especialidades = $especialidadDao->getCAtegoriaPorDepartamento($idDepartamento);
     }
 
 
