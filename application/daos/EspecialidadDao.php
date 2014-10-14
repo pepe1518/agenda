@@ -11,14 +11,23 @@ class App_Dao_EspecialidadDao
 	public function guardar(App_Model_Especialidad $especialidad) {
 		$this->_entityManager->persist($especialidad);
 		$this->_entityManager->flush();
+		$modificacionesDao = new App_Dao_ModificacionesDao();
+		$modificaciones = new App_Model_Modificaciones();
+		$modificacionesDao->guardar($modificaciones); 
 	}
 	public function editar(App_Model_Especialidad $especialidad) {
 		$this->_entityManager->persist($especialidad);
 		$this->_entityManager->flush();
+		$modificacionesDao = new App_Dao_ModificacionesDao();
+		$modificaciones = new App_Model_Modificaciones();
+		$modificacionesDao->guardar($modificaciones); 
 	}
 	public function eliminar(App_Model_Especialidad $especialidad) {
 		$this->_entityManager->remove($especialidad);
 		$this->_entityManager->flush();
+		$modificacionesDao = new App_Dao_ModificacionesDao();
+		$modificaciones = new App_Model_Modificaciones();
+		$modificacionesDao->guardar($modificaciones); 
 	}
 	
 	public function getEspecialidadPorId($id) {

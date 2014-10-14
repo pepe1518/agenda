@@ -10,11 +10,17 @@ class App_Dao_EntidadDao {
 	public function guardar(App_Model_Entidad $entidad) {
 		$this->_entityManager->persist($entidad);
 		$this->_entityManager->flush();
+		$modificacionesDao = new App_Dao_ModificacionesDao();
+		$modificaciones = new App_Model_Modificaciones();
+		$modificacionesDao->guardar($modificaciones); 
 	}
 	
 	public function eliminar(App_Model_Entidad $entidad) {
 		$this->_entityManager->remove($entidad);
 		$this->_entityManager->flush();
+		$modificacionesDao = new App_Dao_ModificacionesDao();
+		$modificaciones = new App_Model_Modificaciones();
+		$modificacionesDao->guardar($modificaciones); 
 	}
 	
 	public function getEntidadPorId($id) {

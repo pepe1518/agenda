@@ -10,11 +10,17 @@ class App_Dao_TelefonoDao {
 	public function guardar(App_Model_Telefono $telefono) {
 		$this->_entityManager->persist($telefono);
 		$this->_entityManager->flush();
+		$modificacionesDao = new App_Dao_ModificacionesDao();
+		$modificaciones = new App_Model_Modificaciones();
+		$modificacionesDao->guardar($modificaciones); 
 	}
 	
 	public function eliminar(App_Model_Telefono $telefono) {
 		$this->_entityManager->remove($telefono);
 		$this->_entityManager->flush();
+		$modificacionesDao = new App_Dao_ModificacionesDao();
+		$modificaciones = new App_Model_Modificaciones();
+		$modificacionesDao->guardar($modificaciones); 
 	}
 	
 	public function getTelefonoPorId($id) {

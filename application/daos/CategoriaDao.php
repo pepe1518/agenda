@@ -10,11 +10,17 @@ class App_Dao_CategoriaDao {
 	public function guardar(App_Model_Categoria $categoria) {
 		$this->_entityManager->persist($categoria);
 		$this->_entityManager->flush();
+		$modificacionesDao = new App_Dao_ModificacionesDao();
+		$modificaciones = new App_Model_Modificaciones();
+		$modificacionesDao->guardar($modificaciones); 
 	}
 	
 	public function eliminar(App_Model_Categoria $categoria) {
 		$this->_entityManager->remove($categoria);
 		$this->_entityManager->flush();
+		$modificacionesDao = new App_Dao_ModificacionesDao();
+		$modificaciones = new App_Model_Modificaciones();
+		$modificacionesDao->guardar($modificaciones); 
 	}
 	
 	public function getCategoriaPorId($id) {

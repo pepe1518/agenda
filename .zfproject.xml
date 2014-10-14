@@ -63,6 +63,7 @@
         <modelFile modelName="Institucion"/>
         <modelFile modelName="Catergoria"/>
         <modelFile modelName="Departamento"/>
+        <modelFile modelName="Modificaciones"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>

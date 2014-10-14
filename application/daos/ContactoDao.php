@@ -10,6 +10,9 @@ class App_Dao_ContactoDao {
 	public function guardar(App_Model_Contacto $contacto) {
 		$this->_entityManager->persist($contacto);
 		$this->_entityManager->flush();
+		$modificacionesDao = new App_Dao_ModificacionesDao();
+		$modificaciones = new App_Model_Modificaciones();
+		$modificacionesDao->guardar($modificaciones); 
 	}
         
         public function editar(App_Model_Contacto $contacto, $id) {
@@ -24,6 +27,9 @@ class App_Dao_ContactoDao {
 	public function eliminar(App_Model_Contacto $contacto) {
 		$this->_entityManager->remove($contacto);
 		$this->_entityManager->flush();
+		$modificacionesDao = new App_Dao_ModificacionesDao();
+		$modificaciones = new App_Model_Modificaciones();
+		$modificacionesDao->guardar($modificaciones); 
 	}
 	
 	public function getContactoPorId($id) {
