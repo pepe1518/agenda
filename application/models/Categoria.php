@@ -26,7 +26,12 @@ class App_Model_Categoria
 	 * @JoinColumn(name="departamento_id", referencedColumnName="id") 
 	 */
 	private $_departamento;
-       
+	/**
+	* @var blob
+	* 
+	* @Column(name="foto", type="blob", nullable=true)
+	*/
+	private $_foto;       
 	public function getId() {
 		return $this->_id;
 	}
@@ -42,5 +47,12 @@ class App_Model_Categoria
 	public function setDepartamento(App_Model_Departamento $departamento) {
 		$this->_departamento = $departamento;
 	}
+	public function setFoto($foto) {
+		$this->_foto = $foto;
+	}
+	public function getFoto() {
+		return $this->_foto;
+	}
+	
 }
 

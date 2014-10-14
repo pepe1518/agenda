@@ -48,6 +48,7 @@ class Zend_View_Helper_MenuDepartamentos extends Zend_View_Helper_Abstract
 			$html .= "<li><h1><a href=\"".$urlArea."\">Areas</a></h1></li>";
 			$categoriaDao = new App_Dao_CategoriaDao(); //aqui poner
 			foreach($categoriaDao->getCAtegoriaPorDepartamento($departamento->getId()) as $categoria) {
+					
 				$urlCategoria = $this->view->url(
 					array(
 						'controller' => 'entidad',
@@ -55,7 +56,8 @@ class Zend_View_Helper_MenuDepartamentos extends Zend_View_Helper_Abstract
 						'id'		 => $categoria->getId(),
                      'departamento'  => $departamento->getId()
 					), 'default', true);
-				$html .= "<li><a href=\"".$urlCategoria."\">".
+					$image = ($categoria->getFoto())?stream_get_contents($categoria->getFoto()):"#";
+				$html .= "<li><img src=\"".$image ."\" width=\"30\"/> &nbsp; <a href=\"".$urlCategoria."\">".
 						 $categoria->getNombre()."</a></li>";
 			}
 			

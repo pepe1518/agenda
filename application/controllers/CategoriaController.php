@@ -16,13 +16,18 @@ class CategoriaController extends Zend_Controller_Action
 		$departamento = $departamentoDao->getDepartamentoPorId($idDepartamento);
 		$this->view->departamento = $departamento;
 		if ($this->_request->getPost()) {
-			$formData = $this->_request->getPost();
-
-			if ($form->isValid($formData)) {
+			//$formData = $this->_request->getPost();
+				//Zend_Debug::dump($_POST); die;
+			//if ($form->isValid($formData)) {
+				if (empty($_POST['imageUrl'])) {
+				$this->view->message = 'Debe de seleccionar una imagen.';
+				return;
+				}
 					
 				$especialidad = new App_Model_Categoria();
 				
-				$especialidad->setNombre($formData['_nombre']);
+				$especialidad->setNombre($_POST['_nombre']);
+				$especialidad->setFoto($_POST['imageUrl']);
 				$especialidad->setDepartamento($departamento);
 								
 				$especialidadDao = new App_Dao_CategoriaDao();
@@ -30,7 +35,7 @@ class CategoriaController extends Zend_Controller_Action
 				$this->_redirect('/categoria/index/departamento/'.$idDepartamento);
 				return;
 			
-			}
+			//}
 		}		
 		$this->view->form = $form;
 		

@@ -72,10 +72,22 @@ class App_Model_Categoria extends \App_Model_Categoria implements \Doctrine\ORM\
         return parent::setDepartamento($departamento);
     }
 
+    public function setFoto($foto)
+    {
+        $this->__load();
+        return parent::setFoto($foto);
+    }
+
+    public function getFoto()
+    {
+        $this->__load();
+        return parent::getFoto();
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', '_id', '_nombre', '_departamento');
+        return array('__isInitialized__', '_id', '_nombre', '_foto', '_departamento');
     }
 
     public function __clone()

@@ -1,3 +1,76 @@
+<script language="JavaScript" type="text/javascript">
+	$(document).ready(function() {
+		$('#chooser').change(function() {
+
+			if (!window.File && !window.FileList) {
+				return;
+			}
+
+			var files = $(this).prop("files")
+			var file = files[0];
+
+			if (!(/image/i ).test(file.type)) {
+				$('#message').html('Debe de seleccionar un archivo tipo imagen solamente.');
+				return;
+			}
+
+			// read the files
+			var reader = new FileReader();
+			reader.readAsArrayBuffer(file);
+
+			reader.onload = function(event) {
+				// blob stuff
+				var blob = new Blob([event.target.result]);
+				// create blob...
+				window.URL = window.URL || window.webkitURL;
+				var blobURL = window.URL.createObjectURL(blob);
+				// and get it's URL
+
+				// helper Image object
+				var image = new Image();
+				image.src = blobURL;
+
+				image.onload = function() {
+					var result = resizeMe(image);
+					$('#resizedImage').attr('src', result);
+					$('#imageUrl').val(result);
+				}
+			};
+		});
+
+	});
+
+	function resizeMe(img) {
+		var max_width = 100;
+		var max_height = 100;
+
+		var width = img.width;
+		var height = img.height;
+
+		// Calculate the width and height, constraining the proportions
+		if (width > height) {
+			if (width > max_width) {
+				height = Math.round(height *= max_width / width);
+				width = max_width;
+			}
+		} else {
+			if (height > max_height) {
+				width = Math.round(width *= max_height / height);
+				height = max_height;
+			}
+		}
+
+		var canvas = document.createElement('canvas');
+		// Resize the canvas and draw the image data into it
+		canvas.width = width;
+		canvas.height = height;
+		var ctx = canvas.getContext("2d");
+		ctx.drawImage(img, 0, 0, width, height);
+
+		return canvas.toDataURL("image/jpeg", 0.7);
+
+	}
+</script>
 <div id="content_left">
 <?php
 	echo $this->menuDepartamentos();
@@ -6,12 +79,43 @@
 <div id="content_right">
 <h1>Instituciones de la ciudad de <?php echo $this->departamento->getNombre() ?> </h1>
 <?php
-	echo $this->form;
+	//echo $this->form;
 ?>
+<form  method='post' enctype='multipart/form-data' >
+	<table>
+		<tr>
+			<td>
+				<label>Nombre: </label>
+				<input type="text" id="_nombre" name="_nombre">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="hidden" name="MAX_FILE_SIZE" value="500000" />
+				<input type='file' id='chooser' name='chooser' >
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img name='resizedImage' id='resizedImage' />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type='hidden' name='imageUrl' id='imageUrl' value=''/>
+				<input type='submit' value='Guardar'/>
+			</td>
+		</tr>
+		<tr>
+			<td id='message'>
+				<?php echo $this->message; ?>
+			</td>
+		</tr>
+	</table>
+</form>
 <table id="order_detail_table">
 	<tr>
 		<th>Nombre</th>
-		
 		<th>Acciones</th>
 	</tr>
 	<?php
