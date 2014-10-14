@@ -28,7 +28,7 @@ class EntidadController extends Zend_Controller_Action
 			
 			$page = $this->_getParam('page', 1);
 			$entidadDao = new App_Dao_EntidadDao();
-			$paginador = new App_Util_Paginator($this->getRequest()->getBaseUrl(). '/entidad/index', $entidadDao->contarTodos(), $page);
+			$paginador = new App_Util_Paginator($this->getRequest()->getBaseUrl(). '/entidad/index/id/'.$idCategoria.'/departamento/'.$idDepartamento, $entidadDao->contarTodos(), $page);
 			$this->view->entidades = $entidadDao->getAllLimitOffset($paginador->getLimit(), $paginador->getOffset(), $idCategoria, $idDepartamento, $idEspecialidad);
 			$this->view->htmlPaginator = $paginador->showHtmlPaginator();
 		}
@@ -41,10 +41,7 @@ class EntidadController extends Zend_Controller_Action
        //$ceci = $this->_getParam('ceci');
 	   $idDepartamento = $this->_getParam('departamento');
 	   $idCategoria = $this->_getParam('id');
-	   //Zend_Debug::dump($departamento);
-       //echo "hola delma soy tuyo atte:". $delma;
-       //echo "</br>";
-       //echo "hola ceci soy tuyo atte:". $ceci;
+
         $form = new App_Form_EntidadForm();
 	   if ($this->_request->getPost()) {
 			$formData = $this->_request->getPost();
@@ -70,8 +67,9 @@ class EntidadController extends Zend_Controller_Action
 				$entidad->setDireccion($formData['_direccion']);
 				$entidad->setTelefono($telefono);
 				$entidad->setEncargado($formData['_encargado']);
-				//$entidad->setDepartamento($depa);
-				
+								
+				//como aqui se guardan telefonos y entidades se hace 2 registros en la
+				//tabla modificaciones 1 por e telefono y otro por almacenar la entidad+
 				$telefonoDao = new App_Dao_TelefonoDao();
 				$telefonoDao->guardar($telefono);
 				

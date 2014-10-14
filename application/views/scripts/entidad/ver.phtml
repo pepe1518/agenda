@@ -7,10 +7,10 @@
  	<?php
 			$entidad = $this->entidad;  
 			$entidad;
-			$depa = $entidad->getDepartamento();
+			$depa = $entidad->getCategoria()->getDepartamento();
 			$id = $entidad->getCategoria();			
 	?>	   
-<h1>Detalle</h1>
+<h1>Detalle de mi Institución</h1>
 <a href='<?php echo $this->url(	array(
 				'controller' => 'entidad',
 				'action'     => 'index',
@@ -18,9 +18,6 @@
 				'departamento'=> $depa->getId(),
 				), 'default', true) ?>'>Volver a mis entidades</a>
 <br />
-
-
-	<h2>DATOS DEL entidad </h2>	
 		
 		<br/>
 		<div>
@@ -36,7 +33,7 @@
 <div id="detalle_acerca">
 						
 							<h2>Nombre:<?php  echo $this->entidad->getNombre()?></h2><br/>
-							<h2>Encargado: <?php echo $this->entidad->getCategoria()->getNombre() ?></h2><br/>
+							<h2>Institución: <?php echo $this->entidad->getCategoria()->getNombre() ?></h2><br/>
 							<div id="book_details">
 							<ul>
 							<br/>
