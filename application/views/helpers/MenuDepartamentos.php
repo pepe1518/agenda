@@ -15,12 +15,17 @@ class Zend_View_Helper_MenuDepartamentos extends Zend_View_Helper_Abstract
 		//$html .= "<li><a href=\""."#"."\"><h1>Personas</h1></a></li>";
 		$departamentoDao = new App_Dao_DepartamentoDao();
 		foreach($departamentoDao->getTodos() as $departamento) {
-			$urlArea = $this->view->url(
+			if (Zend_Auth::getInstance()->getIdentity()){
+				$urlArea = $this->view->url(
 					array(
 						'controller'  => 'categoria',
 						'action'      => 'index',
 						'departamento'=> $departamento->getId()
 					), 'default', true);
+			}
+			else{
+				$urlArea = "#";
+			}
 
 			$urlContacto = $this->view->url(
 					array(

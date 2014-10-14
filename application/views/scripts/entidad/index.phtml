@@ -8,6 +8,7 @@
 <form method="post">
   <label>Mostrar Contactos por:</label>
   <select name="especialidad">
+  	<option value="0">Todos</option>
   	<?php $especialidadDao = new App_Dao_EspecialidadDao();
   	foreach($especialidadDao->getTodos() as $especialidad) { ?>
   		<option value="<?php echo $especialidad->getId() ?>">
@@ -61,6 +62,7 @@
 						'controller' => 'entidad',
 						'action'     => 'foto',
 						'id'     => $entidad->getId(),
+						'departamento'=>$this->departamento->getId(),
 					), 'default', true);?>"><?php echo $entidad->getFoto()?"Modificar Foto":"Subir Foto"; ?></a>
                     <a href='<?php echo $this->url(
 					array(
@@ -73,6 +75,7 @@
 						'controller' => 'entidad',
 						'action'     => 'eliminar',
 						'id'     => $entidad->getId(),
+						'departamento'=>$this->departamento->getId(),
 					), 'default', true) ?>'>Eliminar</a>
                 </td>
     <?php } ?>

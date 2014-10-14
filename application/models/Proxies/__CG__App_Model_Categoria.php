@@ -60,22 +60,22 @@ class App_Model_Categoria extends \App_Model_Categoria implements \Doctrine\ORM\
         return parent::setNombre($nombre);
     }
 
-    public function getDescripcion()
+    public function getDepartamento()
     {
         $this->__load();
-        return parent::getDescripcion();
+        return parent::getDepartamento();
     }
 
-    public function setDescripcion($descripcion)
+    public function setDepartamento(\App_Model_Departamento $departamento)
     {
         $this->__load();
-        return parent::setDescripcion($descripcion);
+        return parent::setDepartamento($departamento);
     }
 
 
     public function __sleep()
     {
-        return array('__isInitialized__', '_id', '_nombre', '_descripcion');
+        return array('__isInitialized__', '_id', '_nombre', '_departamento');
     }
 
     public function __clone()

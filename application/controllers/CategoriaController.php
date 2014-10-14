@@ -27,7 +27,7 @@ class CategoriaController extends Zend_Controller_Action
 								
 				$especialidadDao = new App_Dao_CategoriaDao();
 				$especialidadDao->guardar($especialidad);
-				$this->_helper->redirector('index/departamento/'.$idDepartamento);
+				$this->_redirect('/categoria/index/departamento/'.$idDepartamento);
 				return;
 			
 			}

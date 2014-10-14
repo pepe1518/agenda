@@ -40,6 +40,7 @@ class EntidadController extends Zend_Controller_Action
        //$delma = $this->_getParam('delma');
        //$ceci = $this->_getParam('ceci');
 	   $idDepartamento = $this->_getParam('departamento');
+	   $idCategoria = $this->_getParam('id');
 	   //Zend_Debug::dump($departamento);
        //echo "hola delma soy tuyo atte:". $delma;
        //echo "</br>";
@@ -48,7 +49,7 @@ class EntidadController extends Zend_Controller_Action
 	   if ($this->_request->getPost()) {
 			$formData = $this->_request->getPost();
 			if ($form->isValid($formData)) {
-				$idCategoria = $this->_getParam('id');
+				
 				$categoriaDao = new App_Dao_CategoriaDao();
 				$this->view->idDepartamento = $idDepartamento;
 				$categoria = $categoriaDao->getCategoriaPorId($idCategoria);
@@ -69,7 +70,7 @@ class EntidadController extends Zend_Controller_Action
 				$entidad->setDireccion($formData['_direccion']);
 				$entidad->setTelefono($telefono);
 				$entidad->setEncargado($formData['_encargado']);
-				$entidad->setDepartamento($depa);
+				//$entidad->setDepartamento($depa);
 				
 				$telefonoDao = new App_Dao_TelefonoDao();
 				$telefonoDao->guardar($telefono);
@@ -77,7 +78,7 @@ class EntidadController extends Zend_Controller_Action
 				$entidadDao = new App_Dao_EntidadDao();
 				$entidadDao->guardar($entidad);
 				
-				$this->_helper->redirector('lista');
+				$this->_redirect('/entidad/index/id/'.$idCategoria."/departamento/".$idDepartamento);
 				return;
 			}
 	   }
@@ -113,7 +114,7 @@ class EntidadController extends Zend_Controller_Action
 				$entidad->setDireccion($formData['_direccion']);
 				$entidad->setTelefono($telefono);
 				$entidad->setEncargado($formData['_encargado']);
-				$entidad->setDepartamento($depa);
+				//$entidad->setDepartamento($depa);
 				
 				$telefonoDao = new App_Dao_TelefonoDao();
 				$telefonoDao->guardar($telefono);
@@ -121,7 +122,7 @@ class EntidadController extends Zend_Controller_Action
 				$entidadDao = new App_Dao_EntidadDao();
 				$entidadDao->guardar($entidad);
 				
-				$this->_helper->redirector('lista');
+				$this->_redirect('/entidad/index/id/'.$idCategoria."/departamento/".$idDepartamento);
 				return;
 			}
 	   }
@@ -137,10 +138,14 @@ class EntidadController extends Zend_Controller_Action
         
         $entidadDao = new App_Dao_EntidadDao();
         $entidad = $entidadDao->getEntidadPorId($id);
+		$idCategoria = $entidad->getCategoria()->getId();
+		$idDepartamento = $entidad->getCategoria()->getDepartamento()->getId();
+		
         if(!empty($entidad))
-        $entidadDao->eliminar($entidad);
-        $this->_helper->redirector('index');
-        return;
+        	$entidadDao->eliminar($entidad);
+        
+        $this->_redirect('/entidad/index/id/'.$idCategoria."/departamento/".$idDepartamento);
+		return;
     }
 
     public function listaAction()
@@ -181,9 +186,11 @@ class EntidadController extends Zend_Controller_Action
 			$contactoDao->guardar($contacto);
 			//$entityManager->persist($book);
 			//$entityManager->flush();
-
+			$idCAtegoria = $contacto->getCategoria()->getId();
+			$idDepartamento = $contacto->getCategoria()->getDepartamento()->getId();
 			//$this->_flashMessenger->addMessage('Imagen de portada de libro guardada.');
-			$this->_redirect('/user/index');
+			$this->_redirect('/entidad/index/id/'.$idCAtegoria."/departamento/".$idDepartamento);
+			return;
 		}
     }
 
