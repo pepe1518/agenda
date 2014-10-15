@@ -1,19 +1,10 @@
-1.- reducir espacio de la cabecera - CECI
-2.- modificar contacto - PEPE
-3.- eliminar contacto - CECI
-4.- agregar usuario normal - CECI
-5.- crear menu de administracion pirnicpal - PEPE
-6.- crud de imagen de contacto - CECI
-7.- agregar areas al menu principal - PEPE -> trabajando aqui -> terminado
-8.- modificar el menu principal - PEPE
+1.- fondo-->cc
+2.- Apellido Paterno y materno cc
+3.- Verificar y corregir el paginador de contactos  pp
+4.- Verificar y corregir el paginador de entidades  pp
+5.- agregar mas contactos perosonales (dentistas)   pp
+6.- editar area cc
+7.- editar mision vision  ccc
+8.- select de subespecialidades en la vista  contacto index  pp
+9.- agregar vista editar de entidad cc
 
-
-departamentos
-	hospialetes
-	funerarias
-	farmacias
-	....
-	contactos
-		ginecoloia
-		deramtologia 
-		......
