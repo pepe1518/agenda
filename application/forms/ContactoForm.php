@@ -13,9 +13,13 @@ class App_Form_ContactoForm extends Zend_Form
 		$nombres->setLabel('Nombres:*');
 		$nombres->setRequired(true);
 		
-		$apellidos = new Zend_Form_Element_Text('_apellidos');
-		$apellidos->setLabel('Apellidos:*');
-		$apellidos->setRequired(true);
+		$apellidoPaterno = new Zend_Form_Element_Text('_apellidoPaterno');
+		$apellidoPaterno->setLabel('Apellido Paterno:*');
+		$apellidoPaterno->setRequired(true);
+                
+                $apellidoMaterno = new Zend_Form_Element_Text('_apellidoMaterno');
+		$apellidoMaterno->setLabel('Apellido Materno:');
+		$apellidoMaterno->setRequired(FALSE);
 		
 		$celular = new Zend_Form_Element_Text('_celular');
 		$celular->setLabel('Telefono Celular:*');
@@ -90,7 +94,7 @@ class App_Form_ContactoForm extends Zend_Form
 		
 		$submit = new Zend_Form_Element_Submit('submit', array('label' => 'Guardar'));
 		
-		$this->addElements(array($departamento, $nombres, $apellidos, $celular, 
+		$this->addElements(array($departamento, $nombres, $apellidoPaterno, $apellidoMaterno, $celular, 
 								$fijo, $trabajo, $especialidad, $subespecialidad, 
 								$email, $direccion, $submit));
 	}

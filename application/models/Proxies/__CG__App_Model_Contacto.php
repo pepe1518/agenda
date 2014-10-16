@@ -72,13 +72,13 @@ class App_Model_Contacto extends \App_Model_Contacto implements \Doctrine\ORM\Pr
         return parent::setNombres($nombres);
     }
 
-    public function getApellidos()
+    public function getApellidoPaterno()
     {
         $this->__load();
         return parent::getApellidos();
     }
 
-    public function setApellidos($apellidos)
+    public function setApellidoPaterno($apellidos)
     {
         $this->__load();
         return parent::setApellidos($apellidos);

@@ -34,7 +34,7 @@ class App_Model_Contacto
 	/**
 	* @var string
 	* 
-	* @Column(name="apellido_materno", type="string", length=100, nullable=false)
+	* @Column(name="apellido_materno", type="string", length=100, nullable=true)
 	*/
 	private $_apellidoMaterno;
 	   
@@ -109,11 +109,17 @@ class App_Model_Contacto
 	public function setNombres($nombres) {
 		$this->_nombres = $nombres;
 	}
-	public function getApellidos() {
-		return $this->_apellidos;
+	public function getApellidoPaterno() {
+		return $this->_apellidoPaterno;
 	}
-	public function setApellidos($apellidos) {
-		$this->_apellidos = $apellidos;
+	public function setApellidoPaterno($apellidoPaterno) {
+		$this->_apellidoPaterno = $apellidoPaterno;
+	}
+        public function getApellidoMaterno() {
+		return $this->_apellidoMaterno;
+	}
+	public function setApellidoMaterno($apellidoMaterno) {
+		$this->_apellidoMaterno = $apellidoMaterno;
 	}
 	public function getTelefonos() {
 		return $this->_telefonos;

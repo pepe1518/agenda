@@ -34,7 +34,9 @@
 <div id="detalle_acerca">
 						
 							<h2>Nombre:<?php  echo $this->contacto->getNombres()?></h2><br/>
-							<h2>Apellidos: <?php echo $this->contacto->getApellidos(); ?></h2><br/>
+							<h2>Apellidos: <?php echo $this->contacto->getApellidoPaterno();
+                                                                             echo " ";
+                                                                             echo $this->contacto->getApellidoMaterno(); ?></h2><br/>
 							<div id="book_details">
 							<ul>
 							<?php $telefonos = $this->contacto->getTelefonos();

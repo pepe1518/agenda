@@ -34,6 +34,7 @@ class EntidadController extends Zend_Controller_Action
 		}
  	
     }
+    
 
     public function agregarAction()
     {
@@ -86,6 +87,8 @@ class EntidadController extends Zend_Controller_Action
     public function editarAction()
     {
       $idDepartamento = $this->_getParam('departamento');
+      if(empty($idDepartamento))
+          $this->_helper->redirector('index');
 	
         $form = new App_Form_EntidadForm();
 	   if ($this->_request->getPost()) {
@@ -122,10 +125,23 @@ class EntidadController extends Zend_Controller_Action
 				
 				$this->_redirect('/entidad/index/id/'.$idCategoria."/departamento/".$idDepartamento);
 				return;
-			}
-	   }
-	   $this->view->form = $form;  
+			}else 
+                $form->populate($formData);
+                        
+	   }else{
+               
+                $id = $this->_getParam('id');
+                $this->_redirect('/entidad/index/id/'.$idCategoria."/departamento/".$idDepartamento);
+                $form = new App_Form_EntidadForm(); 
+            }
+	     
+           
+           
+            $form->populate($entidad->toArray());
+            $this->view->form = $form;
+            
     }
+    
 
     public function eliminarAction()
     {
