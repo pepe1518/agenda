@@ -3,10 +3,10 @@
  * Contacto
  * 
  * @Entity
- * @table(name="info")
+ * @table(name="informacion")
  * 
  */
-class App_Model_Info
+class App_Model_Infomacion
 {
 	/**
 	* @var integer

@@ -64,8 +64,36 @@ class IndexController extends Zend_Controller_Action
 
     public function modificarAction()
     {
+        $name = $this->_getParam('nombre' ,' ');
+		
+		$infoDao = new App_Dao_InformacionDao();
+		
+		if($this->_request->getPost()) {
+			$formaData = $this->_request->getPost();
+			$form = new App_Form_ModificarForm();
+			
+			if($form->isValid($formData)) {
+				$informacion = $infoDao->getPorNombre($name);
+				$informacion->setDescripcion($formaData['_nombre']);
+				$infoDao->guardar($informacion);
+			}
+			else {
+				$form->populate($formaData);
+			}
+		} else{
+			$name = $this->_getParam('nombre', '');
+			
+			if(empty($name)) {
+				$this->redirect($url);
+				return;
+			}
+			else {
+				$form = App_Form_ModificarForm();
+			}
+		}
+			
         //$id = $this->_getParam('id');
-		$nombre = $this->_getParam('nombre');
+		/*$nombre = $this->_getParam('nombre');
         $form = new App_Form_ModificarForm();
         if(empty($nombre))
             $this->_helper->redirector('index');
@@ -88,7 +116,7 @@ class IndexController extends Zend_Controller_Action
 		//$especialidad->setTipo($formData['_tipo']);
 				/*if($formData['_descripcion']){
 					$especialidad->setDescription($formData['_descripcion']);
-				}*/
+				}
 				
 		//$especialidadDao = new App_Dao_EspecialidadDao();		$especialidadDao->guardar($especialidad);
 		//$this->_helper->redirector('index');
@@ -109,7 +137,7 @@ class IndexController extends Zend_Controller_Action
             $info = $infoDao->getPorNombre($nombre);
             if (!empty($especialidad))
             $form->populate($info->toArray());
-            $this->view->form = $form;
+            $this->view->form = $form;*/
             //$this->view->especialidades = $especialidadDao->getTodos();  
     }
 
