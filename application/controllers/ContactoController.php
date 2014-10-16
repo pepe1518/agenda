@@ -14,6 +14,7 @@ class ContactoController extends Zend_Controller_Action
         $page = $this->_getParam('page', 1);
 		$idDepartamento = $this->_getParam('departamento', '');
 		$idEspecialidad = $this->_getParam('especialidad', '');
+		$idSubEspecialidad = $this->_getParam('subEspecialidad', '');
 		
 		$departamentoDao = new App_Dao_DepartamentoDao();
 		$this->view->departamento = $departamentoDao->getDepartamentoPorId($idDepartamento);
@@ -21,7 +22,7 @@ class ContactoController extends Zend_Controller_Action
 		$userDao = new App_Dao_ContactoDao();
 		$paginator = new App_Util_Paginator($this->getRequest()->getBaseUrl() . '/contacto/index', $userDao->contarTodos(), $page);
 
-		$this->view->dataList = $userDao->getAllLimitOffset($paginator->getLimit(), $paginator->getOffset(), $idEspecialidad, $idDepartamento);
+		$this->view->dataList = $userDao->getAllLimitOffset($paginator->getLimit(), $paginator->getOffset(), $idEspecialidad, $idDepartamento, $idSubEspecialidad);
 		$this->view->htmlPaginator = $paginator->showHtmlPaginator();
     }
 

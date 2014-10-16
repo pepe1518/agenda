@@ -2,9 +2,9 @@
 2.- Apellido Paterno y materno cc
 3.- Verificar y corregir el paginador de contactos  pp
 4.- Verificar y corregir el paginador de entidades  pp
-5.- agregar mas contactos perosonales (dentistas)   pp
+5.- agregar mas contactos perosonales (dentistas)   pp <-- trabajando <-- detenido por falta de informacion
 6.- editar area cc
 7.- editar mision vision  ccc
-8.- select de subespecialidades en la vista  contacto index  pp
+8.- select de subespecialidades en la vista  contacto index  pp <-- trabajando <-- terminado (falta probar)
 9.- agregar vista editar de entidad cc
 

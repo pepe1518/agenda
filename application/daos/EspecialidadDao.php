@@ -34,8 +34,8 @@ class App_Dao_EspecialidadDao
 		return $this->_entityManager->find("App_Model_Especialidad", $id);
 	}
 	
-	public function getNombre($nombre) {
-		$consulta = $this->_entityManager->createQuery("SELECT e FROM App_Model_Especialidad e WHERE e._nombre = '" . $nombre . "'");
+	public function getTipo($tipo) {
+		$consulta = $this->_entityManager->createQuery("SELECT e FROM App_Model_Especialidad e WHERE e._tipo = '" . $tipo . "'");
 		return $consulta->getResult();
 	}
 	

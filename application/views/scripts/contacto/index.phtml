@@ -12,11 +12,21 @@
   <select name="especialidad">
   	<option value="0">Todos</option>
   	<?php $especialidadDao = new App_Dao_EspecialidadDao();
-  	foreach($especialidadDao->getTodos() as $especialidad) { ?>
+  	foreach($especialidadDao->getTipo(App_Model_Especialidad::ESPECIALIDAD) as $especialidad) { ?>
   		<option value="<?php echo $especialidad->getId() ?>">
   			<?php echo $especialidad->getNombre(); ?>
   		</option>
   		<?php } //end foreach ?>
+  </select>
+  <label>Sub Especialidad:</label>
+  <select name="subEspecialidad">
+  	<option value="0">Todos</option>
+  	<?php 
+  	foreach($especialidadDao->getTipo(App_Model_Especialidad::SUBESPECIALIDAD) as $subEspecialidad) { ?>
+  		<option value="<?php echo $subEspecialidad->getId() ?>">
+  			<?php echo $subEspecialidad->getNombre() ?>
+  		</option>
+  	<?php } ?>
   </select>
   <input type="submit" value="Buscar" />
 </form>

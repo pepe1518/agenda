@@ -13,6 +13,7 @@
           <actionMethod actionName="cuenta"/>
           <actionMethod actionName="about"/>
           <actionMethod actionName="contactame"/>
+          <actionMethod actionName="modificar"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="User">
@@ -53,6 +54,7 @@
         <formFile formName="CategoriaForm"/>
         <formFile formName="EntidadForm"/>
         <formFile formName="UserForm"/>
+        <formFile formName="ModificarForm"/>
       </formsDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory>
@@ -64,6 +66,7 @@
         <modelFile modelName="Catergoria"/>
         <modelFile modelName="Departamento"/>
         <modelFile modelName="Modificaciones"/>
+        <modelFile modelName="Info"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
@@ -147,6 +150,9 @@
           <viewControllerScriptsDirectory forControllerName="Entidad">
             <viewScriptFile forActionName="editar"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="modificar"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -187,6 +193,7 @@
             <testApplicationActionMethod forActionName="cuenta"/>
             <testApplicationActionMethod forActionName="about"/>
             <testApplicationActionMethod forActionName="contactame"/>
+            <testApplicationActionMethod forActionName="modificar"/>
           </testApplicationControllerFile>
           <testApplicationControllerFile forControllerName="User">
             <testApplicationActionMethod forActionName="index"/>
