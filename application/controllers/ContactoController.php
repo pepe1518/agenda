@@ -59,7 +59,8 @@ class ContactoController extends Zend_Controller_Action
 				$contacto->agregarTelefono($telefonoTrabajo);
 				$contacto->setDepartamento($departamento);
 				$contacto->setNombres($formData['_nombres']);
-				$contacto->setApellidos($formData['_apellidos']);
+				$contacto->setApellidoPaterno($formData['_apellidoPaterno']);
+                                $contacto->setApellidoMaterno($formData['_apellidoMaterno']);
 				$contacto->setEspecialidad($especialidad);
 				$contacto->setSubespecialidad($subEspecialidad);
 				$contacto->setEmail($formData['_email']);
@@ -155,7 +156,8 @@ class ContactoController extends Zend_Controller_Action
 
 		$contacto->setDepartamento($departamento);
 		$contacto->setNombres($formData['_nombres']);
-		$contacto->setApellidos($formData['_apellidos']);
+		$contacto->setApellidoPaterno($formData['_apellidoPaterno']);
+                $contacto->setApellidoMaterno($formData['_apellidoMaterno']);
 		$contacto->setEspecialidad($especialidad);
 		$contacto->setSubEspecialidad($subEspecialidad);
 		$contacto->setEmail($formData['_email']);
