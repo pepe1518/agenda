@@ -1,10 +1,13 @@
-1.- fondo-->cc
-2.- Apellido Paterno y materno cc
-3.- Verificar y corregir el paginador de contactos  pp
-4.- Verificar y corregir el paginador de entidades  pp
-5.- agregar mas contactos perosonales (dentistas)   pp <-- trabajando <-- detenido por falta de informacion
-6.- editar area cc
-7.- editar mision vision  ccc
-8.- select de subespecialidades en la vista  contacto index  pp <-- trabajando <-- terminado (falta probar)
-9.- agregar vista editar de entidad cc
+tareas
 
+1.- en el footer agregar telefonos de contacto y nombre --> ceci
+2.- que exita la opcion de ninguno en subespecialidad --> pepe
+3.- las fotos de area que se editable --> pepe
+4.- nombres de deparamentos resaltados --> ceci
+5.- agregar telefono a todas la entidades --> ceci
+6.- agregar Email a todas las entidades -> ceci
+
+7.- editar entidar --> pepito 
+
+8.- select de subespecialidades en la vista  contacto index  error linea 74 76 erro de busqueda por especialidad --> pepito
+9.- agregar vista editar de entidad -->  pepex
