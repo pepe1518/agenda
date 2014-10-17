@@ -48,21 +48,39 @@ class App_Dao_ContactoDao {
 		return $consulta->getSingleScalarResult();
 	}
 	
-	public function getAllLimitOffset($limit, $offset, $id = 0, $idDepartamento)
+	public function getAllLimitOffset($limit, $offset, $id = 0, $idDepartamento, $idSubEspecialidad = 0)
 	{
-		if($id == 0) {
+		if($id == 0 && $idSubEspecialidad == 0) {
 			$query = $this->_entityManager->createQuery("SELECT c FROM App_Model_Contacto c WHERE c._departamento = '".$idDepartamento."'")
 								->setFirstResult($offset)
 								->setMaxResults($limit);
 		
-		return $query->getResult();
+			return $query->getResult();
 		}
-		else {	
-		$query = $this->_entityManager->createQuery("SELECT c FROM App_Model_Contacto c WHERE c._especialidad ='".$id."' AND c._departamento = '".$idDepartamento."'")
-								->setFirstResult($offset)
-								->setMaxResults($limit);
+		else {
+			if($id == 0 && $idSubEspecialidad != 0 ) {
+				$query = $this->_entityManager->createQuery("SELECT c FROM App_Model_Contacto c WHERE c._departamento = '".$idDepartamento."' AND c._subEspecialidad ='".$idSubEspecialidad."'")
+											  ->setFirstResult($offset)
+											  ->setMaxResults($limit);
+				return $query->getResult();
+			}
+			else {
+				if($id != 0 && $idSubEspecialidad == 0) {
+					$query = $this->_entityManager->createQuery("SELECT c FROM App_Model_Contacto c WHERE c._departamento = '".$idDepartamento."' AND c._especialidad ='".$especialidad."'")
+												  ->setFirstResult($offset)
+												  ->setMaxResults($limit);
+				}
+				else {
+					$query = $this->_entityManager->createQuery("SELECT c FROM App_Model_Contacto c WHERE c._departamento = '".$idDepartamento." AND c._especialidad ='".$especialidad."AND c._subEspecialidad ='".$idSubEspecialidad."'")
+												  ->setFirstResult($offset)
+												  ->setMaxResult($limit);
+				}
+			}	
+			//$query = $this->_entityManager->createQuery("SELECT c FROM App_Model_Contacto c WHERE c._especialidad ='".$id."' AND c._departamento = '".$idDepartamento."'")
+				//				->setFirstResult($offset)
+					//			->setMaxResults($limit);
 		
-		return $query->getResult();
+			//return $query->getResult();
 		}
 	}
 	

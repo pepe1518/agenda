@@ -39,24 +39,19 @@ class App_Form_ContactoForm extends Zend_Form
 		$trabajo->addValidator(new Zend_Validate_Digits);
 		$trabajo->addErrorMessage('Por favor ingrese números de telefono válido');
 		
-		//$especialidad = new Zend_Form_Element_Text('_especialidad');
-		//$especialidad->setLabel('Especialidad:');
-		//$especialidad->setRequired(TRUE);
-		
 		$especialidadDao = new App_Dao_EspecialidadDao();
-		$especialidades = $especialidadDao->getTodos();
+		$especialidades = $especialidadDao->getTipo(App_Model_Especialidad::ESPECIALIDAD);
+		$subEspecialidades = $especialidadDao->getTipo(App_Model_Especialidad::SUBESPECIALIDAD);
 		
 		$especialidad = new Zend_Form_Element_Select('_especialidad');
 		$especialidad->setLabel('Especialidad:');
 		foreach($especialidades as $data){
-			//if($data->getTipo == App_Model_Especialidad::ESPECIALIDAD)	
 				$especialidad->addMultiOption($data->getId(), $data->getNombre());
 		}
 		
 		$subespecialidad = new Zend_Form_Element_Select('_subespecialidad');
 		$subespecialidad->setLabel('Sub-Especialidad:');
-		foreach($especialidades as $data){
-			//if($data->getTipo == App_Model_Especialidad::SUBESPECIALIDAD)	
+		foreach($subEspecialidades as $data){
 				$subespecialidad->addMultiOption($data->getId(), $data->getNombre());
 		}
 		
@@ -81,10 +76,6 @@ class App_Form_ContactoForm extends Zend_Form
 		
 		$foto = new Zend_Form_Element_File("_foto");
                 $foto->setLabel("Ruta de la Foto")->setRequired(false);
-				
-                //$foto->setAttrib('multiple', true);
-				//$foto->isArray(true);
-                //$foto->addValidator('Size', false, 1024000);
                 $foto->addValidator('Extension', false, 'jpg,png,jpeg');
                 $foto->addValidator('MimeType', false, 'image/png, image/jpg, image/jpeg');
                 //$foto->addValidator('Count', false, array('min' => 0, 'max' => 4));

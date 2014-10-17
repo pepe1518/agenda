@@ -62,8 +62,89 @@ class IndexController extends Zend_Controller_Action
         // action body
     }
 
+    public function modificarAction()
+    {
+        $name = $this->_getParam('nombre' ,' ');
+		
+		$infoDao = new App_Dao_InformacionDao();
+		
+		if($this->_request->getPost()) {
+			$formaData = $this->_request->getPost();
+			$form = new App_Form_ModificarForm();
+			
+			if($form->isValid($formData)) {
+				$informacion = $infoDao->getPorNombre($name);
+				$informacion->setDescripcion($formaData['_nombre']);
+				$infoDao->guardar($informacion);
+			}
+			else {
+				$form->populate($formaData);
+			}
+		} else{
+			$name = $this->_getParam('nombre', '');
+			
+			if(empty($name)) {
+				$this->redirect($url);
+				return;
+			}
+			else {
+				$form = App_Form_ModificarForm();
+			}
+		}
+			
+        //$id = $this->_getParam('id');
+		/*$nombre = $this->_getParam('nombre');
+        $form = new App_Form_ModificarForm();
+        if(empty($nombre))
+            $this->_helper->redirector('index');
+        $infoDao = new App_Dao_InfoDao();
+        
+        if ($this->_request->getPost()) {
+		$formData = $this->_request->getPost();
+
+		if ($form->isValid($formData)) {
+		//$especialidad = new App_Model_Especialidad();
+		$info = $infoDao->getPorNombre($nombre);
+		//Zend_Debug::dump($info); die;
+		$info->setDescripcion($formData['_descripcion']);
+				
+		$infoDao = new App_Dao_InfoDao();
+		$infoDao->guardar($info);
+		
+		//$especialidad = $especialidadDao->getEspecialidadPorId($id);		
+		//$especialidad->setNombre($formData['_nombre']);
+		//$especialidad->setTipo($formData['_tipo']);
+				/*if($formData['_descripcion']){
+					$especialidad->setDescription($formData['_descripcion']);
+				}
+				
+		//$especialidadDao = new App_Dao_EspecialidadDao();		$especialidadDao->guardar($especialidad);
+		//$this->_helper->redirector('index');
+		//return;
+			
+            }
+            else 
+                $form->populate($formData);
+	}else{
+                $id = $this->_getParam('nombre');
+                if (empty($nombre)) {
+                    //$this->_helper->redirector('index');
+                    //return;
+                } else
+                $form = new App_Form_ModificarForm(); 
+            }
+            //$especialidad = $especialidadDao->getEspecialidadPorId($id);
+            $info = $infoDao->getPorNombre($nombre);
+            if (!empty($especialidad))
+            $form->populate($info->toArray());
+            $this->view->form = $form;*/
+            //$this->view->especialidades = $especialidadDao->getTodos();  
+    }
+
 
 }
+
+
 
 
 

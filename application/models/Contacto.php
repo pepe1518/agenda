@@ -16,8 +16,7 @@ class App_Model_Contacto
 	* @GeneratedValue(strategy="IDENTITY")
 	* 
 	*/
-	private $_id;
-	 
+	private $_id;	 
 	/**
 	* @var string
 	* 
