@@ -36,13 +36,19 @@ class App_Form_EntidadForm extends Zend_Form
 		$telefono->setLabel('Telefono:*');
 		$telefono->addValidator(new Zend_Validate_Digits());
 		$telefono->addErrorMessage("Por Favor Solo ingrese numeros");
+                
+                $email = new Zend_Form_Element_Text('_email');
+		$email->setLabel('Correo Electronico:');
+		$email->setRequired(FALSE);
+		$email->addValidator(new Zend_Validate_EmailAddress());
+		$email->addErrorMessage('Ingrese una dirección de correo valido por ejemplo:'.PHP_EOL.' usuario@mail.com');
 		
 		$foto = new Zend_Form_Element_File("_foto");
 		$foto->setLabel("Ruta de la Foto")->setRequired(false);
     	
     	$submit = new Zend_Form_Element_Submit('submit', array('label' => 'Enviar'));
 		
-		$this->addElements(array($nombre, $especialidad, $telefono, $encargado, $direccion,  $submit));
+		$this->addElements(array($nombre, $especialidad, $telefono, $encargado, $email, $direccion,  $submit));
 	}
 }
 

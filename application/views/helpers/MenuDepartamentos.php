@@ -36,7 +36,11 @@ class Zend_View_Helper_MenuDepartamentos extends Zend_View_Helper_Abstract
 					
 			$nombre = $departamento->getNombre();
 			$html .= "<li>";
-			$html .= "<h1>". $nombre ."</h1>";
+                        
+                        
+			$html .= "<h1><strong>". $nombre ."</strong></h1>";
+                    
+                        
 			$html .= "</li>";
                         $urlContacto = $this->view->url(
 					array(

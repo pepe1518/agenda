@@ -31,16 +31,16 @@
 					</div>
 		</div>		
 <div id="detalle_acerca">
-						
-							<h2>Nombre:<?php  echo $this->entidad->getNombre()?></h2><br/>
+						         <br/>
+							<h2>Nombre:<?php  echo $this->entidad->getNombre()?></h2>
 							<h2>Institución: <?php echo $this->entidad->getCategoria()->getNombre() ?></h2><br/>
 							<div id="book_details">
 							<ul>
-							<br/>
+							
 							Numero de telefono: <?php echo $this->entidad->getTelefono()->getNumero();?><br/> 
 							Especialidad: <?php echo $this->entidad->getEspecialidad()->getNombre(); ?><br/>
 							
-							Correo electronico: <?php //echo $this->entidad->getEmail();?><br/>     
+							Correo electronico: <?php echo $this->entidad->getEmail();?><br/>     
 							Dirección: <?php echo $this->entidad->getDireccion();?><br/>
 							</ul>
 							</div>

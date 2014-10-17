@@ -48,11 +48,18 @@ class App_Model_Entidad
 	 * @JoinColumn(name="telefono_id", referencedColumnName="id") 
 	 */
 	private $_telefono;
+        /**
+	* @var string
+	* 
+	* @Column(name="email", type="string", length=100, nullable=true)
+	*/
+	private $_email;
 	/**
 	* @var blob
 	* 
 	* @Column(name="foto", type="blob", nullable=true)
 	*/
+        
 	private $_foto;
 	
 	/**
@@ -94,6 +101,12 @@ class App_Model_Entidad
 	}
 	public function setTelefono(App_Model_Telefono $telefono) {
 		$this->_telefono = $telefono;
+	}
+        public function setEmail($email) {
+		$this->_email = $email;
+	}
+	public function getEmail() {
+		return $this->_email;
 	}
 	public function setEspecialidad(App_Model_Especialidad $especialidad) {
 		$this->_especialidad = $especialidad;

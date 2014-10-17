@@ -65,7 +65,8 @@ class EntidadController extends Zend_Controller_Action
 				$entidad->setNombre($formData['_nombre']);
 				$entidad->setEspecialidad($especialidad);
 				$entidad->setCategoria($categoria);
-				$entidad->setDireccion($formData['_direccion']);
+                                $entidad->setDireccion($formData['_direccion']);
+				$entidad->setEmail($formData['_email']);
 				$entidad->setTelefono($telefono);
 				$entidad->setEncargado($formData['_encargado']);
 								
