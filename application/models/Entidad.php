@@ -125,7 +125,7 @@ class App_Model_Entidad
 		return $this->_foto;
 	}
         
-        public function toArray() {
+    public function toArray() {
 		return get_object_vars($this);
 	}
 

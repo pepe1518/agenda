@@ -54,6 +54,7 @@ class App_Form_ContactoForm extends Zend_Form
 		foreach($subEspecialidades as $data){
 				$subespecialidad->addMultiOption($data->getId(), $data->getNombre());
 		}
+		$subespecialidad->addMultiOption(NULL, '...');
 		
 		$departamentoDao = new App_Dao_DepartamentoDao();
 		$departamentos = $departamentoDao->getTodos();

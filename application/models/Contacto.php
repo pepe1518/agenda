@@ -78,7 +78,7 @@ class App_Model_Contacto
 	 private $_especialidad;
 	 	/**
 	 *@ManyToOne(targetEntity="App_Model_Especialidad")
-	 * @JoinColumn(name="subespecialidad_id", referencedColumnName="id") 
+	 * @JoinColumn(name="subespecialidad_id", referencedColumnName="id", nullable=true) 
 	 */
 	 private $_subespecialidad;
 		   

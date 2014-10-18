@@ -43,6 +43,40 @@ class CategoriaController extends Zend_Controller_Action
 		$this->view->especialidades = $especialidadDao->getCAtegoriaPorDepartamento($idDepartamento);
     }
 
+    public function fotoAction()
+    {
+        $id = $this->_getParam('id', '');
+		$this->view->id = $id;
+		$categoriaDao = new App_Dao_CategoriaDao();
+		$categoria = $categoriaDao->getCategoriaPorId($id);
+		$this->view->categoria = $categoria;
+		if ($this->getRequest()->isPost()) {
+			//Zend_Debug::dump($_POST);
+			if (empty($_POST['imageUrl'])) {
+				$this->view->message = 'Debe de seleccionar una imagen.';
+				return;
+			}
+			$categoriaDao = new App_Dao_CategoriaDao();
+			$categoria = $categoriaDao->getCategoriaPorId($id);
+			$depa = $categoria->getDepartamento();
+			
+			$categoria->setFoto($_POST['imageUrl']);
+			
+			//$book->setCover($_POST['imageUrl']);
+			//$book->setLastModified(date_create(date('Y-m-d H:m:s')));
+			
+			$categoriaDao->guardar($categoria);
+			//$entityManager->persist($book);
+			//$entityManager->flush();
+
+			//$this->_flashMessenger->addMessage('Imagen de portada de libro guardada.');
+			$this->_redirect('/categoria/index/departamento/'.$depa->getId());
+			return;
+		}
+    }
+
 
 }
+
+
 

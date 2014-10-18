@@ -41,8 +41,8 @@
 	});
 
 	function resizeMe(img) {
-		var max_width = 100;
-		var max_height = 100;
+		var max_width = 200;
+		var max_height = 200;
 
 		var width = img.width;
 		var height = img.height;
@@ -74,21 +74,13 @@
 <div id="content_left">
 <?php
 	echo $this->menuDepartamentos();
-?>		
+        echo $this->menuForm();
+?>	
 </div>
 <div id="content_right">
-<h1>Instituciones de la ciudad de <?php //echo $this->departamento->getNombre() ?> </h1>
-<?php
-	//echo $this->form;
-?>
-<form  method='post' enctype='multipart/form-data' >
+<h1>Subir Imagen del Contacto</h1>
+<form action='<?php echo $this->baseUrl(); ?>/categoria/foto/id/<?php echo $this->id; ?>' method='post' enctype='multipart/form-data' >
 	<table>
-		<tr>
-			<td>
-				<label>Nombre: </label>
-				<input type="text" id="_nombre" name="_nombre">
-			</td>
-		</tr>
 		<tr>
 			<td>
 				<input type="hidden" name="MAX_FILE_SIZE" value="500000" />
@@ -113,37 +105,6 @@
 		</tr>
 	</table>
 </form>
-<table id="order_detail_table">
-	<tr>
-		<th>&nbsp;</th>
-		<th>Nombre</th>
-		<th>Acciones</th>
-	</tr>
-	<?php
-		foreach($this->especialidades as $especialidad) {
-	?>
-	<tr>
-		<td><?php if ($especialidad->getFoto()) { ?>
-				<img src="<?php echo (stream_get_contents($especialidad->getFoto())); ?>" width="50"/>
-			<?php } else { ?>
-				<img src="<?php echo $this->baseUrl() . "/images/no_cover.jpg"; ?>" width="60" />
-			<?php }?>
-			
-		</td>
-		<td><?php echo $especialidad->getNombre(); ?></td>
-		<td>
-			<a href='<?php echo $this->url(
-					array(
-						'controller' => 'categoria',
-						'action'     => 'foto',
-						'id'     => $especialidad->getId(),
-					), 'default', true); echo "'>";?><?php echo $especialidad->getFoto()?"Modificar Foto":"Subir Foto"; ?></a>
-				
-
-		</td>
-	</tr>
-	<?php }//fin del foreach ?>
-</table>
 </div>
 <div class="cleaner_with_height">
 	&nbsp;

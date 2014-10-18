@@ -87,6 +87,7 @@ class EntidadController extends Zend_Controller_Action
 
     public function editarAction()
     {
+      $id = $this->_getParam('id');	
       $idDepartamento = $this->_getParam('departamento');
       if(empty($idDepartamento))
           $this->_helper->redirector('index');
@@ -131,13 +132,14 @@ class EntidadController extends Zend_Controller_Action
                         
 	   }else{
                
-                $id = $this->_getParam('id');
-                $this->_redirect('/entidad/index/id/'.$idCategoria."/departamento/".$idDepartamento);
+                //$id = $this->_getParam('id');
+                //$this->_redirect('/entidad/index/id/'.$id."/departamento/".$idDepartamento);
                 $form = new App_Form_EntidadForm(); 
             }
 	     
            
-           
+           $entidadDao = new App_Dao_EntidadDao();
+		   $entidad = $entidadDao->getEntidadPorId($id);
             $form->populate($entidad->toArray());
             $this->view->form = $form;
             

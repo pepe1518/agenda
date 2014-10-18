@@ -17,6 +17,7 @@
   			<?php echo $especialidad->getNombre(); ?>
   		</option>
   		<?php } //end foreach ?>
+  	
   </select>
   <label>Sub Especialidad:</label>
   <select name="subEspecialidad">
@@ -27,6 +28,7 @@
   			<?php echo $subEspecialidad->getNombre() ?>
   		</option>
   	<?php } ?>
+  	<option value="NULL">...</option>
   </select>
   <input type="submit" value="Buscar" />
 </form>
