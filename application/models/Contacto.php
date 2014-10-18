@@ -147,7 +147,7 @@ class App_Model_Contacto
 	public function getSubespecialidad() {
 		return $this->_subespecialidad;
 	}
-	public function setSubespecialidad(App_Model_Especialidad $subespecialidad) {
+	public function setSubespecialidad(App_Model_Especialidad $subespecialidad = NULL) {
 		$this->_subespecialidad = $subespecialidad;
 	}
 	public function getDepartamento() {

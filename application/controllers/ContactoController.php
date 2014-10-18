@@ -60,7 +60,7 @@ class ContactoController extends Zend_Controller_Action
 				$contacto->setDepartamento($departamento);
 				$contacto->setNombres($formData['_nombres']);
 				$contacto->setApellidoPaterno($formData['_apellidoPaterno']);
-                                $contacto->setApellidoMaterno($formData['_apellidoMaterno']);
+                $contacto->setApellidoMaterno($formData['_apellidoMaterno']);
 				$contacto->setEspecialidad($especialidad);
 				$contacto->setSubespecialidad($subEspecialidad);
 				$contacto->setEmail($formData['_email']);
