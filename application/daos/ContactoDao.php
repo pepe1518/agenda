@@ -71,7 +71,7 @@ class App_Dao_ContactoDao {
 												  ->setMaxResults($limit);
 				}
 				else {
-					$query = $this->_entityManager->createQuery("SELECT c FROM App_Model_Contacto c WHERE c._departamento = '".$idDepartamento." AND c._especialidad ='".$especialidad."AND c._subEspecialidad ='".$idSubEspecialidad."'")
+x|					$query = $this->_entityManager->createQuery("SELECT c FROM App_Model_Contacto c WHERE c._departamento = '".$idDepartamento." AND c._especialidad ='".$especialidad."AND c._subEspecialidad ='".$idSubEspecialidad."'")
 												  ->setFirstResult($offset)
 												  ->setMaxResult($limit);
 				}
