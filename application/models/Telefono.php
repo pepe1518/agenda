@@ -8,9 +8,9 @@
  */
 class App_Model_Telefono
 {
-	const TELEFONO_TRABAJO = "trabajo";
-	const TELEFONO_CASA = "casa";
-	const TELEFONO_CELULAR = "celular";
+	const TELEFONO_TRABAJO = "Trabajo";
+	const TELEFONO_CASA = "Domicilio";
+	const TELEFONO_CELULAR = "Celular";
 	 
 	 /**
 	 * @var integer

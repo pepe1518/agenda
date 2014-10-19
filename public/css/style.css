@@ -82,17 +82,17 @@ img {
 	width: 960px;
 	margin: 0 auto;
 	padding: 0 10px;	
-        border: 1px solid #cccc33;
+        border: 1px solid #6699ff;        
 }
 
 /* menu */
 
 #before-header {
-	width: 938px;
+	width: 926px;
 	height: 33px;
 	background: url(../images/menu_bg.jpg) no-repeat;
         /*border: 1px solid #cccc33;*/
-        border: 1px solid #cccc33;
+        border: 1px solid #6699ff;
         color: #2f5b86;
 	font-weight: normal;
 }
@@ -126,55 +126,16 @@ img {
 #menu li a:hover, #menu li .current {
 	color: #ffffff;  
 }
-
+#menu li a:active, #menu li .current {
+	color: #ffffff;  
+}
 /* end of menu*/
-#shopping_cart_summary {
-	float: right;
-	margin-right: 10px;
-	margin-top: 5px;
-	max-width: 400px;
-}
-
-#shopping_cart_summary #cart_summary_logo {
-	float: left;
-	width: 50px;
-	height: 32px;
-	cursor: pointer;
-}
-
-#shopping_cart_summary #cart_total_cost {
-	float: left;
-	text-align: center;
-	color: #dd36d2;  /*no se usa  en la vista principal*/
-}
-
-#shopping_cart_summary #cart_total_quantity {
-	float: left;
-	text-align: center;
-	width: 50px;
-	height: 26px;
-	padding-top: 9px;
-	font-size: 13px;
-	background: url(../images/red_circle.png) no-repeat center ;
-	background-size: 35px;
-}
-
-#shopping_cart_summary .cart_empty {
-	background: url(../images/empty_cart.png) no-repeat center;
-}
-
-#shopping_cart_summary .cart_full {
-	background: url(../images/full_cart.png) no-repeat center;
-}
-/* Shopping cart*/
-
-/* end of Shopping cart*/
 
 /* header */
 #header {
         margin-left: 30px;
 	clear: both;
-	width: 960px;
+	width: 972px;
 	height: 200px;
 	padding: 0;
 	margin: 0;
@@ -256,7 +217,7 @@ img {
 /* content */
 #content {
 	clear: both;
-	width: 920px;
+	width: 928px;
 	padding: 6px 0px;
 }
 
@@ -266,12 +227,12 @@ img {
 	padding: 10px;
 /*	background-color: #ADC1DC; color de fondo*/
         background-color: #2f5b86;
-	border: 1px solid #cccc33;/*borde del menu ixq*/
+	border: 1px solid #6699ff;/*borde del menu ixq*/
 }
 
 #content #content_right {
 	float: right;
-	width: 670px;
+	width: 680px;
 }
 
 #content #content_right p {
@@ -378,19 +339,53 @@ img {
 	width: 180px;
 	height: 220px;
 	margin-right: 10px;
-	text-align: center;
-        border: 2px solid #336699;
+	text-align: center;       
+        background: url(../images/hospi1.jpeg) no-repeat;
       
 }
-
+#content_right #image_vision {
+	float: left;
+	width: 180px;
+	height: 220px;
+	margin-right: 10px;	       
+        background: url(../images/vision.jpeg) no-repeat;
+        border: 4px solid #336699;
+}
+#content_right #image_valores{
+	float: left;
+	width: 180px;
+	height: 220px;
+        border: 4px solid #336699;
+	margin-right: 10px;	        
+        background: url(../images/valores.jpg) no-repeat;      
+}
+#content_right #image_contacto{
+	float: left;
+	width: 676px;
+	height: 250px;
+        border: 4px solid #336699;
+	margin-right: 10px;	        
+        background: url(../images/contactenos.jpg) no-repeat;      
+}
 #content_right #image_panel img {
 	max-width: 200px;
 	max-height: 200px;
+        
+}
+#content_right #image_about img {
+	max-width: 200px;
+	max-height: 200px;
+       
 }
 
 #content_right #detalle_contacto {
         margin: 20px;
 	min-height: 270px;
+	overflow: hidden;
+}
+#content_right #detalle_contactenos {       
+        margin: 74px 0px 0px 250px;	
+        width: 676px;
 	overflow: hidden;
 }
 
@@ -518,12 +513,11 @@ img {
 /* footer */
 #footer {
 	clear: both;
-	width: 940px;
-	padding: 20px 0px 16px 0;
+	width: 926px;
+	padding: 13px 0px 10px 0px;
 	text-align: center;
-	border-top: 1px solid #cccc33;/* amarillo chillon*/
-	background: url(../images/hh.jpg) ;
-       
+	border-top: 1px solid #6699ff;/* ahora celeste ya no amarillo chillon*/
+	background: url(../images/ff.jpg) ;
 }
 
 #footer a {
@@ -547,10 +541,10 @@ img {
 #order_detail_table
 {
 	margin: 0px;
-	width: 670px;
+	width: 680px;
 	text-align: left;
 	border-collapse: collapse;
-	border: 1px solid #cccc33;/*borde de la tabla de contenido*/
+	border: 1px solid #6699ff;/*borde de la tabla de contenido*/
 }
 #order_detail_table th/*relleno de tabla*/
 {
@@ -569,13 +563,7 @@ img {
 {
 	padding: 10px;
 	color: #000066;/*color de la letrade la tabla*/
-	border-top: 2px dashed #cccc33; 
-        
-        /* 
-}
-#order_detail_table tbody tr:hover td
-{
-/*	color: #222;*/
+	border-top: 2px dashed #6699ff;        
 	background: #ADC1DC;
 }
 

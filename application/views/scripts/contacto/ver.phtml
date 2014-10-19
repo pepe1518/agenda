@@ -17,7 +17,7 @@
 				), 'default', true) ?>'>Volver a mis Contactos</a>
 <br />
 
-
+<br/>
 	<h2>DATOS DEL CONTACTO </h2>	
 		
 		<br/>
@@ -30,10 +30,11 @@
 						<?php }?>
 						
 					</div>
-		</div>		
+		</div>	
+                <br/>
 <div id="detalle_acerca">
 						
-							<h2>Nombre:<?php  echo $this->contacto->getNombres()?></h2><br/>
+							<h2>Nombre:<?php  echo $this->contacto->getNombres()?></h2>
 							<h2>Apellidos: <?php echo $this->contacto->getApellidoPaterno();
                                                                              echo " ";
                                                                              echo $this->contacto->getApellidoMaterno(); ?></h2><br/>
