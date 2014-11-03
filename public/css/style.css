@@ -338,10 +338,9 @@ img {
 	float: left;
 	width: 180px;
 	height: 220px;
-	margin-right: 10px;
-	text-align: center;       
+	margin-right: 10px;	  
         background: url(../images/hospi1.jpeg) no-repeat;
-      
+        border: 4px solid #336699;
 }
 #content_right #image_vision {
 	float: left;
