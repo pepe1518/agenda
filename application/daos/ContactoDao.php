@@ -59,21 +59,23 @@ class App_Dao_ContactoDao {
 		}
 		else {
 			if($id == 0 && $idSubEspecialidad != 0 ) {
-				$query = $this->_entityManager->createQuery("SELECT c FROM App_Model_Contacto c WHERE c._departamento = '".$idDepartamento."' AND c._subEspecialidad ='".$idSubEspecialidad."'")
+				$query = $this->_entityManager->createQuery("SELECT c FROM App_Model_Contacto c WHERE c._departamento = '".$idDepartamento."' AND c._subespecialidad ='".$idSubEspecialidad."'")
 											  ->setFirstResult($offset)
 											  ->setMaxResults($limit);
 				return $query->getResult();
 			}
 			else {
 				if($id != 0 && $idSubEspecialidad == 0) {
-					$query = $this->_entityManager->createQuery("SELECT c FROM App_Model_Contacto c WHERE c._departamento = '".$idDepartamento."' AND c._especialidad ='".$especialidad."'")
+					$query = $this->_entityManager->createQuery("SELECT c FROM App_Model_Contacto c WHERE c._departamento = '".$idDepartamento."' AND c._especialidad ='".$id."'")
 												  ->setFirstResult($offset)
 												  ->setMaxResults($limit);
+					return $query->getResult();
 				}
 				else {
-x|					$query = $this->_entityManager->createQuery("SELECT c FROM App_Model_Contacto c WHERE c._departamento = '".$idDepartamento." AND c._especialidad ='".$especialidad."AND c._subEspecialidad ='".$idSubEspecialidad."'")
+					$query = $this->_entityManager->createQuery("SELECT c FROM App_Model_Contacto c WHERE c._departamento = '".$idDepartamento."' AND c._especialidad ='".$id."' AND c._subespecialidad ='".$idSubEspecialidad."'")
 												  ->setFirstResult($offset)
-												  ->setMaxResult($limit);
+												  ->setMaxResults($limit);
+					return $query->getResult();
 				}
 			}	
 			//$query = $this->_entityManager->createQuery("SELECT c FROM App_Model_Contacto c WHERE c._especialidad ='".$id."' AND c._departamento = '".$idDepartamento."'")
