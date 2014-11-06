@@ -25,6 +25,7 @@ class App_Model_Modificaciones
  	private $_ultimaModificacion;
 	
 	public function __construct(){
+		date_default_timezone_set("America/La_Paz");
 		$date = new DateTime();	
 		$this->_ultimaModificacion = $date;
 	}
