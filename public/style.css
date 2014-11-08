@@ -1,0 +1,571 @@
+body {
+	margin: 0;
+	padding: 0;
+	line-height: 1.5em;
+	font-family: Verdana, Arial, san-serif;
+	font-size: 12px;
+	color: #2f5b86;/*letra  blanca*/
+	/*background:#ADC1DC;/*celeste plomiso*/
+        background: #cfe1f9;  /*el color del fondo */
+}
+
+a:link, a:visited {
+	color: #336699;
+	text-decoration: none;
+	font-weight: bold;
+}
+a:active, a:hover {
+	color: #e6e154;
+	text-decoration: underline;
+}
+
+p {
+	margin: 0px;
+	padding: 0px;
+}
+
+img {
+	margin: auto;
+	padding: 0px;
+	border: navy;
+}
+
+.cleaner {
+	clear: both;
+	width: 100%;
+	height: 1px;
+	font-size: 1px;
+}
+
+.cleaner_with_height {
+	clear: both;
+	width: 100%;
+	height: 30px;
+	font-size: 1px;
+}
+
+.cleaner_with_width {
+	float: left;
+	width: 20px;
+	height: 30px;
+	font-size: 1px;
+}
+
+.buy_now_button a {
+	clear: both;
+	text-align: center;
+	display: block;
+	width: 100px;
+	padding: 4px 0 5px 0;
+	margin-bottom: 10px;
+	background: url(../images/btn_02.jpg) no-repeat;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.detail_button a {
+	clear: both;
+	text-align: center;
+	display: block;
+	width: 100px;
+	padding: 4px 0 5px 0;
+	margin-bottom: 10px;
+	margin: 10px auto;
+	background: url(../images/btn_01.jpg) no-repeat;
+	color: #ffffff;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#container {
+	width: 960px;
+	margin: 0 auto;
+	padding: 0 10px;	
+        border: 1px solid #6699ff;        
+}
+
+/* menu */
+
+#before-header {
+	width: 926px;
+	height: 33px;
+	background: url(../images/menu_bg.jpg) no-repeat;
+        /*border: 1px solid #cccc33;*/
+        border: 1px solid #6699ff;
+        color: #2f5b86;
+	font-weight: normal;
+}
+
+#menu {
+        color: #ffffff;
+	float: left;
+	clear: both;
+}
+
+#menu ul {
+	padding: 13px 0 0 0;
+	margin: 0;
+	list-style: none;
+}
+
+#menu ul li {
+	display: inline;
+}
+
+#menu ul li a {
+	float: left;
+	padding: 0 20px;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	color: #2f5b86; 
+}
+
+#menu li a:hover, #menu li .current {
+	color: #ffffff;  
+}
+#menu li a:active, #menu li .current {
+	color: #ffffff;  
+}
+/* end of menu*/
+
+/* header */
+#header {
+        margin-left: 30px;
+	clear: both;
+	width: 972px;
+	height: 200px;
+	padding: 0;
+	margin: 0;
+	background: url(../images/header_bg.jpg) no-repeat;
+        
+}
+
+#header a, a:hover {
+	color: #ffffff;
+}
+
+#header #main_logo {
+	margin-left: 100px;
+	margin-top: 20px;
+	float: left;
+	overflow: hidden;
+	width: 300px;
+	text-align: center;
+}
+
+#header #main_logo img {
+	max-height: 200px;
+}
+
+#header #announcements_board {
+	float: left;
+	margin-top: 40px;
+	margin-left: 80px;
+	width: 430px;
+	overflow: hidden;
+	height: 150px;
+}
+
+#header #announcements_board .announcement_box {
+	float: left;
+	overflow: hidden;
+	width: 195px;
+	height: 125px;
+	margin: 10px 10px;
+	font-family: Arial;
+	font-size: 9.5pt;
+}
+
+#header #announcements_board .announcement_box h4 {
+	font-size: 11pt;
+	margin-top: 0px;
+	text-align: center;
+	/*	font-family: cursive;*/
+}
+
+#special_offers a {
+	font-size: 12px;
+}
+
+#special_offers  p {
+	margin: 0 0 20px 0;
+}
+#special_offers p span {
+	font-size: 14px;
+}
+
+#header #new_books {
+	float: left;
+	margin-top: 50px;
+	margin-left: 30px;
+	width: 200px;
+}
+
+#new_books p {
+	margin: 0 0 20px 0;
+}
+
+#new_books p span {
+	font-size: 14px;
+}
+
+/* end of header */
+
+/* content */
+#content {
+	clear: both;
+	width: 928px;
+	padding: 6px 0px;
+}
+
+#content #content_left {/*menu izquierdo*/
+	float: left;
+	width: 200px;
+	padding: 10px;
+/*	background-color: #ADC1DC; color de fondo*/
+        background-color: #2f5b86;
+	border: 1px solid #6699ff;/*borde del menu ixq*/
+}
+
+#content #content_right {
+	float: right;
+	width: 680px;
+}
+
+#content #content_right p {
+	margin: 10px;
+}
+
+#content #content_right label {
+	width: 100px;
+}
+
+#content_left .content_left_section {
+	clear: both;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #2b2b2a;
+	margin-bottom: 20px;
+}
+
+.content_left_section h1 {
+	font-size: 14px;
+	color: azure;
+	padding: 0 0 5px 0;
+	margin: 0 0 10px 0;
+	border-bottom: 2px dotted #cbc750;
+}
+
+.content_left_section ul {
+	padding: 0;
+	margin: 0;
+}
+
+.content_left_section ul li {
+	padding: 0 0 3px 10px;
+	list-style: none;
+}
+
+.content_left_section ul li a {
+	font-weight: normal;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.content_left_section li a:hover, .content_left_section li .current {
+	color: #fcf88e;
+}
+
+#content_right .product_box {
+	float: left;
+	width: 303px;
+	height: 210px;
+	padding: 10px;
+	border: 1px solid #e78613;/*naranja*/
+}
+
+#content_right h1 {
+	padding: 10px;
+	margin: 0 0 20px 0;
+	font-size: 15px;
+	color: #fff;
+	background: url(../images/hh.jpg);
+}
+
+#content_right h2 {
+        margin: 20px;
+	padding: 0 0 0 0;
+	margin: 0 0 20px 20px;
+	font-size: 12px;
+	color: #000099;
+}
+#depa {
+        margin: 20px;
+	padding: 0 0 0 0;
+	margin: 0 0 20px 20px;
+	font-size: 12px;
+	color: aquamarine;
+}
+#content_right h3 {
+	padding: 0;
+	margin: 0 0 20px 0;
+	font-size: 18px;
+	color: #cccc33;
+}
+
+#content_right ul {
+	margin: 0 0 20px 0;
+	padding: 0 0 0 20px;
+	list-style: none;
+}
+
+#content_right li {
+	padding: 0 0 3px 0;
+}
+
+#content_right #image_panel {
+	float: left;
+	width: 150px;
+	height: 220px;
+	margin-right: 10px;
+	text-align: center;
+        border: 4px solid #336699;
+        
+}
+#content_right #image_about {
+	float: left;
+	width: 180px;
+	height: 220px;
+	margin-right: 10px;	  
+        background: url(../images/hospi1.jpeg) no-repeat;
+        border: 4px solid #336699;
+}
+#content_right #image_vision {
+	float: left;
+	width: 180px;
+	height: 220px;
+	margin-right: 10px;	       
+        background: url(../images/vision.jpeg) no-repeat;
+        border: 4px solid #336699;
+}
+#content_right #image_valores{
+	float: left;
+	width: 180px;
+	height: 220px;
+        border: 4px solid #336699;
+	margin-right: 10px;	        
+        background: url(../images/valores.jpg) no-repeat;      
+}
+#content_right #image_contacto{
+	float: left;
+	width: 676px;
+	height: 250px;
+        border: 4px solid #336699;
+	margin-right: 10px;	        
+        background: url(../images/contactenos.jpg) no-repeat;      
+}
+#content_right #image_panel img {
+	max-width: 200px;
+	max-height: 200px;
+        
+}
+#content_right #image_about img {
+	max-width: 200px;
+	max-height: 200px;
+       
+}
+
+#content_right #detalle_contacto {
+        margin: 20px;
+	min-height: 270px;
+	overflow: hidden;
+}
+#content_right #detalle_contactenos {       
+        margin: 74px 0px 0px 250px;	
+        width: 676px;
+	overflow: hidden;
+}
+
+#content_right p {
+	text-align: justify;
+	padding: 0 0 8px 0;
+}
+
+/*Featured Contact*/
+
+#featured_books_box {
+	width: 700px;
+	overflow: hidden;
+	padding: 10px;
+	border: 1px solid #6699ff;
+}
+
+#new_books_box {
+	width: 700px;
+	overflow: hidden;
+	padding: 10px;
+	border: 1px solid #6699ff;
+}
+
+#content_right #search_results_box {
+	width: 700px;
+	overflow: hidden;
+	padding: 10px;
+	border: 1px solid #6699ff; /*celeste*/
+}
+
+#content_right #search_results_box p {
+	margin: 0px;
+	padding: 0px;
+}
+
+#content #content_right #search_results_table {
+	width: 100%;
+}
+
+#content #content_right #search_results_table th {
+	color: #fff;
+	background: url(../images/hh.jpg);
+}
+
+#content #content_right #search_results_table td {
+	padding: 10px 5px;
+	vertical-align: top;
+}
+
+#content #content_right #search_results_table td h4 {
+	margin: 0px;
+	color: #cbc750;
+}
+
+#content #content_right #search_results_table td p {
+	margin: 0px;
+	padding: 0px;
+}
+
+.book_short_details_box {
+	float: left;
+	text-align: center;
+	width: 194px;
+	height: 230px;
+	padding: 5px;
+	margin: 5px;
+	border: 1px solid #ccffcc;
+}
+
+.book_short_details_box .cover {
+	height: 150px;
+	overflow: hidden;
+}
+
+.book_short_details_box .cover img {
+	max-height: 150px;
+	max-width: 150px;
+}
+
+.book_short_details_box .book_title {
+	max-height: 40px;
+	overflow: hidden;
+}
+
+#content #content_right .book_short_details_box .short_book_price {
+	text-align: center;
+}
+
+#content #content_right .book_short_details_box .short_book_price p {
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+}
+
+.book_short_details_box h4 {
+	font-size: 8pt;
+	padding: 0 0 0 0;
+	margin: 0px;
+	color: #dd1ae2;
+	font-weight: normal;
+}
+/*New Books*/
+
+.product_box h1 span {
+	font-weight: normal;
+}
+
+.product_box img {
+	float: left;
+	margin-right: 20px;
+}
+
+.product_box .product_info {
+	float: left;
+	width: 180px;
+}
+
+.product_info p {
+	margin-bottom: 15px;
+}
+
+/* end of content */
+
+/* footer */
+#footer {
+	clear: both;
+	width: 926px;
+	padding: 13px 0px 10px 0px;
+	text-align: center;
+	border-top: 1px solid #6699ff;/* ahora celeste ya no amarillo chillon*/
+	background: url(../images/ff.jpg) ;
+}
+
+#footer a {
+	color: #fff;
+	font-weight: normal;
+        
+}
+#footerLetra {
+	color: #fff;
+	font-weight: normal;
+        
+}
+/* end of footer */
+
+
+/* Order Detail table */
+#order_detail_table {
+	
+	
+}
+#order_detail_table
+{
+	margin: 0px;
+	width: 680px;
+	text-align: left;
+	border-collapse: collapse;
+	border: 1px solid #6699ff;/*borde de la tabla de contenido*/
+}
+#order_detail_table th/*relleno de tabla*/
+{
+	padding: 15px 10px 10px 10px;
+	font-weight: normal;
+	font-size: 14px;
+	color: #ffffff;/*letra de la cabecera de tabla*/
+	background: #336699;/*fondo de la cabecera de la tabla*/
+	font-weight: bold;
+}
+#order_detail_table tbody
+{
+/*	background: #e8edff;*/
+}
+#order_detail_table td
+{
+	padding: 10px;
+	color: #000066;/*color de la letrade la tabla*/
+	border-top: 2px dashed #6699ff;        
+	background: #ADC1DC;
+}
+
+#total_orders p {
+	margin: 0px;
+}

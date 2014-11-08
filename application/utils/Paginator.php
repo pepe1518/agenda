@@ -9,7 +9,7 @@ class App_Util_Paginator
 	private $_url = null;
 	private $_extraUrl = '';
 	
-	public function __construct($url, $totalRows, $currentPage, $limit = 10)
+	public function __construct($url, $totalRows, $currentPage, $limit = 1000)
 	{
 		$this->_url = $url;
 		$this->_totalRows = $totalRows;
