@@ -75,6 +75,7 @@ class Zend_View_Helper_MenuDepartamentos extends Zend_View_Helper_Abstract
 					), 'default', true) ."\" >Salir</a>";
                 */
 		$html .= "</li>";
+
 		$html .= "</ul>";
 		$html .= "</div>";
 		return $html;

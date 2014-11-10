@@ -14,6 +14,10 @@
           <actionMethod actionName="about"/>
           <actionMethod actionName="contactame"/>
           <actionMethod actionName="modificar"/>
+          <actionMethod actionName="campania"/>
+          <actionMethod actionName="destacados"/>
+          <actionMethod actionName="otros"/>
+          <actionMethod actionName="logout"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="User">
@@ -157,6 +161,18 @@
           <viewControllerScriptsDirectory forControllerName="Categoria">
             <viewScriptFile forActionName="foto"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="campania"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="destacados"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="otros"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="logout"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -198,6 +214,10 @@
             <testApplicationActionMethod forActionName="about"/>
             <testApplicationActionMethod forActionName="contactame"/>
             <testApplicationActionMethod forActionName="modificar"/>
+            <testApplicationActionMethod forActionName="campania"/>
+            <testApplicationActionMethod forActionName="destacados"/>
+            <testApplicationActionMethod forActionName="otros"/>
+            <testApplicationActionMethod forActionName="logout"/>
           </testApplicationControllerFile>
           <testApplicationControllerFile forControllerName="User">
             <testApplicationActionMethod forActionName="index"/>

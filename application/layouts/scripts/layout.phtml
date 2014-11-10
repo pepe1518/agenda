@@ -52,14 +52,15 @@ $order = unserialize($session->cart);
 						<li>
 							<a href="<?php echo $this->baseUrl(); ?>/index/about">Quienes Somos</a>
 						</li>
-                                                <li>
+						
+                        <li>
 							<a href="<?php echo $this->baseUrl(); ?>/index/login">Login</a>
 						</li>
 <?php if (Zend_Auth::getInstance()->getIdentity())  {?>
                                             <li>
 							<a href="<?php echo $this->baseUrl(); ?>/index/cuenta">Mi Cuenta</a>
 						</li><li>
-							<a href="<?php echo $this->baseUrl(); ?>/user/logout">Salir</a>
+							<a href="<?php echo $this->baseUrl(); ?>/index/logout">Salir</a>
                                                         
                                                         
                                                         
@@ -84,7 +85,7 @@ $order = unserialize($session->cart);
                         
 			<div id="footer">
                             <div id="footerLetra">
-                                Copyright (R) 2014 <strong> Agenda Medica </strong>  Contacto 7777777 - 3456789<a </a>
+                                Copyright (R) 2015 <strong> Agenda Medica </strong>  Contacto: 76033989 65939091 70708954<a </a>
                             </div>
 				
 			</div>

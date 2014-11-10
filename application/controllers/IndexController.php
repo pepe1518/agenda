@@ -141,8 +141,38 @@ class IndexController extends Zend_Controller_Action
             //$this->view->especialidades = $especialidadDao->getTodos();  
     }
 
+    public function campaniaAction()
+    {
+        // action body
+    }
+
+    public function destacadosAction()
+    {
+        // action body
+    }
+
+    public function otrosAction()
+    {
+        // action body
+    }
+
+    public function logoutAction()
+    {
+        // action body
+        Zend_Auth::getInstance()->clearIdentity();		
+		$this->_redirect();
+    }
+
 
 }
+
+
+
+
+
+
+
+
 
 
 
