@@ -87,7 +87,7 @@ class EspecialidadController extends Zend_Controller_Action
             $this->_helper->redirector('index');
         
         $EspecialidadDao = new App_Dao_EspecialidadDao();
-        $especialidad = $EspecialidadDao->getContactoPorId($id);
+        $especialidad = $EspecialidadDao->getEspecialidadPorId($id);
         if(!empty($especialidad))
         $EspecialidadDao->eliminar($especialidad);
         $this->_helper->redirector('index');
